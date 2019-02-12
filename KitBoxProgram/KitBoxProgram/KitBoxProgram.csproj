@@ -43,8 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Armoire.cs" />
+    <Compile Include="Casier.cs" />
+    <Compile Include="Panneau.cs" />
+    <Compile Include="PanneauAR.cs" />
+    <Compile Include="PanneauGD.cs" />
+    <Compile Include="PanneauHB.cs" />
+    <Compile Include="Porte.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Traverse.cs" />
+    <Compile Include="TraverseAR.cs" />
+    <Compile Include="TraverseAV.cs" />
+    <Compile Include="TraverseGD.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
