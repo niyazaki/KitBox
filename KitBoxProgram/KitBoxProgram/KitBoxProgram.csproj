@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Angle.cs" />
     <Compile Include="ARpanel.cs" />
     <Compile Include="ARrail.cs" />
     <Compile Include="AVrail.cs" />
     <Compile Include="Cabinet.cs" />
+    <Compile Include="Cleat.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="GDpanel.cs" />
     <Compile Include="GDrail.cs" />
