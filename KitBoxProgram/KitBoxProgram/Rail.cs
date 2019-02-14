@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KitBoxProgram
 {
-    class Armoire
+    abstract class Rail
     {
     }
 }

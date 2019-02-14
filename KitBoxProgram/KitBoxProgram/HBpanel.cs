@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KitBoxProgram
 {
-    class PanneauHB : Panneau
+    class HBpanel : Panel
     {
     }
 }

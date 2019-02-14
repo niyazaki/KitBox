@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KitBoxProgram
 {
-    abstract class Panneau
+    class Door
     {
     }
 }
