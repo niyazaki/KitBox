@@ -1,1 +1,7 @@
 -Programme draw.io efficace et gratuit pour les diagrammes
+
+-Règles de programmation (Naming) : 
+      * Function/scope variable/folder: camelCase
+      * Class/file: PascalCase
+      * Global variable: UPPERCASE
+      * Folder: singular noun
