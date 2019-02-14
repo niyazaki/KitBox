@@ -1,0 +1,4 @@
+Panneau : Pannel
+Porte : Door
+Casier : Locker
+Traverse : Rail
