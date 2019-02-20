@@ -13,26 +13,30 @@ namespace KitBoxProgram
     abstract class Rail
     {
     }
-    class railLR : Rail
+    class RailLR : Rail
+    {
+      int price;
+      int lenght;
+      int slot;
+      string code;
+    }
+    class RailFR : Rail
     {
     }
-    class railFR : Rail
-    {
-    }
-    class railBA : Rail
+    class RailBA : Rail
     {
     }
 
     abstract class Panel
     {
     }
-    class panelUD : Panel
+    class PanelUD : Panel
     {
     }
-    class panelLR : Panel
+    class PanelLR : Panel
     {
     }
-    class panelBA : Panel
+    class PanelBA : Panel
     {
     }
 
@@ -41,6 +45,9 @@ namespace KitBoxProgram
     }
     class Door
     {
+      int price;
+      string color;
+      bool cup;
     }
     class Cleat
     {
