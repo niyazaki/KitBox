@@ -32,3 +32,10 @@ Un casier nécessite donc deux traverses AV, quatre traverses GD et deux traverse
 Un casier nécessite donc deux panneaux HB, un panneau AR, et deux panneaux GD. L'avant est composé des portes.
 
 -Coupelle : Petit creuset dans la porte permettant d'agripper les portes pour les faire coulisser. Non disponible pour le verre.
+
+Panneau : Pannel
+Porte : Door
+Casier : Locker
+Traverse : Rail
+Cornière : Angle
+Tasseau : Cleat
