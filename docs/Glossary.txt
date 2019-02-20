@@ -1,2 +1,34 @@
 Glossary : 
 
+-Magasinier : Employé(e) assurant le stockage et la distribution de matières, de produits ou de pièces.
+
+-Fournisseur : Personne ou établissement qui fournit habituellement à un particulier ou à une entreprise certaines marchandises.
+
+-Casier : *Meuble de rangement, ou partie de meuble, présentant un ensemble de cases ouvertes juxtaposées.
+	  *Élément de rangement indépendant et souvent combinable (casier à légumes, à bouteilles, à livres, etc.).
+
+-Cornière : Barre profilée, généralement métallique, à section composée de deux branches, appelées ailes, égales ou non et, le plus souvent, perpendiculaires.
+
+-Tasseau : Pièce de bois de petite section, servant à soutenir, à maintenir une autre pièce (tablette, tiroir, lattis, etc.).
+
+-Traverse : Pièce de bois ou de métal perpendiculaire aux éléments principaux d'une structure, et destinée à maintenir l'écartement de ces éléments.
+
+-Traverse AV : Traverse située à l'AVANT du casier, avec 2 rainures pour faire coulisser les portes.
+
+-Traverse AR : Traverse située à l'ARRIERE du casier, avec 1 rainure pour poser la paroi.
+
+-Traverse GD : Traverse située à sur les CÔTES (Gauche-Droite) du casier, avec 1 rainure pour poser la paroi.
+
+Un casier nécessite donc deux traverses AV, quatre traverses GD et deux traverses AR.
+
+-Panneau : Partie d'un ouvrage de maçonnerie, de menuiserie, etc., en général plane et rectangulaire, encadrée ou non de moulures. Plaque de bois, de métal, etc.
+
+-Panneau HB : Plaque en bois pour le HAUT ou le BAS du casier.
+
+-Panneau GD : Plaque en bois pour la GAUCHE ou la DROITE du casier.
+
+-Panneau AR : Plaque en bois pour l'ARRIERE du casier.
+
+Un casier nécessite donc deux panneaux HB, un panneau AR, et deux panneaux GD. L'avant est composé des portes.
+
+-Coupelle : Petit creuset dans la porte permettant d'agripper les portes pour les faire coulisser. Non disponible pour le verre.
