@@ -33,9 +33,11 @@ Un casier nécessite donc deux panneaux HB, un panneau AR, et deux panneaux GD. L
 
 -Coupelle : Petit creuset dans la porte permettant d'agripper les portes pour les faire coulisser. Non disponible pour le verre.
 
-Panneau : Pannel
+Armoire : Cabinet
+Panneau : Pannel UD : up down, LR : left right BA : back
 Porte : Door
 Casier : Locker
-Traverse : Rail
+Traverse : Rail  FR : front
 Cornière : Angle
 Tasseau : Cleat
+Coupelle : cup
