@@ -8,5 +8,8 @@ namespace KitBoxProgram
 {
     class Door
     {
+        int price;
+        string color;
+        bool cup;
     }
 }

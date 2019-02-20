@@ -4,3 +4,4 @@ Casier : Locker
 Traverse : Rail
 Cornière : Angle
 Tasseau : Cleat
+Rainure : Slot

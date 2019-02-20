@@ -8,5 +8,9 @@ namespace KitBoxProgram
 {
     abstract class Rail
     {
+        int price;
+        int lenght;
+        int slot;
+        string code;
     }
 }
