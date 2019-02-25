@@ -6,55 +6,111 @@ using System.Threading.Tasks;
 
 namespace KitBoxProgram
 {
-    class Locker
+    class Cabinet
     {
+        List<Box> boxes;
+        int price;
+    }
+
+    class Box
+    {
+
+        string color;
+        int height;
+        bool hasDoor;
+        int price;
+
+        List<Panel> panels;
+        List<Rail> rails;
+        List<Door> doors;
+
+        public Box(string color, int height, bool hasDoor)
+        {
+            this.color = color;
+            this.height = height;
+            this.hasDoor = hasDoor;
+
+            if (!this.hasDoor)
+            {
+                
+            }
+        }
+
+        public void SetPrice()
+        {
+
+        }
     }
 
     abstract class Rail
     {
+        abstract double price;
+
+
     }
-    class RailLR : Rail
+
+    class LRrail : Rail
     {
-      int price;
-      int lenght;
-      int slot;
-      string code;
+        string code;
+        double price;
+        int slot;
+        int[] depth = { 32, 42, 52, 62 };
+
     }
-    class RailFR : Rail
+
+    class Frail : Rail
     {
+        
     }
-    class RailBA : Rail
+
+    class Brail : Rail
     {
+
     }
 
     abstract class Panel
     {
+        string color;
     }
-    class PanelUD : Panel
+
+    class UDPanel : Panel
     {
+
     }
-    class PanelLR : Panel
-    {
-    }
-    class PanelBA : Panel
+
+    class LRpanel : Panel
     {
     }
 
-    class Cabinet
+    class BApanel : Panel
     {
     }
+
     class Door
     {
-      int price;
-      string color;
-      bool cup;
+        double price;
+        string color;
+        bool cup;
+        string code;
+
+        public Door(double price, string color, bool cup, string code)
+        {
+            this.price = price;
+            this.color = color;
+            this.cup = cup;
+            this.code = code;
+        }
     }
+
     class Cleat
     {
+        string code;
+        double price;
+        int[] height = { 32, 42, 52 };
     }
+
     class Angle
     {
+
     }
-
-
 }
