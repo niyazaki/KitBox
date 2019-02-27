@@ -1,0 +1,2 @@
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\KitBoxProgram\obj\Debug\KitBoxProgram.csprojAssemblyReference.cache
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\KitBoxProgram\obj\Debug\KitBoxProgram.csproj.CoreCompileInputs.cache
