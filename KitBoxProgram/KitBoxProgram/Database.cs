@@ -11,7 +11,7 @@ namespace SQLiteDemo
         {
             myConnection = new SQLiteConnection("Data Source= Db.db");
         //This part is useless because we don't want to create a new DB
-//            if (!File.Exists("./catalogue.db"))
+//            if (!File.Exists("./Db.db"))
 //            {
 //                SQLiteConnection.CreateFile("catalogue.db");
 //                System.Console.WriteLine("Database file created");
@@ -31,5 +31,6 @@ namespace SQLiteDemo
                 myConnection.Close();
             }
         }
+
     }
 }
