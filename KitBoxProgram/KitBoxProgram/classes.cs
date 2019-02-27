@@ -9,20 +9,22 @@ namespace KitBoxProgram
     class Cabinet
     {
         List<Box> boxes;
-        int price;
+        double price;
+
+        public double GetPrice()
+        {
+            return price;
+        }
     }
 
     class Box
     {
-
         string color;
         int height;
         bool hasDoor;
-        int price;
+        double price;
 
-        List<Panel> panels;
-        List<Rail> rails;
-        List<Door> doors;
+        List<Accessory> accessories;
 
         public Box(string color, int height, bool hasDoor)
         {
@@ -36,26 +38,48 @@ namespace KitBoxProgram
             }
         }
 
+        public void AddAccessory(Accessory accessory)
+        {
+
+        }
+
         public void SetPrice()
         {
 
         }
+
+        public double GetPrice()
+        {
+            return price;
+        }
     }
 
-    abstract class Rail
+    abstract class Accessory
     {
-        abstract double price;
+        double price;
+        string code;
 
+        public double GetPrice()
+        {
+            return price;
+        }
+
+        public string GetCode()
+        {
+            return code;
+        }
+    }
+
+    abstract class Rail : Accessory
+    {
 
     }
 
     class LRrail : Rail
     {
-        string code;
         double price;
         int slot;
         int[] depth = { 32, 42, 52, 62 };
-
     }
 
     class Frail : Rail
@@ -68,7 +92,7 @@ namespace KitBoxProgram
 
     }
 
-    abstract class Panel
+    abstract class Panel : Accessory
     {
         string color;
     }
@@ -86,12 +110,10 @@ namespace KitBoxProgram
     {
     }
 
-    class Door
+    class Door : Accessory
     {
-        double price;
         string color;
         bool cup;
-        string code;
 
         public Door(double price, string color, bool cup, string code)
         {
@@ -102,15 +124,15 @@ namespace KitBoxProgram
         }
     }
 
-    class Cleat
+    class Cleat : Accessory
     {
-        string code;
-        double price;
-        int[] height = { 32, 42, 52 };
+        int height;
+
     }
 
-    class Angle
+    class Angle : Accessory
     {
-
+        int height;
+        string color;
     }
 }
