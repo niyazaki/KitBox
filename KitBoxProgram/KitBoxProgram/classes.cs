@@ -56,8 +56,8 @@ namespace KitBoxProgram
 
     abstract class Accessory
     {
-        double price;
-        string code;
+        public double price;
+        public string code;
 
         public double GetPrice()
         {
