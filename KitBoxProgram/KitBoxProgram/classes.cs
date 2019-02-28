@@ -10,9 +10,18 @@ namespace KitBoxProgram
     {
         List<Box> boxes;
         double price;
+        public void AddBox(Box box)
+        {
+            boxes.Add(box);
+        }
 
         public double GetPrice()
         {
+            price = 0;
+            foreach (Box i in boxes)
+            {
+                price += i.price;
+            }
             return price;
         }
     }
@@ -22,7 +31,7 @@ namespace KitBoxProgram
         string color;
         int height;
         bool hasDoor;
-        double price;
+        public double price;
 
         List<Accessory> accessories;
 
@@ -40,24 +49,24 @@ namespace KitBoxProgram
 
         public void AddAccessory(Accessory accessory)
         {
-
-        }
-
-        public void SetPrice()
-        {
-
+            accessories.Add(accessory);
         }
 
         public double GetPrice()
         {
+            price = 0;
+            foreach(Accessory i in accessories)
+            {
+                price += i.price;
+            }
             return price;
         }
     }
 
     abstract class Accessory
     {
-        double price;
-        string code;
+        public double price;
+        public string code;
 
         public double GetPrice()
         {
