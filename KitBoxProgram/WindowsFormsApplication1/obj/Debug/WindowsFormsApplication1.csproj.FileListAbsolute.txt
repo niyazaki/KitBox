@@ -17,3 +17,13 @@ C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\KitBoxProgram\ViewUser\Wind
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\KitBoxProgram\ViewUser\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\KitBoxProgram\ViewUser\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\KitBoxProgram\ViewUser\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojAssemblyReference.cache
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.cache
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.CoreCompileInputs.cache
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
