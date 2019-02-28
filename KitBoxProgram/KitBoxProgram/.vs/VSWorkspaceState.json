@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ViewUser",
+    "\\ViewUser\\WindowsFormsApplication1"
   ],
-  "SelectedNode": "\\classes.cs",
-  "PreviewInSolutionExplorer": false
+  "SelectedNode": "\\ViewUser\\WindowsFormsApplication1\\WindowsFormsApplication1.csproj",
+  "PreviewInSolutionExplorer": true
 }
