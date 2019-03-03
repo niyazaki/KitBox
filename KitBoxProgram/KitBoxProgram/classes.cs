@@ -8,11 +8,19 @@ namespace KitBoxProgram
 {
     class Cabinet
     {
-        List<Box> boxes;
+        int width;
+        int depth;
+        int height;
+        Angle angle;
+        private List<Box> boxes;
         double price;
-        public void AddBox(Box box)
+
+        public Cabinet(int width, int depth, List<Box> boxes, Angle angle)
         {
-            boxes.Add(box);
+            this.width = width;
+            this.depth = depth;
+            this.boxes = boxes;
+            this.angle = angle;
         }
 
         public double GetPrice()
@@ -24,12 +32,27 @@ namespace KitBoxProgram
             }
             return price;
         }
+
+        public int GetHeight()
+        {
+            height = 0;
+            foreach (Box i in boxes)
+            {
+                height += i.height;
+            }
+            return height;
+        }
+
+        public void AddBox(Box box)
+        {
+            boxes.Add(box);
+        }
     }
 
     class Box
     {
         string color;
-        int height;
+        public int height;
         bool hasDoor;
         public double price;
 
@@ -40,11 +63,6 @@ namespace KitBoxProgram
             this.color = color;
             this.height = height;
             this.hasDoor = hasDoor;
-
-            if (!this.hasDoor)
-            {
-                
-            }
         }
 
         public void AddAccessory(Accessory accessory)
@@ -55,7 +73,7 @@ namespace KitBoxProgram
         public double GetPrice()
         {
             price = 0;
-            foreach(Accessory i in accessories)
+            foreach (Accessory i in accessories)
             {
                 price += i.price;
             }
@@ -67,6 +85,7 @@ namespace KitBoxProgram
     {
         public double price;
         public string code;
+        int stock;
 
         public double GetPrice()
         {
@@ -77,6 +96,11 @@ namespace KitBoxProgram
         {
             return code;
         }
+
+        public int GetStock()
+        {
+            return stock;
+        }
     }
 
     abstract class Rail : Accessory
@@ -86,37 +110,98 @@ namespace KitBoxProgram
 
     class LRrail : Rail
     {
-        double price;
-        int slot;
-        int[] depth = { 32, 42, 52, 62 };
+        int depth;
+
+        public LRrail(int depth)
+        {
+            this.depth = depth;
+        }
+
+        public int GetDepth()
+        {
+            return depth;
+        }
     }
 
-    class Frail : Rail
+    class FRrail : Rail
     {
-        
+        int width;
+
+        public FRrail(int width)
+        {
+            this.width = width;
+        }
+
+        public int GetWidth()
+        {
+            return width;
+        }
     }
 
-    class Brail : Rail
+    class BArail : Rail
     {
+        int width;
 
+        public BArail(int width)
+        {
+            this.width = width;
+        }
+
+        public int GetWidth()
+        {
+            return width;
+        }
     }
 
     abstract class Panel : Accessory
     {
-        string color;
+        private string color;
+
+        public Panel(string color)
+        {
+            this.color=color;
+        }
+
+        public string GetColor()
+        {
+            return color;
+        }
     }
 
-    class UDPanel : Panel
+    class UDpanel : Panel
     {
+        private int width;
+        private int depth;
 
+        public UDpanel(string color, int width, int depth) : base(color)
+        {
+            this.width = width;
+            this.depth = depth;
+        }
     }
 
     class LRpanel : Panel
     {
+        private int depth;
+        private int height;
+
+        public LRpanel(string color, int depth, int height) : base(color)
+        {
+            this.depth = depth;
+            this.height = height;
+        }
     }
 
     class BApanel : Panel
     {
+        private int width;
+        private int height;
+
+        public BApanel(string color, int width, int height) : base(color)
+        {
+            this.width = width;
+            this.height = height;
+        }
     }
 
     class Door : Accessory
@@ -124,24 +209,32 @@ namespace KitBoxProgram
         string color;
         bool cup;
 
-        public Door(double price, string color, bool cup, string code)
+        public Door(string color, bool cup)
         {
-            this.price = price;
             this.color = color;
             this.cup = cup;
-            this.code = code;
         }
     }
 
     class Cleat : Accessory
     {
-        int height;
+        private int height;
 
+        public Cleat(int height)
+        {
+            this.height = height;
+        }
     }
 
     class Angle : Accessory
     {
         int height;
         string color;
+
+        public Angle(int height, string color)
+        {
+            this.height = height;
+            this.color = color;
+        }
     }
 }
