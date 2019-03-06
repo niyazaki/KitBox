@@ -1,0 +1,15 @@
+-Faut pas faire ConsoleApplication mais Windows Form Application
+
+-Pour afficher boite à otuils Ctrl+Alt+X ou alors Affichage (ou view) puis boite à outils (ou toolbox)
+
+-Pour modifier une forme qu'on a mis, tu peux clic droit > Propriétés
+
+-Si tu fermes ta page de form, ferme tout et rouvre le projet en entier (WindowsFormsApplication1.sln)
+Ou alors clique sur shift+F7 
+
+-Saut de ligne avec textbox : non pas "\n" mais "\r\n"
+
+-Fonction spéciale permet de transformer un string en opération mathématique var 1="30+360" , result=390
+string var1 = textBox1.Text;//c'est le texte que j'entre dans ma box
+var result = new DataTable().Compute(var1, null);
+
