@@ -12,6 +12,8 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        int n = 1 ;
+
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +26,25 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if (comboBox1.Text != "Select" & comboBox2.Text != "Select" & comboBox3.Text != "Select" & comboBox4.Text != "Select" & comboBox5.Text != "Select")
+            {
+                textBox7.Text = "";
+                if (n < 7)
+                {
+                    n++;
+                    textBox6.Text = "Casier " + n;
+                }
+                else
+                {
+                    textBox6.Text = "Limite atteinte";
+                    button1.Enabled = false; // le rend non clickable
+                    button1.Visible = false; // le rend invisible
+                }
+            }
+            else
+            {
+                textBox7.Text = "Champs incomplets !";
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -32,10 +52,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void fontDialog1_Apply(object sender, EventArgs e)
-        {
-
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -94,26 +110,6 @@ namespace WindowsFormsApplication1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            textBox11.Text = "HELLO3";
-        }
-
-        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox9_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -137,12 +133,36 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void comboBox10_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            n = 1;
+            textBox6.Text = "Casier " + n;
+            button1.Enabled = true; // le rend non clickable
+            button1.Visible = true; // le rend invisible
+            comboBox1.Text = "Select";
+            comboBox2.Text = "Select";
+            comboBox3.Text = "Select";
+            comboBox4.Text = "Select";
+            comboBox5.Text = "Select";
+        }
+
+        private void textBox7_TextChanged_1(object sender, EventArgs e)
         {
 
         }
