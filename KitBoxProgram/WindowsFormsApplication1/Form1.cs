@@ -94,7 +94,7 @@ namespace WindowsFormsApplication1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            textBox11.Text = "HELLO3";
         }
 
         private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
