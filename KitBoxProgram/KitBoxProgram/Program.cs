@@ -8,7 +8,7 @@ namespace SQLiteDemo
     {
         static void Main(string[] args)
         {
-          MySqlConnection connection = new MySqlConnection("database = //insert db name ; server = localhost; user id = root; pwd =");
+          MySqlConnection connection = new MySqlConnection("database = kitbox ; server = db4free.net; user id = kitbox; pwd =ecamgroupe4");
 
           try
           {
@@ -24,7 +24,7 @@ namespace SQLiteDemo
             Message.Show("Connexion failed !");
           }
 
-          //If we wanna add an item to the db (must be done in a method)
+          //If we wanna add an item to the db (must be done in a method);
           /*
 
           MySqlCommand cmd = new MySqlCommand("INSERT into nomdelatable(colonne concernée 1, colonne concernée 2,...) VALUES(@parametre1 ex:nom colonne1, @parametre2)", connection)
