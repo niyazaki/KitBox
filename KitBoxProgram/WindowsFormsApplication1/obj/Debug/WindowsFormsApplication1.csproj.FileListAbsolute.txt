@@ -59,3 +59,5 @@ C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\WindowsFormsApplication1\bi
 C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\WindowsFormsApplication1\bin\Debug\MySql.Data.dll
 C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\WindowsFormsApplication1\bin\Debug\Google.Protobuf.xml
 C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\WindowsFormsApplication1\bin\Debug\MySql.Data.xml
+F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBox\KitBoxProgram\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBox\KitBoxProgram\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
