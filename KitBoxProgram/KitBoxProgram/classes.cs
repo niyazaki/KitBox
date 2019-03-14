@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace KitBoxProgram
 {
@@ -12,8 +15,7 @@ namespace KitBoxProgram
 
       public Database()
       {
-        connection = new MySqlConnection(
-        "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4");
+        connection = new MySqlConnection("database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4");
       }
 
       public void OpenCo()
@@ -28,8 +30,8 @@ namespace KitBoxProgram
 
         catch (MySqlException e)
         {
-          Message.Show(e.ToString());
-          Message.Show("Connexion failed !");
+          MessageBox.Show(e.ToString());
+          MessageBox.Show("Connexion failed !");
         }
       }
 
