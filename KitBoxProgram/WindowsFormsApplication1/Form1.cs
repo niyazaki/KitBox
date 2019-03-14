@@ -21,6 +21,7 @@ namespace WindowsFormsApplication1
         List<int> hauteur = new List<int>();
         List<string> couleurPortes = new List<string>();
         List<string> couleurPanneaux = new List<string>();
+       
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text != "Select" & comboBox2.Text != "Select" & comboBox3.Text != "Select" & comboBox4.Text != "Select" & comboBox5.Text != "Select")
+            if (comboBox1.Text != "" & comboBox2.Text != "" & comboBox3.Text != "" & comboBox4.Text != "" & comboBox5.Text != "")
             {
                 textBox2.Visible = false;
                 textBox3.Visible = false;
@@ -41,15 +42,16 @@ namespace WindowsFormsApplication1
                 comboBox4.Visible = false;
 
                 textBox7.Text = "";
-                if (n < 7)
+                if (n <= 7)
                 {
-                    n++;
-                    textBox6.Text = "Casier " + n;
+
+                    textBox6.Text = "Casier " + (n+1);
                     hauteur.Add(Convert.ToInt32(comboBox1.Text));
                     longueur.Add(Convert.ToInt32(comboBox2.Text));
                     largeur.Add(Convert.ToInt32(comboBox4.Text));
                     couleurPortes.Add(comboBox3.Text);
                     couleurPanneaux.Add(comboBox5.Text);
+                    n++;
                 }
                 else
                 {
@@ -257,7 +259,7 @@ namespace WindowsFormsApplication1
         {
             if (finished == false)
             {
-                textBox6.Text = "Casier " + n;
+                textBox6.Text = "Casier " + (n-1);
                 button5.Visible = false;
                 button1.Visible = true;
                 button4.Visible = true;
