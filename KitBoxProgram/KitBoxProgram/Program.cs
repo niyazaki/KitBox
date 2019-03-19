@@ -2,7 +2,7 @@
 using System.Data.SQLite;
 using MySql.Data.MySqlClient;
 
-namespace SQLiteDemo
+namespace KitBoxProgram
 {
     class Program
     {
