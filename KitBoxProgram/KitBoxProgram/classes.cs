@@ -12,10 +12,10 @@ namespace KitBoxProgram
     class Database
     {
       public MySqlConnection connection;
-
+      string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
       public Database()
       {
-        connection = new MySqlConnection("database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4");
+        connection = new MySqlConnection(coStr);
       }
 
       public void OpenCo()
@@ -48,17 +48,42 @@ namespace KitBoxProgram
         */
       }
 
+      public List<int> Search (code, column, db)
+      {
+        List<int> res = new List<int>();
+        connection = new MySqlConnection(coStr);
+        MySQLDataReader mdr;
+
+        string query = "SELECT "+column+" FROM "+db+" WHERE ID accessory ="+code;
+
+        command = new MySQLCommand(query, connection);
+        mdr = command.ExecuteReader();
+        try
+        {
+          while(mdr.Read())
+          {
+            res.Add(mdr.GetString(0));
+          }
+        }
+        catch
+        {
+          MessageBox.Show("Error while reading");
+        }
+
+        return res;
+      }
+
     }
     class Cabinet
     {
         int width;
         int depth;
         int height;
-        Accessory.Angle angle;
+        Angle angle;
         private List<Box> boxes;
         double price;
 
-        public Cabinet(int width, int depth, List<Box> boxes, Accessory.Angle angle)
+        public Cabinet(int width, int depth, List<Box> boxes, Angle angle)
         {
             this.width = width;
             this.depth = depth;
@@ -124,181 +149,160 @@ namespace KitBoxProgram
         }
     }
 
-    public abstract class Accessory
+    abstract class Accessory
     {
         public double price;
         public string code;
         int stock;
 
-        public double GetPrices(MySqlConnection connection, string reference, double height, double width, double depth, string color)
+        public double GetPrice()
         {
-            string dbColor = GetColorDB(color);
-
-            MySqlDataReader reader;
-            MySqlCommand command = new MySqlCommand("SELECT Price, PartForLocker FROM `kitboxdb2.0`.`parts` WHERE ref='" + reference + "'AND height='" + Convert.ToString(height) + "'AND width='" + Convert.ToString(width) + "'AND depth='" + Convert.ToString(depth) + "'AND color='" + dbColor + "'", connection);
-
-            reader = command.ExecuteReader();
-
-            double price = 0;
-
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    price = reader.GetDouble(0) * reader.GetDouble(1);
-                }
-            }
-            else
-            {
-                MessageBox.Show("there is no rows in the datareader prices");
-            }
-
-            reader.Close();
-
-            public string GetCode()
-            {
-                return code;
-            }
-
-            public int GetStock()
-            {
-                return stock;
-            }
+            return price;
         }
 
-        abstract class Rail : Accessory
+        public string GetCode()
         {
-
+            return code;
         }
 
-        class LRrail : Rail
+        public int GetStock()
         {
-            int depth;
-
-            public LRrail(int depth)
-            {
-                this.depth = depth;
-            }
-
-            public int GetDepth()
-            {
-                return depth;
-            }
-        }
-
-        class FRrail : Rail
-        {
-            int width;
-
-            public FRrail(int width)
-            {
-                this.width = width;
-            }
-
-            public int GetWidth()
-            {
-                return width;
-            }
-        }
-
-        class BArail : Rail
-        {
-            int width;
-
-            public BArail(int width)
-            {
-                this.width = width;
-            }
-
-            public int GetWidth()
-            {
-                return width;
-            }
-        }
-
-        abstract class Panel : Accessory
-        {
-            private string color;
-
-            public Panel(string color)
-            {
-                this.color = color;
-            }
-
-            public string GetColor()
-            {
-                return color;
-            }
-        }
-
-        class UDpanel : Panel
-        {
-            private int width;
-            private int depth;
-
-            public UDpanel(string color, int width, int depth) : base(color)
-            {
-                this.width = width;
-                this.depth = depth;
-            }
-        }
-
-        class LRpanel : Panel
-        {
-            private int depth;
-            private int height;
-
-            public LRpanel(string color, int depth, int height) : base(color)
-            {
-                this.depth = depth;
-                this.height = height;
-            }
-        }
-
-        class BApanel : Panel
-        {
-            private int width;
-            private int height;
-
-            public BApanel(string color, int width, int height) : base(color)
-            {
-                this.width = width;
-                this.height = height;
-            }
-        }
-
-        class Door : Accessory
-        {
-            string color;
-            bool cup;
-
-            public Door(string color, bool cup)
-            {
-                this.color = color;
-                this.cup = cup;
-            }
-        }
-
-        public class Cleat : Accessory
-        {
-            private int height;
-
-            public Cleat(int height)
-            {
-                this.height = height;
-            }
-        }
-
-        public class Angle : Accessory
-        {
-            int height;
-            string color;
-
-            public Angle(int height, string color)
-            {
-                this.height = height;
-                this.color = color;
-            }
+            return stock;
         }
     }
 
+    abstract class Rail : Accessory
+    {
+
+    }
+
+    class LRrail : Rail
+    {
+        int depth;
+
+        public LRrail(int depth)
+        {
+            this.depth = depth;
+        }
+
+        public int GetDepth()
+        {
+            return depth;
+        }
+    }
+
+    class FRrail : Rail
+    {
+        int width;
+
+        public FRrail(int width)
+        {
+            this.width = width;
+        }
+
+        public int GetWidth()
+        {
+            return width;
+        }
+    }
+
+    class BArail : Rail
+    {
+        int width;
+
+        public BArail(int width)
+        {
+            this.width = width;
+        }
+
+        public int GetWidth()
+        {
+            return width;
+        }
+    }
+
+    abstract class Panel : Accessory
+    {
+        private string color;
+
+        public Panel(string color)
+        {
+            this.color=color;
+        }
+
+        public string GetColor()
+        {
+            return color;
+        }
+    }
+
+    class UDpanel : Panel
+    {
+        private int width;
+        private int depth;
+
+        public UDpanel(string color, int width, int depth) : base(color)
+        {
+            this.width = width;
+            this.depth = depth;
+        }
+    }
+
+    class LRpanel : Panel
+    {
+        private int depth;
+        private int height;
+
+        public LRpanel(string color, int depth, int height) : base(color)
+        {
+            this.depth = depth;
+            this.height = height;
+        }
+    }
+
+    class BApanel : Panel
+    {
+        private int width;
+        private int height;
+
+        public BApanel(string color, int width, int height) : base(color)
+        {
+            this.width = width;
+            this.height = height;
+        }
+    }
+
+    class Door : Accessory
+    {
+        string color;
+        bool cup;
+
+        public Door(string color, bool cup)
+        {
+            this.color = color;
+            this.cup = cup;
+        }
+    }
+
+    class Cleat : Accessory
+    {
+        private int height;
+
+        public Cleat(int height)
+        {
+            this.height = height;
+        }
+    }
+
+    class Angle : Accessory
+    {
+        int height;
+        string color;
+
+        public Angle(int height, string color)
+        {
+            this.height = height;
+            this.color = color;
+        }
+    }
+}
