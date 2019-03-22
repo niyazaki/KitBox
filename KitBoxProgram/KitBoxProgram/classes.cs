@@ -35,7 +35,7 @@ namespace KitBoxProgram
         }
       }
 
-      public void AddtoDb()
+      public void AddtoDb(string line, Database db)
       {
         //If we wanna add an item to the db (must be done in a method);
         /*
@@ -48,7 +48,7 @@ namespace KitBoxProgram
         */
       }
 
-      public List<int> Search (code, column, db)
+      public List<int> Search (string code, string column, Database db)
       {
         List<int> res = new List<int>();
         connection = new MySqlConnection(coStr);
@@ -65,8 +65,9 @@ namespace KitBoxProgram
             res.Add(mdr.GetString(0));
           }
         }
-        catch
+        catch (MySqlException e)
         {
+          MessageBox.Show(e.ToString());
           MessageBox.Show("Error while reading");
         }
 
