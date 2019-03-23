@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.SQLite;
 using MySql.Data.MySqlClient;
 
 namespace KitBoxProgram
