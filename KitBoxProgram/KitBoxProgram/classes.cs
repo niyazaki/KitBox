@@ -53,7 +53,7 @@ namespace KitBoxProgram
         List<string> res = new List<string>();
         MySQLDataReader mdr;
 
-        string query = "SELECT "+column+" FROM "+table+" WHERE ID accessory ="+code;
+        string query = "SELECT "+column+" FROM "+table+" WHERE ID accessory LIKE'"+code+"%'";
 
         command = new MySQLCommand(query, connection);
         mdr = command.ExecuteReader();
