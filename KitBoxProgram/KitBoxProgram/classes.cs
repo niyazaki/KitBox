@@ -12,7 +12,7 @@ namespace KitBoxProgram
     class Database
     {
       public MySqlConnection connection;
-      string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
+      private string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
       public Database()
       {
         connection = new MySqlConnection(coStr);
@@ -48,13 +48,12 @@ namespace KitBoxProgram
         */
       }
 
-      public List<int> Search (string code, string column, Database db)
+      public List<string> Search (string code, string column, string table)
       {
-        List<int> res = new List<int>();
-        connection = new MySqlConnection(coStr);
+        List<string> res = new List<string>();
         MySQLDataReader mdr;
 
-        string query = "SELECT "+column+" FROM "+db+" WHERE ID accessory ="+code;
+        string query = "SELECT "+column+" FROM "+table+" WHERE ID accessory ="+code;
 
         command = new MySQLCommand(query, connection);
         mdr = command.ExecuteReader();
