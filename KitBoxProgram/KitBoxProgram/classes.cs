@@ -13,6 +13,7 @@ namespace KitBoxProgram
     public class Database
     {
         public MySqlConnection connection;
+        private string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
         public Database()
         {
             connection = new MySqlConnection(coStr);
@@ -39,7 +40,6 @@ namespace KitBoxProgram
         {
             //If we wanna add an item to the db (must be done in a method);
             /*
-
             MySqlCommand cmd = new MySqlCommand("INSERT into nomdelatable(colonne concernée 1, colonne concernée 2,...) VALUES(@parametre1 ex:nom colonne1, @parametre2)", connection)
             cmd.Parameters.AddWithValue("@parametre1", valeur1);
             cmd.Parameters.AddWithValue("@parametre2", valeur2);
@@ -60,15 +60,15 @@ namespace KitBoxProgram
             mdr = command.ExecuteReader();
             try
             {
-              while(mdr.Read())
-              {
-                res.Add(mdr.GetString(0));
-              }
+                while(mdr.Read())
+                {
+                    res.Add(mdr.GetString(0));
+                }
             }
             catch (MySqlException e)
             {
-              MessageBox.Show(e.ToString());
-              MessageBox.Show("Error while reading");
+                MessageBox.Show(e.ToString());
+                MessageBox.Show("Error while reading");
             }
 
             return res;
