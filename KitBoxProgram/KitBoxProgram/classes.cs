@@ -9,69 +9,70 @@ using System.Windows.Forms;
 
 namespace KitBoxProgram
 {
-    class Database
+    public string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
+    public class Database
     {
-      public MySqlConnection connection;
-      private string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
-      public Database()
-      {
-        connection = new MySqlConnection(coStr);
-      }
-
-      public void OpenCo()
-      {
-        try
+        public MySqlConnection connection;
+        private string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
+        public Database()
         {
-          connection.Open();
-
-          //Show message to say that it's connected
-          MessageBox.Show("Connected");
+            connection = new MySqlConnection(coStr);
         }
 
-        catch (MySqlException e)
+        public void OpenCo()
         {
-          MessageBox.Show(e.ToString());
-          MessageBox.Show("Connexion failed !");
-        }
-      }
+            try
+            {
+                connection.Open();
 
-      public void AddtoDb(string line, Database db)
-      {
-        //If we wanna add an item to the db (must be done in a method);
-        /*
+                //Show message to say that it's connected
+                MessageBox.Show("Connected");
+            }
 
-        MySqlCommand cmd = new MySqlCommand("INSERT into nomdelatable(colonne concernée 1, colonne concernée 2,...) VALUES(@parametre1 ex:nom colonne1, @parametre2)", connection)
-        cmd.Parameters.AddWithValue("@parametre1", valeur1);
-        cmd.Parameters.AddWithValue("@parametre2", valeur2);
-        cmd.ExecuteNonQuery();
-        cmd.Parameters.Clear();
-        */
-      }
-
-      public List<string> Search (string code, string column, string table)
-      {
-        List<string> res = new List<string>();
-        MySQLDataReader mdr;
-
-        string query = "SELECT "+column+" FROM "+table+" WHERE ID accessory LIKE'"+code+"%'";
-
-        command = new MySQLCommand(query, connection);
-        mdr = command.ExecuteReader();
-        try
-        {
-          while(mdr.Read())
-          {
-            res.Add(mdr.GetString(0));
-          }
-        }
-        catch (MySqlException e)
-        {
-          MessageBox.Show(e.ToString());
-          MessageBox.Show("Error while reading");
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+                MessageBox.Show("Connexion failed !");
+            }
         }
 
-        return res;
-      }
+        public void AddtoDb(string line, Database db)
+        {
+            //If we wanna add an item to the db (must be done in a method);
+            /*
+            MySqlCommand cmd = new MySqlCommand("INSERT into nomdelatable(colonne concernée 1, colonne concernée 2,...) VALUES(@parametre1 ex:nom colonne1, @parametre2)", connection)
+            cmd.Parameters.AddWithValue("@parametre1", valeur1);
+            cmd.Parameters.AddWithValue("@parametre2", valeur2);
+            cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            */
+        }
+
+        public List<int> Search (string code, string column, Database db)
+        {
+            List<int> res = new List<int>();
+            connection = new MySqlConnection(coStr);
+            MySqlDataReader mdr;
+
+            string query = "SELECT "+column+" FROM "+db+" WHERE ID accessory ="+code;
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+            mdr = command.ExecuteReader();
+            try
+            {
+                while(mdr.Read())
+                {
+                    res.Add(mdr.GetString(0));
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+                MessageBox.Show("Error while reading");
+            }
+
+            return res;
+        }
 
     }
     class Cabinet
