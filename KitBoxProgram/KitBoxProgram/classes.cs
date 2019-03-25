@@ -9,11 +9,10 @@ using System.Windows.Forms;
 
 namespace KitBoxProgram
 {
-    public string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
     public class Database
     {
         public MySqlConnection connection;
-        private string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
+        public string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
         public Database()
         {
             connection = new MySqlConnection(coStr);
@@ -48,13 +47,13 @@ namespace KitBoxProgram
             */
         }
 
-        public List<int> Search (string code, string column, Database db)
+        public List<string> Search (string code, string column, Database db)
         {
-            List<int> res = new List<int>();
+            List<string> res = new List<string>();
             connection = new MySqlConnection(coStr);
             MySqlDataReader mdr;
 
-            string query = "SELECT "+column+" FROM "+db+" WHERE ID accessory ="+code;
+            string query = "SELECT " + column + " FROM " + db + " WHERE ID accessory =" + code;
 
             MySqlCommand command = new MySqlCommand(query, connection);
             mdr = command.ExecuteReader();
@@ -74,7 +73,9 @@ namespace KitBoxProgram
             return res;
         }
 
+        public Database DB = new Database();
     }
+
     class Cabinet
     {
         int width;
@@ -283,6 +284,7 @@ namespace KitBoxProgram
             this.color = color;
             this.cup = cup;
         }
+
     }
 
     class Cleat : Accessory
