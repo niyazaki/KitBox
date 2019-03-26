@@ -47,7 +47,8 @@ namespace KitBoxProgram
             */
         }
 
-        public List<string> Search (string code, string column, Database db)
+        public List<string> Search (string code, string column, string ta
+            )
         {
             List<string> res = new List<string>();
             connection = new MySqlConnection(coStr);
@@ -72,8 +73,6 @@ namespace KitBoxProgram
 
             return res;
         }
-
-        public Database DB = new Database();
     }
 
     class Cabinet
