@@ -34,33 +34,27 @@ namespace KitBoxProgram
                 MessageBox.Show("Connexion failed !");
             }
         }
+    }
 
-        public void AddtoDb(string line, Database db)
-        {
-            //If we wanna add an item to the db (must be done in a method);
-            /*
-            MySqlCommand cmd = new MySqlCommand("INSERT into nomdelatable(colonne concernée 1, colonne concernée 2,...) VALUES(@parametre1 ex:nom colonne1, @parametre2)", connection)
-            cmd.Parameters.AddWithValue("@parametre1", valeur1);
-            cmd.Parameters.AddWithValue("@parametre2", valeur2);
-            cmd.ExecuteNonQuery();
-            cmd.Parameters.Clear();
-            */
-        }
+    class SearchClass
+    {
+        public MySqlConnection connection;
+        public string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
 
-        public List<string> Search (string code, string column, string ta
-            )
+        public List<string> Search(string code, string column, string table)
         {
+
             List<string> res = new List<string>();
             connection = new MySqlConnection(coStr);
             MySqlDataReader mdr;
 
-            string query = "SELECT " + column + " FROM " + db + " WHERE ID accessory =" + code;
+            string query = "SELECT DISTINCT" + column + " FROM " + table + " WHERE ID accessory LIKE'" + code + "%'";
 
             MySqlCommand command = new MySqlCommand(query, connection);
             mdr = command.ExecuteReader();
             try
             {
-                while(mdr.Read())
+                while (mdr.Read())
                 {
                     res.Add(mdr.GetString(0));
                 }
@@ -70,7 +64,6 @@ namespace KitBoxProgram
                 MessageBox.Show(e.ToString());
                 MessageBox.Show("Error while reading");
             }
-
             return res;
         }
     }
@@ -175,6 +168,10 @@ namespace KitBoxProgram
     abstract class Rail : Accessory
     {
 
+        public string GetCode(string dimension)
+        {
+            return code + dimension;
+        }
     }
 
     class LRrail : Rail
@@ -184,6 +181,7 @@ namespace KitBoxProgram
         public LRrail(int depth)
         {
             this.depth = depth;
+            code = "TRG";
         }
 
         public int GetDepth()
@@ -199,6 +197,7 @@ namespace KitBoxProgram
         public FRrail(int width)
         {
             this.width = width;
+            code = "TRF";
         }
 
         public int GetWidth()
@@ -214,6 +213,7 @@ namespace KitBoxProgram
         public BArail(int width)
         {
             this.width = width;
+            code = "TRR";
         }
 
         public int GetWidth()
@@ -246,6 +246,11 @@ namespace KitBoxProgram
         {
             this.width = width;
             this.depth = depth;
+            code = "PAH";
+        }
+        public string GetCode(string depth, string width, string color)
+        {
+            return code + depth + width + color;
         }
     }
 
@@ -258,6 +263,11 @@ namespace KitBoxProgram
         {
             this.depth = depth;
             this.height = height;
+            code = "PAG";
+        }
+        public string GetCode(string height, string depth, string color)
+        {
+            return code + height + depth + color;
         }
     }
 
@@ -270,6 +280,28 @@ namespace KitBoxProgram
         {
             this.width = width;
             this.height = height;
+            code = "PAR";
+        }
+
+        public string GetCode(string height, string width, string color)
+        {
+            return code + height + width + color;
+        }
+    }
+
+    class Cleat : Accessory
+    {
+        private int height;
+
+        public Cleat(int height)
+        {
+            this.height = height;
+            code = "TAS";
+        }
+
+        public string GetCode(string height)
+        {
+            return code + height;
         }
     }
 
@@ -282,17 +314,11 @@ namespace KitBoxProgram
         {
             this.color = color;
             this.cup = cup;
+            code = "POR";
         }
-
-    }
-
-    class Cleat : Accessory
-    {
-        private int height;
-
-        public Cleat(int height)
+        public string GetCode(string height, string width, string color)
         {
-            this.height = height;
+            return code + height + width + color;
         }
     }
 
@@ -305,6 +331,12 @@ namespace KitBoxProgram
         {
             this.height = height;
             this.color = color;
+            code = "COR";
+        }
+
+        public string GetCode(string heightTot, string color)
+        {
+            return code + heightTot + color;
         }
     }
 }
