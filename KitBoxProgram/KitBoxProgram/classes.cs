@@ -9,71 +9,65 @@ using System.Windows.Forms;
 
 namespace KitBoxProgram
 {
-    class Database
+    public class Database
     {
-      public MySqlConnection connection;
-      private string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
-      public Database()
-      {
-        connection = new MySqlConnection(coStr);
-      }
-
-      public void OpenCo()
-      {
-        try
+        public MySqlConnection connection;
+        public string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
+        public Database()
         {
-          connection.Open();
-
-          //Show message to say that it's connected
-          MessageBox.Show("Connected");
+            connection = new MySqlConnection(coStr);
         }
 
-        catch (MySqlException e)
+        public void OpenCo()
         {
-          MessageBox.Show(e.ToString());
-          MessageBox.Show("Connexion failed !");
+            try
+            {
+                connection.Open();
+
+                //Show message to say that it's connected
+                MessageBox.Show("Connected");
+            }
+
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+                MessageBox.Show("Connexion failed !");
+            }
         }
-      }
-
-      public void AddtoDb(string line, Database db)
-      {
-        //If we wanna add an item to the db (must be done in a method);
-        /*
-
-        MySqlCommand cmd = new MySqlCommand("INSERT into nomdelatable(colonne concernée 1, colonne concernée 2,...) VALUES(@parametre1 ex:nom colonne1, @parametre2)", connection)
-        cmd.Parameters.AddWithValue("@parametre1", valeur1);
-        cmd.Parameters.AddWithValue("@parametre2", valeur2);
-        cmd.ExecuteNonQuery();
-        cmd.Parameters.Clear();
-        */
-      }
-
-      public List<string> Search (string code, string column, string table)
-      {
-        List<string> res = new List<string>();
-        MySQLDataReader mdr;
-
-        string query = "SELECT "+column+" FROM "+table+" WHERE ID accessory LIKE'"+code+"%'";
-
-        command = new MySQLCommand(query, connection);
-        mdr = command.ExecuteReader();
-        try
-        {
-          while(mdr.Read())
-          {
-            res.Add(mdr.GetString(0));
-          }
-        }
-        catch (MySqlException e)
-        {
-          MessageBox.Show(e.ToString());
-          MessageBox.Show("Error while reading");
-        }
-
-        return res;
-      }
-
     }
+
+    class SearchClass
+    {
+        public MySqlConnection connection;
+        public string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
+
+        public List<string> Search(string code, string column, string table)
+        {
+
+            List<string> res = new List<string>();
+            connection = new MySqlConnection(coStr);
+            MySqlDataReader mdr;
+
+            string query = "SELECT DISTINCT" + column + " FROM " + table + " WHERE ID accessory LIKE'" + code + "%'";
+
+            MySqlCommand command = new MySqlCommand(query, connection);
+            mdr = command.ExecuteReader();
+            try
+            {
+                while (mdr.Read())
+                {
+                    res.Add(mdr.GetString(0));
+                }
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.ToString());
+                MessageBox.Show("Error while reading");
+            }
+            return res;
+        }
+    }
+
     class Cabinet
     {
         int width;
@@ -82,6 +76,7 @@ namespace KitBoxProgram
         Angle angle;
         private List<Box> boxes;
         double price;
+
 
         public Cabinet(int width, int depth, List<Box> boxes, Angle angle)
         {
@@ -93,7 +88,7 @@ namespace KitBoxProgram
 
         public double GetPrice()
         {
-            price = 0;
+            price = angle.price;
             foreach (Box i in boxes)
             {
                 price += i.price;
@@ -126,11 +121,10 @@ namespace KitBoxProgram
 
         List<Accessory> accessories;
 
-        public Box(string color, int height, bool hasDoor)
+        public Box(string color, int height)
         {
             this.color = color;
             this.height = height;
-            this.hasDoor = hasDoor;
         }
 
         public void AddAccessory(Accessory accessory)
@@ -174,6 +168,10 @@ namespace KitBoxProgram
     abstract class Rail : Accessory
     {
 
+        public string GetCode(string dimension)
+        {
+            return code + dimension;
+        }
     }
 
     class LRrail : Rail
@@ -183,6 +181,7 @@ namespace KitBoxProgram
         public LRrail(int depth)
         {
             this.depth = depth;
+            code = "TRG";
         }
 
         public int GetDepth()
@@ -198,6 +197,7 @@ namespace KitBoxProgram
         public FRrail(int width)
         {
             this.width = width;
+            code = "TRF";
         }
 
         public int GetWidth()
@@ -213,6 +213,7 @@ namespace KitBoxProgram
         public BArail(int width)
         {
             this.width = width;
+            code = "TRR";
         }
 
         public int GetWidth()
@@ -227,7 +228,7 @@ namespace KitBoxProgram
 
         public Panel(string color)
         {
-            this.color=color;
+            this.color = color;
         }
 
         public string GetColor()
@@ -245,6 +246,11 @@ namespace KitBoxProgram
         {
             this.width = width;
             this.depth = depth;
+            code = "PAH";
+        }
+        public string GetCode(string depth, string width, string color)
+        {
+            return code + depth + width + color;
         }
     }
 
@@ -257,6 +263,11 @@ namespace KitBoxProgram
         {
             this.depth = depth;
             this.height = height;
+            code = "PAG";
+        }
+        public string GetCode(string height, string depth, string color)
+        {
+            return code + height + depth + color;
         }
     }
 
@@ -269,6 +280,28 @@ namespace KitBoxProgram
         {
             this.width = width;
             this.height = height;
+            code = "PAR";
+        }
+
+        public string GetCode(string height, string width, string color)
+        {
+            return code + height + width + color;
+        }
+    }
+
+    class Cleat : Accessory
+    {
+        private int height;
+
+        public Cleat(int height)
+        {
+            this.height = height;
+            code = "TAS";
+        }
+
+        public string GetCode(string height)
+        {
+            return code + height;
         }
     }
 
@@ -281,16 +314,11 @@ namespace KitBoxProgram
         {
             this.color = color;
             this.cup = cup;
+            code = "POR";
         }
-    }
-
-    class Cleat : Accessory
-    {
-        private int height;
-
-        public Cleat(int height)
+        public string GetCode(string height, string width, string color)
         {
-            this.height = height;
+            return code + height + width + color;
         }
     }
 
@@ -303,6 +331,12 @@ namespace KitBoxProgram
         {
             this.height = height;
             this.color = color;
+            code = "COR";
+        }
+
+        public string GetCode(string heightTot, string color)
+        {
+            return code + heightTot + color;
         }
     }
 }
