@@ -32,13 +32,10 @@ namespace AdminView
 
                 string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(coStr);
-                MySqlDataAdapter myDataAdapter = new MySqlDataAdapter();
-                myDataAdapter.SelectCommand = new MySqlCommand(" select * database.edata ;",myConn);
-                MySqlCommandBuilder cb = new MySqlCommandBuilder(myDataAdapter);
                 MessageBox.Show("Connected");
-                myConn.Close();
                 button1.Visible = false;
                 button2.Visible = true;
+                myConn.Close();
             }
             catch (Exception ex)
             {
@@ -48,11 +45,13 @@ namespace AdminView
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
+
+            string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(coStr);
             MySqlCommand commandDB = new MySqlCommand(" select * from Command ;", myConn);
             try
             {
+            
                 MySqlDataAdapter sda = new MySqlDataAdapter();
                 sda.SelectCommand = commandDB;
                 DataTable dbdataset = new DataTable();

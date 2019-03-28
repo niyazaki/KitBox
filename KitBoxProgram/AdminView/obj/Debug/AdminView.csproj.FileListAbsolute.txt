@@ -37,3 +37,17 @@ C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminVi
 C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csproj.CoreCompileInputs.cache
 C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.exe
 C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.exe.config
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.exe
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.pdb
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.dll
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.dll
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.xml
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csprojAssemblyReference.cache
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Form1.resources
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Properties.Resources.resources
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csproj.GenerateResource.cache
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csproj.CoreCompileInputs.cache
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csproj.CopyComplete
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.exe
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb
