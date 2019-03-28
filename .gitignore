@@ -18,3 +18,6 @@ KitBoxProgram/.vs/KitBoxProgram/v15/Server/sqlite3/storage.ide-shm
 KitBoxProgram/.vs/KitBoxProgram/v15/Server/sqlite3/storage.ide-wal
 KitBoxProgram/AdminView/obj/Debug/AdminView.csproj.CoreCompileInputs.cache
 KitBoxProgram/AdminView/obj/Debug/AdminView.csprojAssemblyReference.cache
+KitBoxProgram/.vs/KitBoxProgram/v15/.suo
+*.csproj
+*.config
