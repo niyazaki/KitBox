@@ -77,6 +77,7 @@ namespace KitBoxProgram
         private List<Box> boxes;
         double price;
 
+
         public Cabinet(int width, int depth, List<Box> boxes, Angle angle)
         {
             this.width = width;
@@ -87,7 +88,7 @@ namespace KitBoxProgram
 
         public double GetPrice()
         {
-            price = 0;
+            price = angle.price;
             foreach (Box i in boxes)
             {
                 price += i.price;
@@ -120,11 +121,10 @@ namespace KitBoxProgram
 
         List<Accessory> accessories;
 
-        public Box(string color, int height, bool hasDoor)
+        public Box(string color, int height)
         {
             this.color = color;
             this.height = height;
-            this.hasDoor = hasDoor;
         }
 
         public void AddAccessory(Accessory accessory)
@@ -228,7 +228,7 @@ namespace KitBoxProgram
 
         public Panel(string color)
         {
-            this.color=color;
+            this.color = color;
         }
 
         public string GetColor()
