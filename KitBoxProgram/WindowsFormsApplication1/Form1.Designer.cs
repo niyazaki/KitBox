@@ -162,42 +162,6 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboBox1.ItemHeight = 25;
-            this.comboBox1.Items.AddRange(new object[] {
-            "0",
-            "32",
-            "36",
-            "42",
-            "46",
-            "50",
-            "52",
-            "56",
-            "72",
-            "75",
-            "92",
-            "100",
-            "108",
-            "112",
-            "125",
-            "138",
-            "144",
-            "150",
-            "168",
-            "175",
-            "180",
-            "184",
-            "200",
-            "216",
-            "224",
-            "225",
-            "230",
-            "252",
-            "275",
-            "276",
-            "280",
-            "300",
-            "325",
-            "350",
-            "375"});
             this.comboBox1.Location = new System.Drawing.Point(277, 82);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(250, 33);
