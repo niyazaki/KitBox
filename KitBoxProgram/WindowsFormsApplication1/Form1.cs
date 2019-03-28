@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using KitBoxProgram;
 //Note: GenerateMember dans Propreties doit être True sinon la variable est invisible dans le code
 
 namespace WindowsFormsApplication1
@@ -21,6 +21,12 @@ namespace WindowsFormsApplication1
         List<int> hauteur = new List<int>();
         List<string> couleurPortes = new List<string>();
         List<string> couleurPanneaux = new List<string>();
+
+        Database db = new Database();
+        db.OpenCo();
+
+        SearchClass s = new SearchClass();
+
         public Form1()
         {
             InitializeComponent();
@@ -151,7 +157,7 @@ namespace WindowsFormsApplication1
 
             }
             textBox8.Text += "\r\n Largeur de chaque casier: " + largeur[0];
-            textBox8.Text += " ; et longueur  de chaque casier: " + longueur[0];
+            textBox8.Text += " ; et longueur  de chaque casier: " + longueur[0];    
             textBox8.Text += "\r\n Largeur totale : " + (n * (largeur[0]));
             textBox8.Text += "\r\n Longueur totale : " + (n * (longueur[0]));
             int hauteurtotale = 0;
@@ -206,7 +212,10 @@ namespace WindowsFormsApplication1
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            foreach (string i in s.Search("TRG", "depth", "Accessory"))
+            {
+                comboBox2.Items.Add(i);
+            }
         }
 
 
