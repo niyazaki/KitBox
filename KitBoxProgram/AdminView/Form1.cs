@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using KitBoxProgram;
 using System.Windows.Forms;
 
 namespace AdminView
@@ -16,6 +17,7 @@ namespace AdminView
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,12 +29,12 @@ namespace AdminView
         {
             try
             {
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
+
+                string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(coStr);
                 MySqlDataAdapter myDataAdapter = new MySqlDataAdapter();
-                myDataAdapter.SelectCommand = new MySqlCommand(" select * database.edata ;", myConn);
+                myDataAdapter.SelectCommand = new MySqlCommand(" select * database.edata ;",myConn);
                 MySqlCommandBuilder cb = new MySqlCommandBuilder(myDataAdapter);
-                myConn.Open();
                 MessageBox.Show("Connected");
                 myConn.Close();
                 button1.Visible = false;

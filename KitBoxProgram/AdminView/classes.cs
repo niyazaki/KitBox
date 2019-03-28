@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SQLite;
+
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
@@ -34,7 +34,6 @@ namespace KitBoxProgram
                 MessageBox.Show("Connexion failed !");
             }
         }
-
     }
 
     class SearchClass
