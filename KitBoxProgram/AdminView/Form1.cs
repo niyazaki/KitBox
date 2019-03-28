@@ -36,11 +36,13 @@ namespace AdminView
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
+
+            string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(coStr);
             MySqlCommand commandDB = new MySqlCommand(" select * from Command ;", myConn);
             try
             {
+            
                 MySqlDataAdapter sda = new MySqlDataAdapter();
                 sda.SelectCommand = commandDB;
                 DataTable dbdataset = new DataTable();
