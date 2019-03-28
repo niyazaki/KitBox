@@ -12,3 +12,15 @@ C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csprojAssemblyReference.cache
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csproj.CoreCompileInputs.cache
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csproj.CopyComplete
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.exe.config
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.exe
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.pdb
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.dll
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.xml
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csprojResolveAssemblyReference.cache
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Form1.resources
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Properties.Resources.resources
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csproj.GenerateResource.Cache
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csproj.CoreCompileInputs.cache
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.exe
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb
