@@ -34,11 +34,6 @@ namespace KitBoxProgram
                 MessageBox.Show("Connexion failed !");
             }
         }
-        public void CloseCo()
-        {
-          connection.Close();
-        }
-        
     }
 
     class SearchClass
