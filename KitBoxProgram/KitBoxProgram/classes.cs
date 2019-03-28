@@ -12,7 +12,7 @@ namespace KitBoxProgram
     public class Database
     {
         public MySqlConnection connection;
-        public string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
+        public string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
         public Database()
         {
             connection = new MySqlConnection(coStr);
@@ -39,7 +39,7 @@ namespace KitBoxProgram
     class SearchClass
     {
         public MySqlConnection connection;
-        public string coStr = "database = kitbox; server = db4free.net; user id = kitbox; pwd =ecamgroupe4"; //Want to make it a global variable
+        public string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
 
         public List<string> Search(string code, string column, string table)
         {
