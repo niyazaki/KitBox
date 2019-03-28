@@ -27,20 +27,11 @@ namespace AdminView
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-                string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(coStr);
-                MessageBox.Show("Connected");
-                button1.Visible = false;
-                button2.Visible = true;
-                myConn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            Database db = new Database();
+            db.OpenCo();
+            db.CloseCo();
+            button1.Visible = false;
+            button2.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
