@@ -8,7 +8,7 @@ namespace KitBoxProgram
         static void Main(string[] args)
         {
           Database db = new Database();
-          db.OpenCo;
+          db.OpenCo();
 
         }
     }

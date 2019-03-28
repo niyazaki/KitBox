@@ -3,3 +3,8 @@ C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\Interface_Seller\SellerView
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\Interface_Seller\SellerView\SellerView\obj\Debug\SellerView.Properties.Resources.resources
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\Interface_Seller\SellerView\SellerView\obj\Debug\SellerView.csproj.GenerateResource.cache
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\Interface_Seller\SellerView\SellerView\obj\Debug\SellerView.csproj.CoreCompileInputs.cache
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\SellerView\SellerView\obj\Debug\SellerView.csprojAssemblyReference.cache
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\SellerView\SellerView\obj\Debug\SellerView.Form1.resources
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\SellerView\SellerView\obj\Debug\SellerView.Properties.Resources.resources
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\SellerView\SellerView\obj\Debug\SellerView.csproj.GenerateResource.cache
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\SellerView\SellerView\obj\Debug\SellerView.csproj.CoreCompileInputs.cache
