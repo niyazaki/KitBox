@@ -37,3 +37,5 @@ C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminVi
 C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.csproj.CoreCompileInputs.cache
 C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.exe
 C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\16146\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.PrincipalView.resources

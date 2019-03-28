@@ -27,7 +27,7 @@ namespace AdminView
 
         private void button1_Click(object sender, EventArgs e)
         {
-          Database db = new Database;
+          DB db = new DB();
           db.OpenCo();
           db.CloseCo();
                 button1.Visible = false;
@@ -56,6 +56,11 @@ namespace AdminView
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

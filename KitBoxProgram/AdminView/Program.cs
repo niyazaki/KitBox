@@ -16,7 +16,7 @@ namespace AdminView
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SellerView());
+            Application.Run(new Form1());
         }
     }
 }

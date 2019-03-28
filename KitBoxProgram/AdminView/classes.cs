@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 namespace KitBoxProgram
 {
-    public class Database
+    public class DB
     {
         public MySqlConnection connection;
         public string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-        public Database()
+        public DB()
         {
             connection = new MySqlConnection(coStr);
         }
