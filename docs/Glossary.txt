@@ -1,46 +1,65 @@
-Glossary : 
+Glossary :
+
 
 -Cupboard (Placard/Armoire) : A recess or piece of furniture with a door and typically shelves, used for storage.
 
+
 -Cabinet (Armoire) : A cupboard with shelves or drawers for storing or displaying articles.
 
--Door (Porte) : A hinged, sliding, or revolving barrier at the entrance to a building, room, or vehicle, or in the framework of a cupboard. 
+-Door (Porte) : A hinged, sliding, or revolving barrier at the entrance to a building, room, or vehicle, or in the framework of a cupboard.
+
 
 -Seller (Vendeur) : In a business deal, the seller is the person who is selling something to someone else.
 
+
 -Warehouse (Entrepôt) : A large building where raw materials or manufactured goods are stored until they are exported to other countries or distributed to shops to be sold.
+
 
 -Warehouseman (Magasinier) : A person who manages, is employed in, or owns a warehouse.
 
+
 -Customer (Client) : A person who buys goods or services from a shop or business.
+
 
 -Supplier (Fournisseur) : Person, company, or organization that sells or supplies something such as goods or equipment to customers (customers could be shops).
 
+
 -Box (Casier) : Square or rectangular container with hard or stiff sides. Boxes often have lids. The boxes are often independent and can be combinable
+
 
 -Angle (Cornière) : Angle is an L-shaped product when lying on one of its two sides. Generally, angles are used as structural elements or in repairs and fabrication. It is one of the most commonly used shapes, and aluminum architectural angle is often used in cosmetic applications such as interior design.
 
+
 -Cleat (Tasseau) : A T-shaped piece of metal or wood on a boat or ship, to which ropes are attached.
+
 
 -Rail (Traverse) : A bar or series of bars fixed on upright supports or attached to a wall or ceiling, serving as part of a barrier or used to hang things on.
 
+
 -FR Rail (Traverse AV pour Avant) : Rail located in the FRONT side of the box, with 2 grooves in order to slide the doors in it. 
 
+
 -BA Rail (Traverse AR pour Arrière) : Rail located in the BACK side of the box, with 1 groove in order to lay the panel in it. 
+
 
 -LR Rail (Traverse GD pour Gauche-Droite) : Rail located in the LEFT or RIGHT side of the box, with 1 groove in order to lay the panel in it. 
 
 Therefore, a box needs two FR rails, four LR rails and two BA rail.
 
+
 -Panel (Panneau) : A flat or curved component, typically rectangular, that forms or is set into the surface of a door, wall, or ceiling.
+
 
 -UD Panel (Panneau HB pour Haut-Bas) : Plaque for the UP or DOWN side of the box.
 
+
 -LR Panel (Panneau GD pour Gauche-Droite) : Plaque for the LEFT or RIGHT side of the box.
+
 
 -BA Panel (Panneau AR pour Arrière) : Plaque for the BACK side of the box.
 
 Therefore, a box needs two UD panels, one BA panel and two LR panels. The front is made up of doors if needed by the customer.
+
 
 -Cup (Coupelle) : In a door, little crucible allowing to grab the door in order to slide it. Not available for the glass doors.
 
