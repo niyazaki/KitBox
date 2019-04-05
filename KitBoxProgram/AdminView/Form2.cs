@@ -6,25 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
-using KitBoxProgram;
-using WindowsFormsApp7;
 using System.Windows.Forms;
 
-namespace Start
+
+namespace TestView
 {
-    public partial class Start : System.Windows.Forms.UserControl
+    public partial class Form2 : System.Windows.Forms.UserControl
     {
-        Form1 form = new Form1();
-        MySqlCommand cmd = new MySqlCommand();
-        public Welcome()
+        public Form2()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -34,16 +30,22 @@ namespace Start
 
         private void button2_Click(object sender, EventArgs e)
         {
+
             if (textBox1.Text == "")
             {
-                MessageBox.Show("Enter your name please");
+                MessageBox.Show("Enter your name please!");
             }
             else
             {
-                this.Controls.Clear();
-                this.Controls.Add(new View() );
-
+               
             }
+        }
+
+        private void Admin_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            this.Controls.Add(new SellerView());
         }
     }
 }
+
