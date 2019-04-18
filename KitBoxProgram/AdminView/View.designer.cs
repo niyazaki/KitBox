@@ -64,6 +64,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -497,6 +499,8 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button12);
+            this.tabPage6.Controls.Add(this.button11);
             this.tabPage6.Controls.Add(this.dataGridView1);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
@@ -535,6 +539,27 @@
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "Seller";
             this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(45, 51);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(149, 23);
+            this.button11.TabIndex = 1;
+            this.button11.Text = "Connect To MySQL";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(45, 112);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(148, 23);
+            this.button12.TabIndex = 3;
+            this.button12.Text = "Load Table";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Visible = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // Form1
             // 
@@ -604,6 +629,8 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
     }
 }
 

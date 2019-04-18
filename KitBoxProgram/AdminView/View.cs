@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using KitBoxProgram;
 //Note: GenerateMember dans Propreties doit être True sinon la variable est invisible dans le code
@@ -344,6 +345,39 @@ namespace WindowsFormsApplication1
         private void Form1_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            DB db = new DB();
+            db.OpenCo();
+            db.CloseCo();
+            button11.Visible = false;
+            button12.Visible = true;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            MySqlCommand commandDB = new MySqlCommand(" select * from Command ;", myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView1.DataSource = bSource;
+                sda.Update(dbdataset);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
