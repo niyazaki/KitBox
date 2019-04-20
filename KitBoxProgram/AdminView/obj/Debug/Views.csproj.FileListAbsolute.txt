@@ -33,7 +33,6 @@ C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.xml
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csprojAssemblyReference.cache
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\WindowsFormsApplication1.Form1.resources
-C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Form1.resources
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Properties.Resources.resources
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.GenerateResource.cache
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.CoreCompileInputs.cache

@@ -55,19 +55,10 @@
     <Compile Include="View.designer.cs">
       <DependentUpon>View.cs</DependentUpon>
     </Compile>
-    <Compile Include="SellerView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SellerView.Designer.cs">
-      <DependentUpon>SellerView.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="View.resx">
       <DependentUpon>View.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SellerView.resx">
-      <DependentUpon>SellerView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
