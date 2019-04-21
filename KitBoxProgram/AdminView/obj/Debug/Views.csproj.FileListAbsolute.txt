@@ -53,3 +53,4 @@ C:\Users\userj\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.c
 C:\Users\userj\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.CopyComplete
 C:\Users\userj\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.exe
 C:\Users\userj\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb
+C:\Users\userj\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.PopupForm.resources

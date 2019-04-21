@@ -33,8 +33,17 @@
             this.button4 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.Seller = new System.Windows.Forms.TabPage();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.button11 = new System.Windows.Forms.Button();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.button13 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.textBox12 = new System.Windows.Forms.TextBox();
             this.CommandDetail = new System.Windows.Forms.TabPage();
+            this.button14 = new System.Windows.Forms.Button();
+            this.textBox13 = new System.Windows.Forms.TextBox();
             this.StoreKeeper = new System.Windows.Forms.TabPage();
+            this.button15 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Recap = new System.Windows.Forms.TabPage();
@@ -66,16 +75,8 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button13 = new System.Windows.Forms.Button();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.button15 = new System.Windows.Forms.Button();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.button14 = new System.Windows.Forms.Button();
             this.Seller.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.CommandDetail.SuspendLayout();
             this.StoreKeeper.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -85,7 +86,6 @@
             this.Base.SuspendLayout();
             this.Main.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -157,6 +157,76 @@
             this.Seller.Text = "Seller";
             this.Seller.UseVisualStyleBackColor = true;
             // 
+            // comboBox6
+            // 
+            this.comboBox6.AllowDrop = true;
+            this.comboBox6.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.ItemHeight = 24;
+            this.comboBox6.Items.AddRange(new object[] {
+            "Payed",
+            "Unpayed"});
+            this.comboBox6.Location = new System.Drawing.Point(585, 415);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(136, 32);
+            this.comboBox6.TabIndex = 38;
+            // 
+            // button11
+            // 
+            this.button11.Enabled = false;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.Location = new System.Drawing.Point(727, 416);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(192, 30);
+            this.button11.TabIndex = 5;
+            this.button11.Text = "Valider";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click_1);
+            // 
+            // textBox10
+            // 
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(438, 416);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(141, 30);
+            this.textBox10.TabIndex = 4;
+            // 
+            // button13
+            // 
+            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Location = new System.Drawing.Point(3, 452);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(916, 43);
+            this.button13.TabIndex = 4;
+            this.button13.Text = "Load Table";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click_1);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 6);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(916, 404);
+            this.dataGridView2.TabIndex = 1;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            // 
+            // textBox12
+            // 
+            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.Location = new System.Drawing.Point(6, 416);
+            this.textBox12.Multiline = true;
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(426, 30);
+            this.textBox12.TabIndex = 6;
+            this.textBox12.Text = "Entrez un ID_COMMAND pour modifier sa valeur \"Payed\" :";
+            // 
             // CommandDetail
             // 
             this.CommandDetail.Controls.Add(this.button14);
@@ -170,6 +240,27 @@
             this.CommandDetail.UseVisualStyleBackColor = true;
             this.CommandDetail.Click += new System.EventHandler(this.tabPage7_Click);
             // 
+            // button14
+            // 
+            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button14.Location = new System.Drawing.Point(3, 456);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(916, 39);
+            this.button14.TabIndex = 37;
+            this.button14.Text = "Fermer récapitulatif";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // textBox13
+            // 
+            this.textBox13.BackColor = System.Drawing.Color.LightGray;
+            this.textBox13.Location = new System.Drawing.Point(6, 6);
+            this.textBox13.Multiline = true;
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(916, 431);
+            this.textBox13.TabIndex = 1;
+            this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
+            // 
             // StoreKeeper
             // 
             this.StoreKeeper.Controls.Add(this.button15);
@@ -182,6 +273,17 @@
             this.StoreKeeper.TabIndex = 5;
             this.StoreKeeper.Text = "StoreKeeper";
             this.StoreKeeper.UseVisualStyleBackColor = true;
+            // 
+            // button15
+            // 
+            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button15.Location = new System.Drawing.Point(6, 400);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(916, 43);
+            this.button15.TabIndex = 5;
+            this.button15.Text = "Load Table (payed commands)";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button12
             // 
@@ -604,108 +706,6 @@
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 37;
             // 
-            // textBox10
-            // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(438, 416);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(141, 30);
-            this.textBox10.TabIndex = 4;
-            // 
-            // button11
-            // 
-            this.button11.Enabled = false;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.Location = new System.Drawing.Point(727, 416);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(192, 30);
-            this.button11.TabIndex = 5;
-            this.button11.Text = "Valider";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click_1);
-            // 
-            // textBox12
-            // 
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(6, 416);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(426, 30);
-            this.textBox12.TabIndex = 6;
-            this.textBox12.Text = "Entrez un ID_COMMAND pour modifier sa valeur \"Payed\" :";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 6);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(916, 404);
-            this.dataGridView2.TabIndex = 1;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            // 
-            // button13
-            // 
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.Location = new System.Drawing.Point(3, 452);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(916, 43);
-            this.button13.TabIndex = 4;
-            this.button13.Text = "Load Table";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click_1);
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.AllowDrop = true;
-            this.comboBox6.Cursor = System.Windows.Forms.Cursors.Default;
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.ItemHeight = 24;
-            this.comboBox6.Items.AddRange(new object[] {
-            "Payed",
-            "Unpayed"});
-            this.comboBox6.Location = new System.Drawing.Point(585, 415);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(136, 32);
-            this.comboBox6.TabIndex = 38;
-            // 
-            // button15
-            // 
-            this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button15.Location = new System.Drawing.Point(6, 400);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(916, 43);
-            this.button15.TabIndex = 5;
-            this.button15.Text = "Load Table (payed commands)";
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
-            // 
-            // textBox13
-            // 
-            this.textBox13.BackColor = System.Drawing.Color.LightGray;
-            this.textBox13.Location = new System.Drawing.Point(6, 6);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(916, 431);
-            this.textBox13.TabIndex = 1;
-            // 
-            // button14
-            // 
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(3, 456);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(916, 39);
-            this.button14.TabIndex = 37;
-            this.button14.Text = "Fermer récapitulatif";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -721,6 +721,7 @@
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.Seller.ResumeLayout(false);
             this.Seller.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.CommandDetail.ResumeLayout(false);
             this.CommandDetail.PerformLayout();
             this.StoreKeeper.ResumeLayout(false);
@@ -735,7 +736,6 @@
             this.Base.PerformLayout();
             this.Main.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

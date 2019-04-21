@@ -16,5 +16,10 @@ namespace AdminView
         {
             InitializeComponent();
         }
+
+        private void PopupForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

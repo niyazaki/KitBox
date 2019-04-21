@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using KitBoxProgram;
+using AdminView;
+
 //Note: GenerateMember dans Propreties doit être True sinon la variable est invisible dans le code
 
 namespace WindowsFormsApplication1
@@ -33,7 +35,7 @@ namespace WindowsFormsApplication1
             int m = 0;
             while (m != (n - 1))
             {
-
+                
                 textBox9.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[0] + "\r\n";
                 m++;
 
@@ -48,7 +50,30 @@ namespace WindowsFormsApplication1
             }
             textBox9.Text += "\r\n Hauteur totale : " + (hauteurtotale);
         }
-       
+        public void Display13()
+        {
+            textBox13.Text = "";
+            int m = 0;
+            while (m != (n - 1))
+            {
+
+                textBox13.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[0] + "\r\n";
+                m++;
+
+            }
+            textBox13.Text += "\r\n Largeur de chaque casier: " + largeur[0];
+            textBox13.Text += " ; et longueur  de chaque casier: " + longueur[0];
+            textBox13.Text += "\r\n Couleur des cornières : " + (couleurCorniere[0]);
+            int hauteurtotale = 0;
+            foreach (int x in hauteur)
+            {
+                hauteurtotale += x;
+            }
+            int prix = 0;
+            textBox13.Text += "\r\n Hauteur totale : " + (hauteurtotale);
+            textBox13.Text += "\r\n Prix total : " + prix + "€";
+        }
+
 
         SearchClass s = new SearchClass();
         private bool a;
@@ -231,6 +256,7 @@ namespace WindowsFormsApplication1
         {
             textBox7.Text = "";
             n = 1;
+            p = 0;
             textBox6.Visible = true;
             textBox6.Text = "Casier " + n;
             button1.Enabled = true; // le rend clickable
@@ -312,7 +338,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-            //tabControl1.ItemSize = new Size(0,1);
+            tabControl1.ItemSize = new Size(0,1);
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -395,8 +421,8 @@ namespace WindowsFormsApplication1
         private void button7_Click(object sender, EventArgs e)
         {
             finished = true;
-            tabControl1.SelectedTab = Recap;
-            Display();
+            tabControl1.SelectedTab = CommandDetail;
+            Display13();
 
         }
 
@@ -438,24 +464,33 @@ namespace WindowsFormsApplication1
 
         private void button11_Click_1(object sender, EventArgs e)
         {
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
-            textBox7.Text = textBox10.Text +"--->"+ comboBox6.Text;
-            string instruction  = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
-
-            MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
             try
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                textBox7.Text = textBox10.Text + "--->" + comboBox6.Text;
+                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
 
-                bSource.DataSource = dbdataset;
-                dataGridView2.DataSource = bSource;
-                sda.Update(dbdataset);
+                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
 
+                    bSource.DataSource = dbdataset;
+                    dataGridView2.DataSource = bSource;
+                    sda.Update(dbdataset);
+                    textBox7.Text = "";
+
+                }
+                catch (Exception ex)
+                {
+                    textBox7.Text = "Champs invalides !";
+                    MessageBox.Show(ex.Message);
+                }
             }
             catch (Exception ex)
             {
@@ -494,17 +529,46 @@ namespace WindowsFormsApplication1
 
         private void button14_Click(object sender, EventArgs e)
         {
-            var formPopup = new Form();
-            DialogResult dialogresult = formPopup.ShowDialog();
+            PopupForm popup = new PopupForm();
+            DialogResult dialogresult = popup.ShowDialog();
             if (dialogresult == DialogResult.OK)
             {
-                Console.WriteLine("You clicked OK");
+                tabControl1.SelectedTab = Main;
+                textBox7.Text = "";
+                n = 1;
+                p = 0;
+                textBox6.Visible = true;
+                textBox6.Text = "Casier " + n;
+                button1.Enabled = true; // le rend clickable
+                button1.Visible = true; // le rend visible
+                textBox2.Visible = true;
+                textBox3.Visible = true;
+                comboBox2.Visible = true;
+                comboBox4.Visible = true;
+                comboBox1.Text = "";
+                comboBox2.Text = "";
+                comboBox3.Text = "";
+                comboBox4.Text = "";
+                comboBox5.Text = "";
+                List<int> longueur = new List<int>();
+                List<int> largeur = new List<int>();
+                List<int> hauteur = new List<int>();
+                List<string> couleurPortes = new List<string>();
+                List<string> couleurPanneaux = new List<string>();
+                List<string> couleurCorniere = new List<string>();
+                tabControl1.SelectedTab = Main;
+                button4.Enabled = false;
             }
             else if (dialogresult == DialogResult.Cancel)
             {
-                Console.WriteLine("You clicked either Cancel or X button in the top right corner");
             }
-            formPopup.Dispose();
+            popup.Dispose();
+
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
