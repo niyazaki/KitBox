@@ -27,10 +27,12 @@ namespace WindowsFormsApplication1
         List<string> couleurPortes = new List<string>();
         List<string> couleurPanneaux = new List<string>();
         List<string> couleurCorniere = new List<string>();
+        List<string> choixCorniere = new List<string>();
         int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
         public void Display()
         {
+            textBox7.Text = "";
             textBox9.Text = "";
             int m = 0;
             while (m != (n - 1))
@@ -52,6 +54,7 @@ namespace WindowsFormsApplication1
         }
         public void Display13()
         {
+            textBox7.Text = "";
             textBox13.Text = "";
             int m = 0;
             while (m != (n - 1))
@@ -63,7 +66,7 @@ namespace WindowsFormsApplication1
             }
             textBox13.Text += "\r\n Largeur de chaque casier: " + largeur[0];
             textBox13.Text += " ; et longueur  de chaque casier: " + longueur[0];
-            textBox13.Text += "\r\n Couleur des cornières : " + (couleurCorniere[0]);
+            textBox13.Text += "\r\n Couleur des cornières : " + couleurCorniere[0];
             int hauteurtotale = 0;
             foreach (int x in hauteur)
             {
@@ -71,6 +74,7 @@ namespace WindowsFormsApplication1
             }
             int prix = 0;
             textBox13.Text += "\r\n Hauteur totale : " + (hauteurtotale);
+            textBox13.Text += "\r\n Choix des cornières : " + choixCorniere[0];
             textBox13.Text += "\r\n Prix total : " + prix + "€";
         }
 
@@ -420,9 +424,8 @@ namespace WindowsFormsApplication1
 
         private void button7_Click(object sender, EventArgs e)
         {
-            finished = true;
-            tabControl1.SelectedTab = CommandDetail;
-            Display13();
+
+            tabControl1.SelectedTab = End;
 
         }
 
@@ -556,6 +559,7 @@ namespace WindowsFormsApplication1
                 List<string> couleurPortes = new List<string>();
                 List<string> couleurPanneaux = new List<string>();
                 List<string> couleurCorniere = new List<string>();
+                List<string> choixCorniere = new List<string>();
                 tabControl1.SelectedTab = Main;
                 button4.Enabled = false;
             }
@@ -569,6 +573,20 @@ namespace WindowsFormsApplication1
         private void textBox13_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            if (comboBox8.Text != "")
+            {
+                finished = true;
+                tabControl1.SelectedTab = CommandDetail;
+                Display13();
+            }
+            else
+            {
+                textBox7.Text = "Champs incomplets !";
+            }
         }
     }
 }

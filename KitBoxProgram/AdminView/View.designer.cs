@@ -75,6 +75,10 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.End = new System.Windows.Forms.TabPage();
+            this.button16 = new System.Windows.Forms.Button();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.Seller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.CommandDetail.SuspendLayout();
@@ -86,6 +90,7 @@
             this.Base.SuspendLayout();
             this.Main.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.End.SuspendLayout();
             this.SuspendLayout();
             // 
             // button3
@@ -368,7 +373,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(914, 51);
             this.button7.TabIndex = 37;
-            this.button7.Text = "Terminer la commande";
+            this.button7.Text = "Finaliser la commande";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -692,6 +697,7 @@
             this.tabControl1.Controls.Add(this.Base);
             this.tabControl1.Controls.Add(this.Corniere);
             this.tabControl1.Controls.Add(this.Box);
+            this.tabControl1.Controls.Add(this.End);
             this.tabControl1.Controls.Add(this.Recap);
             this.tabControl1.Controls.Add(this.StoreKeeper);
             this.tabControl1.Controls.Add(this.CommandDetail);
@@ -705,6 +711,56 @@
             this.tabControl1.Size = new System.Drawing.Size(936, 524);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 37;
+            // 
+            // End
+            // 
+            this.End.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.End.Controls.Add(this.comboBox8);
+            this.End.Controls.Add(this.textBox14);
+            this.End.Controls.Add(this.button16);
+            this.End.Location = new System.Drawing.Point(4, 19);
+            this.End.Name = "End";
+            this.End.Padding = new System.Windows.Forms.Padding(3);
+            this.End.Size = new System.Drawing.Size(928, 501);
+            this.End.TabIndex = 8;
+            this.End.Text = "End";
+            // 
+            // button16
+            // 
+            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button16.Location = new System.Drawing.Point(6, 444);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(919, 51);
+            this.button16.TabIndex = 2;
+            this.button16.Text = "Terminer commande";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // textBox14
+            // 
+            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox14.Location = new System.Drawing.Point(333, 160);
+            this.textBox14.Multiline = true;
+            this.textBox14.Name = "textBox14";
+            this.textBox14.ReadOnly = true;
+            this.textBox14.Size = new System.Drawing.Size(250, 40);
+            this.textBox14.TabIndex = 5;
+            this.textBox14.Text = "Choix cornières :";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboBox8.ItemHeight = 25;
+            this.comboBox8.Items.AddRange(new object[] {
+            "0"});
+            this.comboBox8.Location = new System.Drawing.Point(333, 229);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(250, 33);
+            this.comboBox8.TabIndex = 29;
             // 
             // Form1
             // 
@@ -736,6 +792,8 @@
             this.Base.PerformLayout();
             this.Main.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.End.ResumeLayout(false);
+            this.End.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -789,6 +847,10 @@
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TabPage End;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Button button16;
     }
 }
 
