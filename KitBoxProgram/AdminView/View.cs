@@ -15,22 +15,47 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        
         int n = 1 ;
+        int p = 0;
         bool finished = false;
         List<int> longueur = new List<int>();
         List<int> largeur = new List<int>();
         List<int> hauteur = new List<int>();
         List<string> couleurPortes = new List<string>();
         List<string> couleurPanneaux = new List<string>();
-
+        List<string> couleurCorniere = new List<string>();
+        int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
+        public void Display()
+        {
+            int m = 0;
+            while (m != (n - 1))
+            {
 
+                textBox9.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[0] + "\r\n";
+                m++;
+
+            }
+            textBox9.Text += "\r\n Largeur de chaque casier: " + largeur[0];
+            textBox9.Text += " ; et longueur  de chaque casier: " + longueur[0];
+            textBox9.Text += "\r\n Couleur des cornières : " + (couleurCorniere[0]);
+            int hauteurtotale = 0;
+            foreach (int x in hauteur)
+            {
+                hauteurtotale += x;
+            }
+            textBox9.Text += "\r\n Hauteur totale : " + (hauteurtotale);
+        }
+       
 
         SearchClass s = new SearchClass();
+        private bool a;
 
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -40,7 +65,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text != "Select" & comboBox2.Text != "Select" & comboBox3.Text != "Select" & comboBox4.Text != "Select" & comboBox5.Text != "Select")
+            if (comboBox1.Text != ""  & comboBox5.Text != "" & (comboBox3.Text != "" | change ==1) )
             {
                 textBox2.Visible = false;
                 textBox3.Visible = false;
@@ -48,21 +73,33 @@ namespace WindowsFormsApplication1
                 comboBox4.Visible = false;
 
                 textBox7.Text = "";
-                if (n < 7)
+                if (p < 7)
                 {
                     n++;
                     textBox6.Text = "Casier " + n;
                     hauteur.Add(Convert.ToInt32(comboBox1.Text));
                     longueur.Add(Convert.ToInt32(comboBox2.Text));
                     largeur.Add(Convert.ToInt32(comboBox4.Text));
-                    couleurPortes.Add(comboBox3.Text);
+                    if (change == 1)
+                    {
+                        couleurPortes.Add("Pas de portes");
+                    }
+                    else
+                    {
+                        couleurPortes.Add(comboBox3.Text);
+                    }
                     couleurPanneaux.Add(comboBox5.Text);
+                    p++;
+                    if (p ==7)
+                    {
+                        textBox6.Text = "Limite atteinte";
+                        button1.Enabled = false;
+                    }
                 }
                 else
                 {
                     textBox6.Text = "Limite atteinte";
                     button1.Enabled = false; // le rend non clickable
-                    button1.Visible = false; // le rend invisible
                 }
             }
             else
@@ -73,25 +110,16 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox7.Text = "Commande terminée !";
-            button5.Visible = false;
-            button1.Visible = false;
-            button4.Visible = true;
-            button2.Visible = false;
-            button3.Visible = false;
-            textBox6.Visible = false;
-            textBox1.Visible = false;
-            textBox2.Visible = false;
-            textBox3.Visible = false;
-            textBox4.Visible = false;
-            textBox5.Visible = false;
-            textBox9.Visible = false;
-            comboBox1.Visible = false;
-            comboBox2.Visible = false;
-            comboBox3.Visible = false;
-            comboBox4.Visible = false;
-            comboBox5.Visible = false;
-            finished = true;
+            if (comboBox7.Text != "")
+            {
+                tabControl1.SelectedTab = Box;
+                button4.Enabled = true;
+                couleurCorniere.Add(comboBox7.Text);
+            }
+            else
+            {
+                textBox7.Text = "Champs incomplets !";
+            }
         }
 
 
@@ -127,46 +155,12 @@ namespace WindowsFormsApplication1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            button5.Visible = true;
-            button1.Visible = false;
-            button4.Visible = false;
-            button2.Visible = false;
-            button3.Visible = false;
-            textBox6.Visible = true;
-            textBox6.Text = "Récapitulatif";
-            textBox1.Visible = false;
-            textBox2.Visible = false;
-            textBox3.Visible = false;
-            textBox4.Visible = false;
-            textBox5.Visible = false;
-            textBox9.Visible = true;
-            comboBox1.Visible = false;
-            comboBox2.Visible = false;
-            comboBox3.Visible = false;
-            comboBox4.Visible = false;
-            comboBox5.Visible = false;
+            tabControl1.SelectedTab = Recap;
 
             longueur.Add(0);
             largeur.Add(0);
- 
-            int m = 0;
-            while (m != (n-1))
-            {
 
-                textBox8.Text += "\r\nCasier" + (m+1)+" : Hauteur: "+hauteur[m]+" ; Couleur des portes:  "+couleurPortes[m] + " ; Couleur des panneaux: "+couleurPanneaux[0]+"\r\n";
-                m++;
-
-            }
-            textBox9.Text += "\r\n Largeur de chaque casier: " + largeur[0];
-            textBox9.Text += " ; et longueur  de chaque casier: " + longueur[0];    
-            textBox9.Text += "\r\n Largeur totale : " + (largeur[0]);
-            textBox9.Text += "\r\n Longueur totale : " + (longueur[0]);
-            int hauteurtotale = 0;
-            foreach (int x in hauteur)
-            {
-                hauteurtotale += x;
-            }
-            textBox9.Text += "\r\n Hauteur totale : " + (hauteurtotale);
+            Display();
 
 
         }
@@ -203,7 +197,7 @@ namespace WindowsFormsApplication1
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -213,10 +207,7 @@ namespace WindowsFormsApplication1
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (string i in s.Search("TRG", "depth", "Accessory"))
-            {
-                comboBox2.Items.Add(i);
-            }
+           
         }
 
 
@@ -246,16 +237,20 @@ namespace WindowsFormsApplication1
             textBox3.Visible = true;
             comboBox2.Visible = true;
             comboBox4.Visible = true;
-            comboBox1.Text = "Select";
-            comboBox2.Text = "Select";
-            comboBox3.Text = "Select";
-            comboBox4.Text = "Select";
-            comboBox5.Text = "Select";
+            comboBox1.Text = "";
+            comboBox2.Text = "";
+            comboBox3.Text = "";
+            comboBox4.Text = "";
+            comboBox5.Text = "";
             List<int> longueur = new List<int>();
             List<int> largeur = new List<int>();
             List<int> hauteur = new List<int>();
             List<string> couleurPortes = new List<string>();
             List<string> couleurPanneaux = new List<string>();
+            List<string> couleurCorniere = new List<string>();
+            tabControl1.SelectedTab = Main;
+            button4.Enabled = false;
+
         }
 
         private void textBox7_TextChanged_1(object sender, EventArgs e)
@@ -267,48 +262,12 @@ namespace WindowsFormsApplication1
         {
             if (finished == false)
             {
-                textBox6.Text = "Casier " + n;
-                button5.Visible = false;
-                button1.Visible = true;
-                button4.Visible = true;
-                button2.Visible = true;
-                button3.Visible = true;
-                textBox1.Visible = true;
-                textBox2.Visible = true;
-                textBox3.Visible = true;
-                textBox4.Visible = true;
-                textBox5.Visible = true;
-                textBox9.Visible = false;
-                comboBox1.Visible = true;
-                comboBox2.Visible = true;
-                comboBox3.Visible = true;
-                comboBox4.Visible = true;
-                comboBox5.Visible = true;
-                textBox6.Visible = true;
-                textBox9.Text = "";
+               tabControl1.SelectedTab = Box;
             }
             else
             {
-                textBox7.Text = "Commande terminée !";
-                button5.Visible = false;
-                button1.Visible = false;
-                button4.Visible = true;
-                button2.Visible = false;
-                button3.Visible = false;
-                textBox6.Text = "";
-                textBox1.Visible = false;
-                textBox2.Visible = false;
-                textBox3.Visible = false;
-                textBox4.Visible = false;
-                textBox5.Visible = false;
-                textBox9.Visible = false;
-                comboBox1.Visible = false;
-                comboBox2.Visible = false;
-                comboBox3.Visible = false;
-                comboBox4.Visible = false;
-                comboBox5.Visible = false;
-                textBox6.Visible = false;
-                textBox9.Text = "";
+                tabControl1.SelectedTab = Main;
+
             }
         }
 
@@ -319,16 +278,29 @@ namespace WindowsFormsApplication1
 
         private void button9_Click(object sender, EventArgs e)
         {
-
+            tabControl1.SelectedTab = StoreKeeper;
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            tabControl1.SelectedTab = Seller;
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = Base;
+            //Partie masquée car crash, je l'ai laissée en suspens pour les tests visuels
+            //Faudra l'exploiter une fois le bug résolue pour afficher les elements dans comboBox Longueur
+            //foreach (string i in s.Search("TRG", "depth", "Accessory"))
+            //{
+            // comboBox2.Items.Add(i);
+            // }
+
+            // A MODIFIER pour le comboBox Largeur, crash aussi pour l'instant
+            //foreach (string i in s.Search("TRG", "depth", "Accessory"))
+            //{
+            // comboBox4.Items.Add(i);
+            // }
 
         }
 
@@ -349,11 +321,6 @@ namespace WindowsFormsApplication1
 
         private void button11_Click(object sender, EventArgs e)
         {
-            DB db = new DB();
-            db.OpenCo();
-            db.CloseCo();
-            button11.Visible = false;
-            button12.Visible = true;
         }
 
         private void button12_Click(object sender, EventArgs e)
@@ -378,6 +345,73 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void tabPage7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+             
+            if (comboBox2.Text != "" & comboBox4.Text != "")
+            {
+                textBox7.Text = "" ;
+                tabControl1.SelectedTab = Corniere;
+                //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
+                //et qu'on passe à l'onglet Corniere, ça fait une recherche pour remplir le comboBox7
+                //qui correspond à la couleur des cornières
+            }
+            else
+            {
+                textBox7.Text = "Champs incomplets !";
+            }
+        }
+
+
+        private void Box_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            
+            if (change==1) {
+                textBox4.Visible = true;
+                comboBox3.Visible = true;
+                change = 0;
+            }
+            else
+            {
+                textBox4.Visible = false;
+                comboBox3.Visible = false;
+                change = 1;
+            }
+        }
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            finished = true;
+            tabControl1.SelectedTab = Recap;
+            Display();
+
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

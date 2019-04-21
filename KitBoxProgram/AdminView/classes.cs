@@ -43,17 +43,20 @@ namespace KitBoxProgram
     {
         public MySqlConnection connection;
         public string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-
+       
         public List<string> Search(string code, string column, string table)
         {
-
+            //Partie ajoutée par Yassine El Haddadi, peut être fausse --------------
+            DB db = new DB();
+            db.OpenCo();
+            //----------------------------------------------------------------------
             List<string> res = new List<string>();
             connection = new MySqlConnection(coStr);
             MySqlDataReader mdr;
 
             string query = "SELECT DISTINCT" + column + " FROM " + table + " WHERE ID accessory LIKE'" + code + "%'";
 
-            MySqlCommand command = new MySqlCommand(query, connection);
+            MySqlCommand command = new MySqlCommand(query,connection);
             mdr = command.ExecuteReader();
             try
             {
