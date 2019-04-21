@@ -29,6 +29,7 @@ namespace WindowsFormsApplication1
         DB db = new DB();
         public void Display()
         {
+            textBox9.Text = "";
             int m = 0;
             while (m != (n - 1))
             {
@@ -228,6 +229,7 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
+            textBox7.Text = "";
             n = 1;
             textBox6.Visible = true;
             textBox6.Text = "Casier " + n;
@@ -260,15 +262,9 @@ namespace WindowsFormsApplication1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (finished == false)
-            {
-               tabControl1.SelectedTab = Box;
-            }
-            else
-            {
-                tabControl1.SelectedTab = Main;
-
-            }
+            tabControl1.SelectedTab = Box;
+            
+           
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)
@@ -316,7 +312,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load_1(object sender, EventArgs e)
         {
-
+            //tabControl1.ItemSize = new Size(0,1);
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -327,7 +323,7 @@ namespace WindowsFormsApplication1
         {
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            MySqlCommand commandDB = new MySqlCommand(" select * from Command ;", myConn);
+            MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
             try
             {
                 MySqlDataAdapter sda = new MySqlDataAdapter();
@@ -412,6 +408,103 @@ namespace WindowsFormsApplication1
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button13_Click_1(object sender, EventArgs e)
+        {
+            
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView2.DataSource = bSource;
+                sda.Update(dbdataset);
+                button11.Enabled = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button11_Click_1(object sender, EventArgs e)
+        {
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            textBox7.Text = textBox10.Text +"--->"+ comboBox6.Text;
+            string instruction  = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
+
+            MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView2.DataSource = bSource;
+                sda.Update(dbdataset);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            MySqlCommand commandDB = new MySqlCommand("select * from Command d where d.Payed=\'Payed\';", myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView1.DataSource = bSource;
+                sda.Update(dbdataset);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            var formPopup = new Form();
+            DialogResult dialogresult = formPopup.ShowDialog();
+            if (dialogresult == DialogResult.OK)
+            {
+                Console.WriteLine("You clicked OK");
+            }
+            else if (dialogresult == DialogResult.Cancel)
+            {
+                Console.WriteLine("You clicked either Cancel or X button in the top right corner");
+            }
+            formPopup.Dispose();
         }
     }
 }
