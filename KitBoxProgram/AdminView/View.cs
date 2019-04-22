@@ -98,6 +98,11 @@ namespace WindowsFormsApplication1
         {
             if (comboBox1.Text != ""  & comboBox5.Text != "" & (comboBox3.Text != "" | change ==1) )
             {
+                Cleat Tasseau = new Cleat(Int32.Parse(comboBox1.Text));
+                UDpanel PanneauHB = new UDpanel(comboBox5.Text, Int32.Parse(comboBox4.Text), Int32.Parse(comboBox2.Text));
+                LRpanel PanneauGD = new LRpanel(comboBox5.Text, Int32.Parse(comboBox2.Text), Int32.Parse(comboBox1.Text));
+                BApanel PanneauAR = new BApanel(comboBox5.Text, Int32.Parse(comboBox4.Text), Int32.Parse(comboBox1.Text));
+
                 textBox2.Visible = false;
                 textBox3.Visible = false;
                 comboBox2.Visible = false;
@@ -419,7 +424,7 @@ namespace WindowsFormsApplication1
 
                 //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
                 List<string> listDoor = new List<string> {};
-                listDoor = s.Search("POR" + boxHeight + frRail.width.ToString(), "color", "accessory");  //boxHeight ou box.Height (attention au type) etc..
+                listDoor = s.Search("POR" + comboBox1.Text + frRail.width.ToString(), "color", "accessory");  //boxHeight ou box.Height (attention au type) etc..
                 foreach (string i in listColor)
                 {
                     comboBox3.Items.Add(i);

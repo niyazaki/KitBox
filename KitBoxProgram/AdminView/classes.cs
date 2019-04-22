@@ -308,7 +308,7 @@ namespace KitBoxProgram
 
     class Cleat : Accessory
     {
-        private int height;
+        public int height;
 
         public Cleat(int height)
         {
