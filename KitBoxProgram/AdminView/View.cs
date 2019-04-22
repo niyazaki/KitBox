@@ -485,7 +485,7 @@ namespace WindowsFormsApplication1
             listCor = s.Search("COR" + Convert.ToString(corHeight), "color", "accessory");
             foreach (string j in listCor)
             {
-                comboBox8.Items.Add(i);
+                comboBoxH.Items.Add(i);
             }
 
 
@@ -641,7 +641,7 @@ namespace WindowsFormsApplication1
 
         private void button16_Click(object sender, EventArgs e)
         {
-            if (comboBox8.Text != "")
+            if (comboBoxH.Text != "")
             {
                 finished = true;
                 tabControl1.SelectedTab = CommandDetail;
