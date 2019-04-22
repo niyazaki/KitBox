@@ -34,8 +34,9 @@ namespace KitBoxProgram
             }
         }
 
-        public void CloseCo(){
-          connection.Close();
+        public void CloseCo()
+        {
+            connection.Close();
         }
     }
 
@@ -148,12 +149,21 @@ namespace KitBoxProgram
 
     abstract class Accessory
     {
+        public DB db = new DB();
+        public SearchClass search;
+
         public double price;
         public string code;
         int stock;
 
-        public double GetPrice()
+        public List<double> GetPrice()
         {
+            return search.Search(code, "price", "Catalogue").ConvertAll(double.Parse);
+        }
+
+        public double GetPrices()
+        {
+            price = GetPrice()[0];
             return price;
         }
 
