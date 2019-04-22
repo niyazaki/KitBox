@@ -30,6 +30,7 @@ namespace WindowsFormsApplication1
         List<string> choixCorniere = new List<string>();
         int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
+        public int hauteurtotale;
         public void Display()
         {
             textBox7.Text = "";
@@ -45,7 +46,7 @@ namespace WindowsFormsApplication1
             textBox9.Text += "\r\n Largeur de chaque casier: " + largeur[0];
             textBox9.Text += " ; et longueur  de chaque casier: " + longueur[0];
             textBox9.Text += "\r\n Couleur des cornières : " + (couleurCorniere[0]);
-            int hauteurtotale = 0;
+            hauteurtotale = 0;
             foreach (int x in hauteur)
             {
                 hauteurtotale += x;
@@ -79,7 +80,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        SearchClass s = new SearchClass();
+        public SearchClass s = new SearchClass();
         private bool a;
 
         public Form1()
@@ -107,12 +108,10 @@ namespace WindowsFormsApplication1
                 {
                     n++;
                     textBox6.Text = "Casier " + n;
-                    hauteur.Add(Convert.ToInt32(comboBox1.Text));
-                    longueur.Add(Convert.ToInt32(comboBox2.Text));
-                    largeur.Add(Convert.ToInt32(comboBox4.Text));
+                    hauteur.Add(Convert.ToInt32(comboBox1.Text) + 4);
                     if (change == 1)
                     {
-                        couleurPortes.Add("Pas de portes");
+                        couleurPortes.Add("Pas de porte");
                     }
                     else
                     {
@@ -315,6 +314,21 @@ namespace WindowsFormsApplication1
         private void button8_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Base;
+            List<string> listWidth = new List<string> {};
+            listWidth = s.Search("TRF", "width", "Catalogue");
+            foreach (string i in listWidth)
+            {
+                comboBox4.Items.Add(i);
+            }
+
+            List<string> listDepth = new List<string> {};
+            listDepth = s.Search("TRG", "depth", "Catalogue");
+            foreach (string i in listDepth)
+            {
+                comboBox2.Items.Add(i);
+            }
+
+
             //Partie masquée car crash, je l'ai laissée en suspens pour les tests visuels
             //Faudra l'exploiter une fois le bug résolue pour afficher les elements dans comboBox Longueur
             //foreach (string i in s.Search("TRG", "depth", "Accessory"))
@@ -383,8 +397,35 @@ namespace WindowsFormsApplication1
              
             if (comboBox2.Text != "" & comboBox4.Text != "")
             {
-                textBox7.Text = "" ;
-                tabControl1.SelectedTab = Corniere;
+                LRrail lrRail = new LRrail(Int32.Parse(comboBox2.Text));
+                FRrail frRail = new FRrail(Int32.Parse(comboBox4.Text));
+                BArail baRail = new BArail(Int32.Parse(comboBox4.Text));
+
+
+                textBox7.Text = "";
+                List<string> listHeight = new List<string> {};
+                listHeight = s.Search("TRG", "height", "accessory");
+                foreach (string i in listHeight)
+                {
+                    comboBox1.Items.Add(i);
+                }
+
+                List<string> listColor = new List<string> { };
+                listColor = s.Search("PAH" + lrRail.depth.ToString() + frRail.width.ToString(), "color", "accessory");  //boxDepth ou box.Depth (attention au type) etc..
+                foreach (string i in listColor)
+                {
+                    comboBox5.Items.Add(i);
+                }
+
+                //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
+                List<string> listDoor = new List<string> {};
+                listDoor = s.Search("POR" + boxHeight + frRail.width.ToString(), "color", "accessory");  //boxHeight ou box.Height (attention au type) etc..
+                foreach (string i in listColor)
+                {
+                    comboBox3.Items.Add(i);
+                }
+
+                tabControl1.SelectedTab = Box;
                 //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
                 //et qu'on passe à l'onglet Corniere, ça fait une recherche pour remplir le comboBox7
                 //qui correspond à la couleur des cornières
@@ -424,6 +465,24 @@ namespace WindowsFormsApplication1
 
         private void button7_Click(object sender, EventArgs e)
         {
+            List<string> listCor = new List<string> { };
+            //Trouver la hauteur totale à prendre pour notre armoire :
+            List<string> listTotHeight = new List<string> { };
+            listTotHeight = s.Search("COR", "height", "accessory");
+            int i = 0;
+            int corHeight = 0;
+            while (Int32.Parse(listTotHeight[i]) >= hauteurtotale)
+            {
+                corHeight = Int32.Parse(listTotHeight[i]);
+                i++;
+            }
+            
+            listCor = s.Search("COR" + Convert.ToString(corHeight), "color", "accessory");
+            foreach (string j in listCor)
+            {
+                comboBox8.Items.Add(i);
+            }
+
 
             tabControl1.SelectedTab = End;
 
