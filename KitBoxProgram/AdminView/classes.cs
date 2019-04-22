@@ -40,7 +40,7 @@ namespace KitBoxProgram
         }
     }
 
-    public class SearchClass
+    class SearchClass
     {
         public MySqlConnection connection;
         public string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
@@ -157,11 +157,16 @@ namespace KitBoxProgram
 
         public double price;
         public string code;
-        public int stock;
+        int stock;
 
-        public double GetPrice()
+        public List<double> GetPrice()
         {
-            price = search.Search(code, "price", "Catalogue").ConvertAll(double.Parse)[0];
+            return search.Search(code, "price", "Catalogue").ConvertAll(double.Parse);
+        }
+
+        public double GetPrices()
+        {
+            price = GetPrice()[0];
             return price;
         }
 
