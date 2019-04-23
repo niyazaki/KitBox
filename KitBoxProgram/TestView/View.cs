@@ -6,8 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using KitBoxProgram;
+using System.Windows.Forms;
 //Note: GenerateMember dans Propreties doit être True sinon la variable est invisible dans le code
 
 namespace WindowsFormsApplication1

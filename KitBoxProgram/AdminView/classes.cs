@@ -21,10 +21,14 @@ namespace KitBoxProgram
         {
             try
             {
-                connection.Open();
+                if (connection.State != System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                    connection.Open();
 
-                //Show message to say that it's connected
-                MessageBox.Show("Connected");
+                    //Show message to say that it's connected
+                    MessageBox.Show("Connected");
+                }
             }
 
             catch (MySqlException e)
@@ -34,29 +38,35 @@ namespace KitBoxProgram
             }
         }
 
-        public void CloseCo(){
-          connection.Close();
+        public void CloseCo()
+        {
+            connection.Close();
         }
     }
 
-    class SearchClass
+    public class SearchClass
     {
         public MySqlConnection connection;
         public string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-
+       
         public List<string> Search(string code, string column, string table)
         {
+            //Partie ajoutée par Yassine El Haddadi, peut être fausse --------------
 
+            //----------------------------------------------------------------------
             List<string> res = new List<string>();
             connection = new MySqlConnection(coStr);
             MySqlDataReader mdr;
+            DB db = new DB();
+            db.OpenCo();
 
             string query = "SELECT DISTINCT" + column + " FROM " + table + " WHERE ID accessory LIKE'" + code + "%'";
 
-            MySqlCommand command = new MySqlCommand(query, connection);
-            mdr = command.ExecuteReader();
+            MySqlCommand command = new MySqlCommand(query,connection);
+
             try
             {
+                mdr = command.ExecuteReader();
                 while (mdr.Read())
                 {
                     res.Add(mdr.GetString(0));
@@ -148,12 +158,16 @@ namespace KitBoxProgram
 
     abstract class Accessory
     {
+        public DB db = new DB();
+        public SearchClass search;
+
         public double price;
         public string code;
         int stock;
 
         public double GetPrice()
         {
+            price =  search.Search(code, "price", "Catalogue").ConvertAll(double.Parse)[0];
             return price;
         }
 
@@ -179,7 +193,7 @@ namespace KitBoxProgram
 
     class LRrail : Rail
     {
-        int depth;
+        public int depth;
 
         public LRrail(int depth)
         {
@@ -195,7 +209,7 @@ namespace KitBoxProgram
 
     class FRrail : Rail
     {
-        int width;
+        public int width;
 
         public FRrail(int width)
         {
@@ -211,7 +225,7 @@ namespace KitBoxProgram
 
     class BArail : Rail
     {
-        int width;
+        public int width;
 
         public BArail(int width)
         {
@@ -294,7 +308,7 @@ namespace KitBoxProgram
 
     class Cleat : Accessory
     {
-        private int height;
+        public int height;
 
         public Cleat(int height)
         {

@@ -49,29 +49,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes.cs" />
-    <Compile Include="Views.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs" />
-    <Compile Include="ClientView.cs">
+    <Compile Include="PopupForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClientView.designer.cs">
-      <DependentUpon>ClientView.cs</DependentUpon>
+    <Compile Include="PopupForm.Designer.cs">
+      <DependentUpon>PopupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SellerView.cs">
+    <Compile Include="View.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SellerView.Designer.cs">
-      <DependentUpon>SellerView.cs</DependentUpon>
+    <Compile Include="View.designer.cs">
+      <DependentUpon>View.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="ClientView.resx">
-      <DependentUpon>ClientView.cs</DependentUpon>
+    <EmbeddedResource Include="PopupForm.resx">
+      <DependentUpon>PopupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SellerView.resx">
-      <DependentUpon>SellerView.cs</DependentUpon>
+    <EmbeddedResource Include="View.resx">
+      <DependentUpon>View.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
