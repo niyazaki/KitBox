@@ -8,80 +8,171 @@ using System.Windows.Forms;
 
 namespace KitBoxProgram
 {
-    public class DB
+    class DB
     {
-        public MySqlConnection connection;
-        public string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+        private MySqlConnection connection;
+        private string server;
+        private string database;
+        private string uid;
+        private string password;
+
+        //Constructor
         public DB()
         {
-            connection = new MySqlConnection(coStr);
+            Initialize();
         }
 
-        public void OpenCo()
+        //Initialize values
+        private void Initialize()
+        {
+            server = "db4free.net";
+            database = "kitbox";
+            uid = "kitbox";
+            password = "ecamgroupe4";
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+                  database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "OldGuids=True;";
+
+            connection = new MySqlConnection(connectionString);
+        }
+
+        public bool OpenCo()
         {
             try
             {
-                if (connection.State != System.Data.ConnectionState.Open)
-                {
-                    connection.Close();
-                    connection.Open();
-
-                    //Show message to say that it's connected
-                    MessageBox.Show("Connected");
-                }
+                connection.Open();
+                return true;
             }
-
-            catch (MySqlException e)
+            catch (MySqlException ex)
             {
-                MessageBox.Show(e.ToString());
-                MessageBox.Show("Connexion failed !");
+                //When handling errors, you can your application's response based
+                //on the error number.
+                //The two most common error numbers when connecting are as follows:
+                //0: Cannot connect to server.
+                //1045: Invalid user name and/or password.
+                switch (ex.Number)
+                {
+                    case 0:
+                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        break;
+
+                    case 1045:
+                        MessageBox.Show("Invalid username/password, please try again");
+                        break;
+                }
+                return false;
             }
         }
 
-        public void CloseCo()
+        //Close connection
+        public bool CloseCo()
         {
-            connection.Close();
+            try
+            {
+                connection.Close();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
-    }
 
-    public class SearchClass
-    {
-        public MySqlConnection connection;
-        public string coStr = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-       
+        //Insert statement
+        public void InsertCatalogue(string idacc, string reference, int height, int depth, int width, string color, int price, int nb, int idsupp)
+        {
+            string values = String.Format("'{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}'", idacc, reference, height, depth, width, color, price, nb, idsupp);
+            string query = "INSERT INTO Catalogue (ID-Accessory, Ref, Height, Depth, Width, Color, Price, Nb-Pieces/Box, Id-Supplier) VALUES(" + values + ")";
+
+            //open connection
+            if (this.OpenCo() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseCo();
+            }
+        }
+
+        //Update statement
+        public void UpdateSuppPrice()
+        {
+            //WIP, have to update the query
+            string query = "UPDATE tableinfo SET name='Joe', age='22' WHERE name='John Smith'";
+
+            //Open connection
+            if (this.OpenCo() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseCo();
+            }
+        }
+
+        //Delete statement
+        public void Delete()
+        {
+            //WIP, have to update the query
+            string query = "DELETE FROM tableinfo WHERE name='John Smith'";
+
+            if (this.OpenCo() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                this.CloseCo();
+            }
+        }
+        //Select statement
         public List<string> Search(string code, string column, string table)
         {
-            //Partie ajoutée par Yassine El Haddadi, peut être fausse --------------
-
-            //----------------------------------------------------------------------
-            List<string> res = new List<string>();
-            connection = new MySqlConnection(coStr);
-            MySqlDataReader mdr;
-            DB db = new DB();
-            db.OpenCo();
-
             string query = "SELECT DISTINCT" + column + " FROM " + table + " WHERE ID accessory LIKE'" + code + "%'";
 
-            MySqlCommand command = new MySqlCommand(query,connection);
+            //Create a list to store the result
+            List<string> res = new List<string>();
+            //Open connection
+            if (this.OpenCo() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
 
-            try
-            {
-                mdr = command.ExecuteReader();
-                while (mdr.Read())
+                //Read the data and store them in the list
+                while (dataReader.Read())
                 {
-                    res.Add(mdr.GetString(0));
+                    res.Add(dataReader.GetString(0));
                 }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseCo();
+
+                //return list to be displayed
+                return res;
             }
-            catch (MySqlException e)
+            else
             {
-                MessageBox.Show(e.ToString());
-                MessageBox.Show("Error while reading");
+                return res;
             }
-            return res;
         }
     }
-
-    class Cabinet
+        class Cabinet
     {
         int width;
         int depth;
@@ -159,7 +250,6 @@ namespace KitBoxProgram
     abstract class Accessory
     {
         public DB db = new DB();
-        public SearchClass search;
 
         public double price;
         public string code;
@@ -167,7 +257,7 @@ namespace KitBoxProgram
 
         public double GetPrice()
         {
-            price =  search.Search(code, "price", "Catalogue").ConvertAll(double.Parse)[0];
+            price =  db.Search(code, "price", "Catalogue").ConvertAll(double.Parse)[0];
             return price;
         }
 

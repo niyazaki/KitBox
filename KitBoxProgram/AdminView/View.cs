@@ -79,8 +79,6 @@ namespace WindowsFormsApplication1
             textBox13.Text += "\r\n Prix total : " + prix + "€";
         }
 
-
-        public SearchClass s = new SearchClass();
         private bool a;
 
         public Form1()
@@ -195,8 +193,6 @@ namespace WindowsFormsApplication1
             largeur.Add(0);
 
             Display();
-
-
         }
 
         private void ftesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -320,14 +316,14 @@ namespace WindowsFormsApplication1
         {
             tabControl1.SelectedTab = Base;
             List<string> listWidth = new List<string> {};
-            listWidth = s.Search("TRF", "width", "Catalogue");
+            listWidth = db.Search("TRF", "width", "Catalogue");
             foreach (string i in listWidth)
             {
                 comboBox4.Items.Add(i);
             }
 
             List<string> listDepth = new List<string> {};
-            listDepth = s.Search("TRG", "depth", "Catalogue");
+            listDepth = db.Search("TRG", "depth", "Catalogue");
             foreach (string i in listDepth)
             {
                 comboBox2.Items.Add(i);
@@ -409,14 +405,14 @@ namespace WindowsFormsApplication1
 
                 textBox7.Text = "";
                 List<string> listHeight = new List<string> {};
-                listHeight = s.Search("TRG", "height", "accessory");
+                listHeight = db.Search("TRG", "height", "accessory");
                 foreach (string i in listHeight)
                 {
                     comboBox1.Items.Add(i);
                 }
 
                 List<string> listColor = new List<string> { };
-                listColor = s.Search("PAH" + lrRail.depth.ToString() + frRail.width.ToString(), "color", "accessory");  //boxDepth ou box.Depth (attention au type) etc..
+                listColor = db.Search("PAH" + lrRail.depth.ToString() + frRail.width.ToString(), "color", "accessory");  //boxDepth ou box.Depth (attention au type) etc..
                 foreach (string i in listColor)
                 {
                     comboBox5.Items.Add(i);
@@ -424,7 +420,7 @@ namespace WindowsFormsApplication1
 
                 //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
                 List<string> listDoor = new List<string> {};
-                listDoor = s.Search("POR" + comboBox1.Text + frRail.width.ToString(), "color", "accessory");  //boxHeight ou box.Height (attention au type) etc..
+                listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "color", "accessory");  //boxHeight ou box.Height (attention au type) etc..
                 foreach (string i in listColor)
                 {
                     comboBox3.Items.Add(i);
@@ -473,7 +469,7 @@ namespace WindowsFormsApplication1
             List<string> listCor = new List<string> { };
             //Trouver la hauteur totale à prendre pour notre armoire :
             List<string> listTotHeight = new List<string> { };
-            listTotHeight = s.Search("COR", "height", "accessory");
+            listTotHeight = db.Search("COR", "height", "accessory");
             int i = 0;
             int corHeight = 0;
             while (Int32.Parse(listTotHeight[i]) >= hauteurtotale)
@@ -482,10 +478,10 @@ namespace WindowsFormsApplication1
                 i++;
             }
             
-            listCor = s.Search("COR" + Convert.ToString(corHeight), "color", "accessory");
+            listCor = db.Search("COR" + Convert.ToString(corHeight), "color", "accessory");
             foreach (string j in listCor)
             {
-                comboBoxH.Items.Add(i);
+                comboBox8.Items.Add(i);
             }
 
 
@@ -641,7 +637,7 @@ namespace WindowsFormsApplication1
 
         private void button16_Click(object sender, EventArgs e)
         {
-            if (comboBoxH.Text != "")
+            if (comboBox8.Text != "")
             {
                 finished = true;
                 tabControl1.SelectedTab = CommandDetail;
@@ -651,6 +647,11 @@ namespace WindowsFormsApplication1
             {
                 textBox7.Text = "Champs incomplets !";
             }
+        }
+
+        private void ComboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
