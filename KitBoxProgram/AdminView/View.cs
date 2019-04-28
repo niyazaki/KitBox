@@ -316,14 +316,14 @@ namespace WindowsFormsApplication1
         {
             tabControl1.SelectedTab = Base;
             List<string> listWidth = new List<string> {};
-            listWidth = db.Search("TRF", "width", "Catalogue");
+            listWidth = db.Search("TRF", "Width", "Catalogue");
             foreach (string i in listWidth)
             {
                 comboBox4.Items.Add(i);
             }
 
             List<string> listDepth = new List<string> {};
-            listDepth = db.Search("TRG", "depth", "Catalogue");
+            listDepth = db.Search("TRG", "Depth", "Catalogue");
             foreach (string i in listDepth)
             {
                 comboBox2.Items.Add(i);
@@ -405,14 +405,14 @@ namespace WindowsFormsApplication1
 
                 textBox7.Text = "";
                 List<string> listHeight = new List<string> {};
-                listHeight = db.Search("TRG", "height", "accessory");
+                listHeight = db.Search("TRG", "Height", "Catalogue");
                 foreach (string i in listHeight)
                 {
                     comboBox1.Items.Add(i);
                 }
 
                 List<string> listColor = new List<string> { };
-                listColor = db.Search("PAH" + lrRail.depth.ToString() + frRail.width.ToString(), "color", "accessory");  //boxDepth ou box.Depth (attention au type) etc..
+                listColor = db.Search("PAH" + lrRail.depth.ToString() + frRail.width.ToString(), "Color", "Catalogue");  //boxDepth ou box.Depth (attention au type) etc..
                 foreach (string i in listColor)
                 {
                     comboBox5.Items.Add(i);
@@ -420,7 +420,7 @@ namespace WindowsFormsApplication1
 
                 //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
                 List<string> listDoor = new List<string> {};
-                listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "color", "accessory");  //boxHeight ou box.Height (attention au type) etc..
+                listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
                 foreach (string i in listColor)
                 {
                     comboBox3.Items.Add(i);
@@ -469,7 +469,7 @@ namespace WindowsFormsApplication1
             List<string> listCor = new List<string> { };
             //Trouver la hauteur totale à prendre pour notre armoire :
             List<string> listTotHeight = new List<string> { };
-            listTotHeight = db.Search("COR", "height", "accessory");
+            listTotHeight = db.Search("COR", "Height", "Catalogue");
             int i = 0;
             int corHeight = 0;
             while (Int32.Parse(listTotHeight[i]) >= hauteurtotale)
@@ -478,7 +478,7 @@ namespace WindowsFormsApplication1
                 i++;
             }
             
-            listCor = db.Search("COR" + Convert.ToString(corHeight), "color", "accessory");
+            listCor = db.Search("COR" + Convert.ToString(corHeight), "Color", "Catalogue");
             foreach (string j in listCor)
             {
                 comboBox8.Items.Add(i);

@@ -85,3 +85,6 @@ F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\obj\Debug\Vi
 F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.CopyComplete
 F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.exe
 F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb
+C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.xml
+C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.PopupForm.resources

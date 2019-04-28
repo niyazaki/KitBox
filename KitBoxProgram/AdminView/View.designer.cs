@@ -170,13 +170,13 @@
             this.comboBox6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.ItemHeight = 29;
+            this.comboBox6.ItemHeight = 24;
             this.comboBox6.Items.AddRange(new object[] {
             "Payed",
             "Unpayed"});
             this.comboBox6.Location = new System.Drawing.Point(585, 415);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(136, 37);
+            this.comboBox6.Size = new System.Drawing.Size(136, 32);
             this.comboBox6.TabIndex = 38;
             // 
             // button11
@@ -383,7 +383,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(240, 229);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(239, 29);
+            this.checkBox1.Size = new System.Drawing.Size(184, 24);
             this.checkBox1.TabIndex = 33;
             this.checkBox1.Text = "Présence de portes";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -447,12 +447,12 @@
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.ItemHeight = 31;
+            this.comboBox1.ItemHeight = 25;
             this.comboBox1.Items.AddRange(new object[] {
             "0"});
             this.comboBox1.Location = new System.Drawing.Point(376, 76);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 39);
+            this.comboBox1.Size = new System.Drawing.Size(250, 33);
             this.comboBox1.TabIndex = 27;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -463,7 +463,7 @@
             this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.ItemHeight = 31;
+            this.comboBox3.ItemHeight = 25;
             this.comboBox3.Items.AddRange(new object[] {
             "Blanc",
             "Brun",
@@ -472,7 +472,7 @@
             "Verre"});
             this.comboBox3.Location = new System.Drawing.Point(379, 275);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(250, 39);
+            this.comboBox3.Size = new System.Drawing.Size(250, 33);
             this.comboBox3.TabIndex = 29;
             this.comboBox3.Visible = false;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
@@ -483,7 +483,7 @@
             this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.ItemHeight = 31;
+            this.comboBox5.ItemHeight = 25;
             this.comboBox5.Items.AddRange(new object[] {
             "Blanc",
             "Brun",
@@ -492,7 +492,7 @@
             "Verre"});
             this.comboBox5.Location = new System.Drawing.Point(376, 175);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(253, 39);
+            this.comboBox5.Size = new System.Drawing.Size(253, 33);
             this.comboBox5.TabIndex = 31;
             this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
@@ -528,12 +528,12 @@
             this.comboBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox7.ItemHeight = 31;
+            this.comboBox7.ItemHeight = 25;
             this.comboBox7.Items.AddRange(new object[] {
             "0"});
             this.comboBox7.Location = new System.Drawing.Point(327, 232);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(250, 39);
+            this.comboBox7.Size = new System.Drawing.Size(250, 33);
             this.comboBox7.TabIndex = 28;
             this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
             // 
@@ -613,17 +613,17 @@
             // comboBox2
             // 
             this.comboBox2.AllowDrop = true;
-            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ItemHeight = 31;
+            this.comboBox2.ItemHeight = 25;
             this.comboBox2.Items.AddRange(new object[] {
             "0"});
             this.comboBox2.Location = new System.Drawing.Point(334, 144);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(250, 39);
+            this.comboBox2.Size = new System.Drawing.Size(250, 33);
             this.comboBox2.TabIndex = 28;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -633,12 +633,12 @@
             this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.ItemHeight = 31;
+            this.comboBox4.ItemHeight = 25;
             this.comboBox4.Items.AddRange(new object[] {
             "0"});
             this.comboBox4.Location = new System.Drawing.Point(334, 300);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(250, 39);
+            this.comboBox4.Size = new System.Drawing.Size(250, 33);
             this.comboBox4.TabIndex = 30;
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
@@ -732,12 +732,12 @@
             this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox8.FormattingEnabled = true;
             this.comboBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox8.ItemHeight = 31;
+            this.comboBox8.ItemHeight = 25;
             this.comboBox8.Items.AddRange(new object[] {
             "0"});
             this.comboBox8.Location = new System.Drawing.Point(333, 229);
             this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(250, 39);
+            this.comboBox8.Size = new System.Drawing.Size(250, 33);
             this.comboBox8.TabIndex = 29;
             this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.ComboBox8_SelectedIndexChanged);
             // 
