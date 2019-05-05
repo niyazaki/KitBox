@@ -529,7 +529,7 @@ namespace WindowsFormsApplication1
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox10.Text + "--->" + comboBox6.Text;
-                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
+                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where \"ID_Command\"= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
 
                 MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
                 try
@@ -652,6 +652,11 @@ namespace WindowsFormsApplication1
         }
 
         private void textBox8_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
         {
 
         }

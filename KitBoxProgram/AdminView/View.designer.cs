@@ -159,6 +159,7 @@
             this.textBox12.Size = new System.Drawing.Size(426, 30);
             this.textBox12.TabIndex = 6;
             this.textBox12.Text = "Entrez un ID_COMMAND pour modifier sa valeur \"Payed\" :";
+            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // dataGridView2
             // 
