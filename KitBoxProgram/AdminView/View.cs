@@ -214,7 +214,7 @@ namespace WindowsFormsApplication1
             FRrail frRail = new FRrail(Int32.Parse(splitString[0]));
 
             List<string> listDoor = new List<string> { };
-            listDoor = db.Search("PAG" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
+            listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
             comboBox3.Items.Clear();
             foreach (string i in listDoor)
             {

@@ -139,7 +139,7 @@ namespace KitBoxProgram
         //Select statement
         public List<string> Search(string code, string column, string table)
         {
-            string query = "SELECT DISTINCT " + column + " FROM " + table + " d WHERE d.ID_Accessory LIKE '" + code + "%'";
+            string query = "SELECT DISTINCT " + column + " FROM " + table + " d WHERE d.ID_Accessory LIKE '" + code + "%' order by d."+column;
 
             //Create a list to store the result
             List<string> res = new List<string>();
