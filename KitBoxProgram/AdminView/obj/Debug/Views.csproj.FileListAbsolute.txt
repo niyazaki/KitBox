@@ -18,7 +18,6 @@ C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.xml
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csprojAssemblyReference.cache
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\WindowsFormsApplication1.Form1.resources
-C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Form1.resources
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Properties.Resources.resources
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.GenerateResource.cache
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.CoreCompileInputs.cache
@@ -88,3 +87,7 @@ F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\obj\Debug\Ad
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.xml
 C:\Users\user\Pictures\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.PopupForm.resources
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.dll
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.xml
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.PopupForm.resources
