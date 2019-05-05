@@ -210,10 +210,12 @@ namespace WindowsFormsApplication1
             //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
             textBox7.Text = "";
             comboBox3.Enabled = true;
-            FRrail frRail = new FRrail(Int32.Parse(comboBox4.Text));
-            textBox7.Text = comboBox4.Text;
+            string[] splitString = comboBox4.Text.Split(' ');
+            FRrail frRail = new FRrail(Int32.Parse(splitString[0]));
+
             List<string> listDoor = new List<string> { };
-            listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
+            listDoor = db.Search("PAG" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
+            comboBox3.Items.Clear();
             foreach (string i in listDoor)
             {
                 comboBox3.Items.Add(i);
@@ -316,20 +318,34 @@ namespace WindowsFormsApplication1
 
         private void button8_Click(object sender, EventArgs e)
         {
+            comboBox2.Items.Clear();
+            comboBox4.Items.Clear();
             tabControl1.SelectedTab = Base;
-            List<string> listWidth = new List<string> {};
-            listWidth = db.Search("TRF", "Width", "Catalogue");
-            foreach (string i in listWidth)
-            {
-                comboBox4.Items.Add(i);
-            }
-
-            List<string> listDepth = new List<string> {};
+            List<string> listDepth = new List<string> { };
             listDepth = db.Search("TRG", "Depth", "Catalogue");
             foreach (string i in listDepth)
             {
                 comboBox2.Items.Add(i);
             }
+            List<string> listWidth = new List<string> {};
+            List<string> listWidthPOR = new List<string> { };
+            listWidth = db.Search("TRF", "Width", "Catalogue");
+
+            listWidthPOR = db.Search("POR","Width","Catalogue");
+
+            foreach (string i in listWidth)
+            {
+                if (listWidthPOR.Contains(i))
+                {
+                    comboBox4.Items.Add(i + " (Portes disponibles)");
+                }
+                else
+                { 
+                    comboBox4.Items.Add(i);
+
+                }
+            }
+
 
 
             //Partie masquée car crash, je l'ai laissée en suspens pour les tests visuels
@@ -401,13 +417,14 @@ namespace WindowsFormsApplication1
             if (comboBox2.Text != "" & comboBox4.Text != "")
             {
                 LRrail lrRail = new LRrail(Int32.Parse(comboBox2.Text));
-                FRrail frRail = new FRrail(Int32.Parse(comboBox4.Text));
-                BArail baRail = new BArail(Int32.Parse(comboBox4.Text));
+                string[] splitString = comboBox4.Text.Split(' ');
+                FRrail frRail = new FRrail(Int32.Parse(splitString[0]));
+                BArail baRail = new BArail(Int32.Parse(splitString[0]));
 
 
                 textBox7.Text = "";
                 List<string> listHeight = new List<string> {};
-                listHeight = db.Search("TRG", "Height", "Catalogue");
+                listHeight = db.Search("TAS", "Height", "Catalogue");
                 foreach (string i in listHeight)
                 {
                     comboBox1.Items.Add(i);
@@ -419,8 +436,17 @@ namespace WindowsFormsApplication1
                 {
                     comboBox5.Items.Add(i);
                 }
-
+                if (comboBox1.Text.Contains("(Portes disponibles)"))
+                {
+                    checkBox1.Enabled = true;
+                }
+                if (!(comboBox1.Text.Contains("(Portes disponibles)")))
+                {
+                    checkBox1.Enabled = false;
+                }
+                comboBox4.Text = splitString[0];
                 tabControl1.SelectedTab = Box;
+
                 //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
                 //et qu'on passe à l'onglet Corniere, ça fait une recherche pour remplir le comboBox7
                 //qui correspond à la couleur des cornières

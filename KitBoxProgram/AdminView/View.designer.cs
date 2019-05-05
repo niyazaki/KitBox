@@ -528,9 +528,9 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(240, 229);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(184, 24);
+            this.checkBox1.Size = new System.Drawing.Size(167, 24);
             this.checkBox1.TabIndex = 33;
-            this.checkBox1.Text = "Présence de portes";
+            this.checkBox1.Text = "Inclure les portes";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
