@@ -375,8 +375,6 @@
             this.comboBox8.FormattingEnabled = true;
             this.comboBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboBox8.ItemHeight = 25;
-            this.comboBox8.Items.AddRange(new object[] {
-            "0"});
             this.comboBox8.Location = new System.Drawing.Point(333, 229);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(250, 33);

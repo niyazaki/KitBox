@@ -502,14 +502,14 @@ namespace WindowsFormsApplication1
             //Trouver la hauteur totale à prendre pour notre armoire :
             List<string> listTotHeight = new List<string> { };
             listTotHeight = db.Search("COR", "Height", "Catalogue");
+            textBox7.Text = listTotHeight.ToString();
             int i = 0;
-            int corHeight = 0;
-            while (Int32.Parse(listTotHeight[i]) >= hauteurtotale)
+            int corHeight = Int32.Parse(listTotHeight[0]); ;
+            while (Int32.Parse(listTotHeight[i]) < hauteurtotale)
             {
                 corHeight = Int32.Parse(listTotHeight[i]);
                 i++;
             }
-            
             listCor = db.Search("COR" + Convert.ToString(corHeight), "Color", "Catalogue");
             foreach (string j in listCor)
             {
