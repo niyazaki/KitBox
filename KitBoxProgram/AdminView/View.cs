@@ -45,7 +45,6 @@ namespace WindowsFormsApplication1
             }
             textBox9.Text += "\r\n Largeur de chaque casier: " + largeur[0];
             textBox9.Text += " ; et longueur  de chaque casier: " + longueur[0];
-            textBox9.Text += "\r\n Couleur des cornières : " + (couleurCorniere[0]);
             hauteurtotale = 0;
             foreach (int x in hauteur)
             {
@@ -109,6 +108,7 @@ namespace WindowsFormsApplication1
                 textBox7.Text = "";
                 if (p < 7)
                 {
+                    button4.Enabled = true;
                     n++;
                     textBox6.Text = "Casier " + n;
                     hauteur.Add(Convert.ToInt32(comboBox1.Text) + 4);
@@ -142,16 +142,6 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (comboBox7.Text != "")
-            {
-                tabControl1.SelectedTab = Box;
-                button4.Enabled = true;
-                couleurCorniere.Add(comboBox7.Text);
-            }
-            else
-            {
-                textBox7.Text = "Champs incomplets !";
-            }
         }
 
 
@@ -650,6 +640,11 @@ namespace WindowsFormsApplication1
         }
 
         private void ComboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged_1(object sender, EventArgs e)
         {
 
         }
