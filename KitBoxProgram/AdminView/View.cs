@@ -211,6 +211,7 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             comboBox3.Enabled = true;
             FRrail frRail = new FRrail(Int32.Parse(comboBox4.Text));
+            textBox7.Text = comboBox4.Text;
             List<string> listDoor = new List<string> { };
             listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
             foreach (string i in listDoor)
