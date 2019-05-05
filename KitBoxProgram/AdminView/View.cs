@@ -207,7 +207,18 @@ namespace WindowsFormsApplication1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
+            textBox7.Text = "";
+            comboBox3.Enabled = true;
+            FRrail frRail = new FRrail(Int32.Parse(comboBox4.Text));
+            List<string> listDoor = new List<string> { };
+            listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
+            foreach (string i in listDoor)
+            {
+                comboBox3.Items.Add(i);
+            }
 
+            
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
@@ -385,7 +396,7 @@ namespace WindowsFormsApplication1
 
         private void button6_Click(object sender, EventArgs e)
         {
-             
+            comboBox3.Enabled = false;
             if (comboBox2.Text != "" & comboBox4.Text != "")
             {
                 LRrail lrRail = new LRrail(Int32.Parse(comboBox2.Text));
@@ -408,14 +419,6 @@ namespace WindowsFormsApplication1
                     comboBox5.Items.Add(i);
                 }
 
-                //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
-                List<string> listDoor = new List<string> {};
-                listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
-                foreach (string i in listColor)
-                {
-                    comboBox3.Items.Add(i);
-                }
-
                 tabControl1.SelectedTab = Box;
                 //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
                 //et qu'on passe à l'onglet Corniere, ça fait une recherche pour remplir le comboBox7
@@ -435,7 +438,10 @@ namespace WindowsFormsApplication1
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
-            
+            if (comboBox1.Text == "")
+            {
+                textBox7.Text = "Entrer une hauteur pour obtenir les couleurs de porte.";
+            }
             if (change==1) {
                 textBox4.Visible = true;
                 comboBox3.Visible = true;
