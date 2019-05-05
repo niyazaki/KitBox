@@ -111,10 +111,12 @@ namespace WindowsFormsApplication1
                     n++;
                     textBox6.Text = "Casier " + n;
                     hauteur.Add(Convert.ToInt32(comboBox1.Text) + 4);
+                    //PasAbouti int prixTemp = db.Search("PAG"+comboBox1.Text+comboBox5.Text,"Price","Catalogue") ;
                     if (change == 1)
                     {
                         couleurPortes.Add("Pas de porte");
                     }
+                    
                     else
                     {
                         couleurPortes.Add(comboBox3.Text);
@@ -566,7 +568,7 @@ namespace WindowsFormsApplication1
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox10.Text + "--->" + comboBox6.Text;
-                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where \"ID_Command\"= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
+                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where d.ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
 
                 MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
                 try
