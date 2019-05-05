@@ -43,8 +43,8 @@ namespace WindowsFormsApplication1
                 m++;
 
             }
-            textBox9.Text += "\r\n Largeur de chaque casier: " + largeur[0];
-            textBox9.Text += " ; et longueur  de chaque casier: " + longueur[0];
+            textBox9.Text += "\r\n Largeur de l'armoire: " + largeur[0];
+            textBox9.Text += " ; et profondeur  de l'armoire: " + longueur[0];
             hauteurtotale = 0;
             foreach (int x in hauteur)
             {
@@ -64,8 +64,8 @@ namespace WindowsFormsApplication1
                 m++;
 
             }
-            textBox13.Text += "\r\n Largeur de chaque casier: " + largeur[0];
-            textBox13.Text += " ; et longueur  de chaque casier: " + longueur[0];
+            textBox13.Text += "\r\n Largeur de l'armoire: " + largeur[0];
+            textBox13.Text += " ; et la profondeur de l'armoire: " + longueur[0];
             textBox13.Text += "\r\n Couleur des cornières : " + couleurCorniere[0];
             int hauteurtotale = 0;
             foreach (int x in hauteur)
@@ -74,7 +74,6 @@ namespace WindowsFormsApplication1
             }
             int prix = 0;
             textBox13.Text += "\r\n Hauteur totale : " + (hauteurtotale);
-            textBox13.Text += "\r\n Choix des cornières : " + choixCorniere[0];
             textBox13.Text += "\r\n Prix total : " + prix + "€";
         }
 
@@ -453,7 +452,8 @@ namespace WindowsFormsApplication1
                 comboBox4.Items.Clear();
                 comboBox4.Items.Add(splitString[0]);
                 comboBox4.Text = comboBox4.Items[0].ToString();
-
+                largeur.Add(Int32.Parse(comboBox4.Text));
+                longueur.Add(Int32.Parse(comboBox2.Text));
                 tabControl1.SelectedTab = Box;
 
                 //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
@@ -498,11 +498,12 @@ namespace WindowsFormsApplication1
 
         private void button7_Click(object sender, EventArgs e)
         {
+            comboBox8.Items.Clear();
             List<string> listCor = new List<string> { };
             //Trouver la hauteur totale à prendre pour notre armoire :
             List<string> listTotHeight = new List<string> { };
             listTotHeight = db.Search("COR", "Height", "Catalogue");
-            textBox7.Text = listTotHeight.ToString();
+
             int i = 0;
             int corHeight = Int32.Parse(listTotHeight[0]); ;
             while (Int32.Parse(listTotHeight[i]) < hauteurtotale)
@@ -511,9 +512,10 @@ namespace WindowsFormsApplication1
                 i++;
             }
             listCor = db.Search("COR" + Convert.ToString(corHeight), "Color", "Catalogue");
+
             foreach (string j in listCor)
             {
-                comboBox8.Items.Add(i);
+                comboBox8.Items.Add(j);
             }
 
 
@@ -673,6 +675,7 @@ namespace WindowsFormsApplication1
             {
                 finished = true;
                 tabControl1.SelectedTab = CommandDetail;
+                couleurCorniere.Add(comboBox8.Text);
                 Display13();
             }
             else
