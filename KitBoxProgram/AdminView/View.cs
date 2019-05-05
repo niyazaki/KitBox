@@ -414,6 +414,10 @@ namespace WindowsFormsApplication1
         private void button6_Click(object sender, EventArgs e)
         {
             comboBox3.Enabled = false;
+            comboBox1.Items.Clear();
+            comboBox3.Items.Clear();
+            comboBox5.Items.Clear();
+            checkBox1.Checked = false;
             if (comboBox2.Text != "" & comboBox4.Text != "")
             {
                 LRrail lrRail = new LRrail(Int32.Parse(comboBox2.Text));
@@ -421,8 +425,8 @@ namespace WindowsFormsApplication1
                 FRrail frRail = new FRrail(Int32.Parse(splitString[0]));
                 BArail baRail = new BArail(Int32.Parse(splitString[0]));
 
-
                 textBox7.Text = "";
+
                 List<string> listHeight = new List<string> {};
                 listHeight = db.Search("TAS", "Height", "Catalogue");
                 foreach (string i in listHeight)
@@ -436,15 +440,20 @@ namespace WindowsFormsApplication1
                 {
                     comboBox5.Items.Add(i);
                 }
-                if (comboBox1.Text.Contains("(Portes disponibles)"))
+                if (comboBox4.Text.Contains("(Portes disponibles)"))
                 {
                     checkBox1.Enabled = true;
                 }
-                if (!(comboBox1.Text.Contains("(Portes disponibles)")))
+                if (!(comboBox4.Text.Contains("(Portes disponibles)")))
                 {
                     checkBox1.Enabled = false;
                 }
-                comboBox4.Text = splitString[0];
+                //Faire comboBox4.Text=splitString[0] bug parfois, donc je vide tout, j'ajoute l'élement 
+                //purement int, et je prends l'élements 0 que je change en string. Et là ça bug plus
+                comboBox4.Items.Clear();
+                comboBox4.Items.Add(splitString[0]);
+                comboBox4.Text = comboBox4.Items[0].ToString();
+
                 tabControl1.SelectedTab = Box;
 
                 //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
