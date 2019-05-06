@@ -130,6 +130,7 @@ namespace WindowsFormsApplication1
                         {
                             coupelles.Add(false);
                         }
+                        prix += (db.Search("POR"+, "Price", "Catalogue"));
                     }
                     couleurPanneaux.Add(comboBox5.Text);
                     p++;
