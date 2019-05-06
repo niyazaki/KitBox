@@ -28,6 +28,8 @@ namespace WindowsFormsApplication1
         List<string> couleurPanneaux = new List<string>();
         List<string> couleurCorniere = new List<string>();
         List<string> choixCorniere = new List<string>();
+        List<bool> coupelles = new List<bool>();
+        int prix = 0;
         int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
         public int hauteurtotale;
@@ -39,7 +41,7 @@ namespace WindowsFormsApplication1
             while (m != (n - 1))
             {
                 
-                textBox9.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[0] + "\r\n";
+                textBox9.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[m] + "\r\n";
                 m++;
 
             }
@@ -60,7 +62,7 @@ namespace WindowsFormsApplication1
             while (m != (n - 1))
             {
 
-                textBox13.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[0] + "\r\n";
+                textBox13.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[m] + "\r\n";
                 m++;
 
             }
@@ -72,7 +74,6 @@ namespace WindowsFormsApplication1
             {
                 hauteurtotale += x;
             }
-            int prix = 0;
             textBox13.Text += "\r\n Hauteur totale : " + (hauteurtotale);
             textBox13.Text += "\r\n Prix total : " + prix + "€";
         }
@@ -115,11 +116,20 @@ namespace WindowsFormsApplication1
                     if (change == 1)
                     {
                         couleurPortes.Add("Pas de porte");
+                        coupelles.Add(false);
                     }
                     
                     else
                     {
                         couleurPortes.Add(comboBox3.Text);
+                        if (comboBox3.Text != "Glass")
+                        {
+                            coupelles.Add(true);
+                        }
+                        else
+                        {
+                            coupelles.Add(false);
+                        }
                     }
                     couleurPanneaux.Add(comboBox5.Text);
                     p++;
