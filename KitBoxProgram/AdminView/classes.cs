@@ -172,7 +172,7 @@ namespace KitBoxProgram
             }
         }
     }
-        class Cabinet
+    class Cabinet
     {
         int width;
         int depth;
@@ -180,7 +180,6 @@ namespace KitBoxProgram
         Angle angle;
         private List<Box> boxes;
         double price;
-
 
         public Cabinet(int width, int depth, List<Box> boxes, Angle angle)
         {
@@ -192,7 +191,7 @@ namespace KitBoxProgram
 
         public double GetPrice()
         {
-            price = angle.price;
+            price = angle.price * angle.nbPiece;
             foreach (Box i in boxes)
             {
                 price += i.price;
@@ -241,7 +240,7 @@ namespace KitBoxProgram
             price = 0;
             foreach (Accessory i in accessories)
             {
-                price += i.price;
+                price += i.price * i.nbPiece;
             }
             return price;
         }
@@ -254,16 +253,23 @@ namespace KitBoxProgram
         public double price;
         public string code;
         int stock;
+        public int nbPiece;
 
         public double GetPrice()
         {
-            price =  db.Search(code, "price", "Catalogue").ConvertAll(double.Parse)[0];
+            price =  db.Search(code, "Price", "Catalogue").ConvertAll(double.Parse)[0];
             return price;
         }
 
         public string GetCode()
         {
             return code;
+        }
+
+        public int GetNbPiece()
+        {
+            nbPiece = db.Search(code, "Nb-Pieces/Box", "Catalogue").ConvertAll(int.Parse)[0];
+            return nbPiece;
         }
 
         public int GetStock()
