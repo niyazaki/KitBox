@@ -80,8 +80,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.overlayControl11 = new AdminView.OverlayControl1();
-            this.overlayControl12 = new AdminView.OverlayControl1();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Seller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.CommandDetail.SuspendLayout();
@@ -95,13 +94,14 @@
             this.tabControl1.SuspendLayout();
             this.MainID.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(999, 485);
+            this.button3.Font = new System.Drawing.Font("Agency FB", 18F);
+            this.button3.Location = new System.Drawing.Point(1034, 455);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(238, 51);
             this.button3.TabIndex = 2;
@@ -113,13 +113,14 @@
             // 
             this.textBox7.BackColor = System.Drawing.SystemColors.Window;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.ForeColor = System.Drawing.Color.Maroon;
-            this.textBox7.Location = new System.Drawing.Point(999, 299);
+            this.textBox7.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox7.Font = new System.Drawing.Font("Agency FB", 20F, System.Drawing.FontStyle.Bold);
+            this.textBox7.ForeColor = System.Drawing.Color.Red;
+            this.textBox7.Location = new System.Drawing.Point(1034, 208);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(238, 78);
+            this.textBox7.Size = new System.Drawing.Size(254, 110);
             this.textBox7.TabIndex = 34;
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged_1);
@@ -231,7 +232,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(916, 39);
             this.button14.TabIndex = 37;
-            this.button14.Text = "Fermer récapitulatif";
+            this.button14.Text = "Close Summary";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
@@ -292,6 +293,7 @@
             // 
             // Recap
             // 
+            this.Recap.BackColor = System.Drawing.SystemColors.Window;
             this.Recap.Controls.Add(this.textBox9);
             this.Recap.Controls.Add(this.button5);
             this.Recap.Location = new System.Drawing.Point(4, 19);
@@ -300,11 +302,10 @@
             this.Recap.Size = new System.Drawing.Size(930, 522);
             this.Recap.TabIndex = 4;
             this.Recap.Text = "Recap";
-            this.Recap.UseVisualStyleBackColor = true;
             // 
             // textBox9
             // 
-            this.textBox9.BackColor = System.Drawing.Color.LightGray;
+            this.textBox9.BackColor = System.Drawing.Color.Gold;
             this.textBox9.Location = new System.Drawing.Point(6, 16);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
@@ -314,13 +315,14 @@
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.button5.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(6, 453);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(916, 39);
+            this.button5.Size = new System.Drawing.Size(916, 45);
             this.button5.TabIndex = 36;
-            this.button5.Text = "Fermer récapitulatif";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Text = "Close Summary";
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // End
@@ -374,7 +376,7 @@
             // 
             // Box
             // 
-            this.Box.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.Box.BackColor = System.Drawing.SystemColors.HotTrack;
             this.Box.Controls.Add(this.button7);
             this.Box.Controls.Add(this.checkBox1);
             this.Box.Controls.Add(this.button4);
@@ -396,87 +398,98 @@
             // 
             // button7
             // 
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(8, 441);
+            this.button7.BackColor = System.Drawing.Color.Gold;
+            this.button7.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(6, 450);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(914, 51);
             this.button7.TabIndex = 37;
-            this.button7.Text = "Finaliser la commande";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Text = "Finish";
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(240, 229);
+            this.checkBox1.Location = new System.Drawing.Point(240, 217);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(241, 33);
+            this.checkBox1.Size = new System.Drawing.Size(198, 33);
             this.checkBox1.TabIndex = 33;
-            this.checkBox1.Text = "Inclure les portes";
+            this.checkBox1.Text = "Include doors";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Gold;
             this.button4.Enabled = false;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(8, 396);
+            this.button4.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(6, 393);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(914, 39);
+            this.button4.Size = new System.Drawing.Size(914, 51);
             this.button4.TabIndex = 26;
-            this.button4.Text = "Afficher récapitulatif";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Text = "Summary";
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox1.Font = new System.Drawing.Font("Agency FB", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
             this.textBox1.Location = new System.Drawing.Point(30, 76);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(250, 40);
             this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "Hauteur du casier :";
+            this.textBox1.Text = "Box\'s Height";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox6
             // 
-            this.textBox6.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F);
+            this.textBox6.BackColor = System.Drawing.Color.Gold;
+            this.textBox6.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox6.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBox6.Location = new System.Drawing.Point(30, 6);
             this.textBox6.Multiline = true;
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(185, 36);
+            this.textBox6.Size = new System.Drawing.Size(196, 50);
             this.textBox6.TabIndex = 33;
-            this.textBox6.Text = "Casier 1";
+            this.textBox6.Text = "Box 1";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // textBox5
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(30, 175);
+            this.textBox5.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox5.Font = new System.Drawing.Font("Agency FB", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox5.Location = new System.Drawing.Point(30, 171);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(250, 40);
             this.textBox5.TabIndex = 32;
-            this.textBox5.Text = "Couleur des panneaux :";
+            this.textBox5.Text = "Panels\'s Color";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox4
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(30, 275);
+            this.textBox4.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.textBox4.Font = new System.Drawing.Font("Agency FB", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox4.Location = new System.Drawing.Point(30, 271);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(250, 40);
             this.textBox4.TabIndex = 7;
-            this.textBox4.Text = "Couleur des portes :";
+            this.textBox4.Text = "Doors\'s Color";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox4.Visible = false;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -502,7 +515,7 @@
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.ItemHeight = 37;
-            this.comboBox3.Location = new System.Drawing.Point(379, 275);
+            this.comboBox3.Location = new System.Drawing.Point(376, 266);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(250, 45);
             this.comboBox3.TabIndex = 29;
@@ -516,7 +529,7 @@
             this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.ItemHeight = 37;
-            this.comboBox5.Location = new System.Drawing.Point(376, 175);
+            this.comboBox5.Location = new System.Drawing.Point(376, 166);
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(253, 45);
             this.comboBox5.TabIndex = 31;
@@ -524,19 +537,21 @@
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(8, 349);
+            this.button1.BackColor = System.Drawing.Color.Gold;
+            this.button1.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(6, 336);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(914, 41);
+            this.button1.Size = new System.Drawing.Size(914, 51);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Ajouter un casier";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Add";
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
             // Base
             // 
-            this.Base.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.Base.BackColor = System.Drawing.SystemColors.Window;
+            this.Base.Controls.Add(this.pictureBox2);
             this.Base.Controls.Add(this.button6);
             this.Base.Controls.Add(this.textBox2);
             this.Base.Controls.Add(this.textBox3);
@@ -552,38 +567,45 @@
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.Color.GhostWhite;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Font = new System.Drawing.Font("Agency FB", 16F);
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button6.Location = new System.Drawing.Point(6, 445);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(916, 37);
             this.button6.TabIndex = 31;
-            this.button6.Text = "Valider";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Text = "Next";
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(334, 98);
+            this.textBox2.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.textBox2.Location = new System.Drawing.Point(127, 98);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(250, 40);
             this.textBox2.TabIndex = 4;
-            this.textBox2.Text = "Sélectionner profondeur :";
+            this.textBox2.Text = "Select depth:";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.Window;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(334, 239);
+            this.textBox3.ForeColor = System.Drawing.Color.MediumVioletRed;
+            this.textBox3.Location = new System.Drawing.Point(127, 254);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(250, 40);
             this.textBox3.TabIndex = 5;
-            this.textBox3.Text = "Selectionner largeur :";
+            this.textBox3.Text = "Select width:";
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // comboBox2
             // 
@@ -594,7 +616,7 @@
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.ItemHeight = 37;
-            this.comboBox2.Location = new System.Drawing.Point(334, 144);
+            this.comboBox2.Location = new System.Drawing.Point(127, 144);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(250, 45);
             this.comboBox2.TabIndex = 28;
@@ -607,7 +629,7 @@
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.ItemHeight = 37;
-            this.comboBox4.Location = new System.Drawing.Point(334, 300);
+            this.comboBox4.Location = new System.Drawing.Point(127, 300);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(250, 45);
             this.comboBox4.TabIndex = 30;
@@ -631,7 +653,7 @@
             // button10
             // 
             this.button10.BackColor = System.Drawing.SystemColors.Window;
-            this.button10.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Font = new System.Drawing.Font("Agency FB", 18F);
             this.button10.Location = new System.Drawing.Point(338, 223);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(238, 51);
@@ -644,7 +666,7 @@
             // 
             this.button9.BackColor = System.Drawing.SystemColors.HighlightText;
             this.button9.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(18, 396);
+            this.button9.Location = new System.Drawing.Point(18, 409);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(238, 51);
             this.button9.TabIndex = 38;
@@ -655,7 +677,7 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.SystemColors.Window;
-            this.button8.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Font = new System.Drawing.Font("Agency FB", 18F);
             this.button8.Location = new System.Drawing.Point(182, 103);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(549, 69);
@@ -678,7 +700,7 @@
             this.tabControl1.Controls.Add(this.MainID);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl1.ItemSize = new System.Drawing.Size(45, 15);
-            this.tabControl1.Location = new System.Drawing.Point(12, 129);
+            this.tabControl1.Location = new System.Drawing.Point(90, 151);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -725,11 +747,11 @@
             this.textBox11.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBox11.Font = new System.Drawing.Font("Impact", 50F);
             this.textBox11.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBox11.Location = new System.Drawing.Point(125, -3);
+            this.textBox11.Location = new System.Drawing.Point(90, 12);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox11.Size = new System.Drawing.Size(990, 117);
+            this.textBox11.Size = new System.Drawing.Size(938, 174);
             this.textBox11.TabIndex = 38;
             this.textBox11.Text = "KITBOX";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -739,33 +761,34 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -3);
+            this.pictureBox1.Location = new System.Drawing.Point(231, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1276, 686);
+            this.pictureBox1.Size = new System.Drawing.Size(173, 164);
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // overlayControl11
+            // pictureBox2
             // 
-            this.overlayControl11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.overlayControl11.Location = new System.Drawing.Point(999, 129);
-            this.overlayControl11.Name = "overlayControl11";
-            this.overlayControl11.Size = new System.Drawing.Size(222, 144);
-            this.overlayControl11.TabIndex = 40;
-            this.overlayControl11.Click += new System.EventHandler(this.overlayControl11_Click);
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(449, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(441, 423);
+            this.pictureBox2.TabIndex = 32;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1274, 679);
-            this.Controls.Add(this.overlayControl12);
-            this.Controls.Add(this.overlayControl11);
+            this.ClientSize = new System.Drawing.Size(1300, 695);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox11);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "View User";
@@ -790,6 +813,7 @@
             this.MainID.ResumeLayout(false);
             this.MainID.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -847,8 +871,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private AdminView.OverlayControl1 overlayControl11;
-        private AdminView.OverlayControl1 overlayControl12;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 
