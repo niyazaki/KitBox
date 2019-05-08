@@ -28,6 +28,8 @@ namespace WindowsFormsApplication1
         List<string> couleurPanneaux = new List<string>();
         List<string> couleurCorniere = new List<string>();
         List<string> choixCorniere = new List<string>();
+        List<bool> coupelles = new List<bool>();
+        int prix = 0;
         int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
         public int hauteurtotale;
@@ -39,13 +41,12 @@ namespace WindowsFormsApplication1
             while (m != (n - 1))
             {
                 
-                textBox9.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[0] + "\r\n";
+                textBox9.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[m] + "\r\n";
                 m++;
 
             }
-            textBox9.Text += "\r\n Largeur de chaque casier: " + largeur[0];
-            textBox9.Text += " ; et longueur  de chaque casier: " + longueur[0];
-            textBox9.Text += "\r\n Couleur des cornières : " + (couleurCorniere[0]);
+            textBox9.Text += "\r\n Largeur de l'armoire: " + largeur[0];
+            textBox9.Text += " ; et profondeur  de l'armoire: " + longueur[0];
             hauteurtotale = 0;
             foreach (int x in hauteur)
             {
@@ -61,21 +62,19 @@ namespace WindowsFormsApplication1
             while (m != (n - 1))
             {
 
-                textBox13.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[0] + "\r\n";
+                textBox13.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[m] + "\r\n";
                 m++;
 
             }
-            textBox13.Text += "\r\n Largeur de chaque casier: " + largeur[0];
-            textBox13.Text += " ; et longueur  de chaque casier: " + longueur[0];
+            textBox13.Text += "\r\n Largeur de l'armoire: " + largeur[0];
+            textBox13.Text += " ; et la profondeur de l'armoire: " + longueur[0];
             textBox13.Text += "\r\n Couleur des cornières : " + couleurCorniere[0];
             int hauteurtotale = 0;
             foreach (int x in hauteur)
             {
                 hauteurtotale += x;
             }
-            int prix = 0;
             textBox13.Text += "\r\n Hauteur totale : " + (hauteurtotale);
-            textBox13.Text += "\r\n Choix des cornières : " + choixCorniere[0];
             textBox13.Text += "\r\n Prix total : " + prix + "€";
         }
 
@@ -109,16 +108,29 @@ namespace WindowsFormsApplication1
                 textBox7.Text = "";
                 if (p < 7)
                 {
+                    button4.Enabled = true;
                     n++;
                     textBox6.Text = "Casier " + n;
                     hauteur.Add(Convert.ToInt32(comboBox1.Text) + 4);
+                    //PasAbouti int prixTemp = db.Search("PAG"+comboBox1.Text+comboBox5.Text,"Price","Catalogue") ;
                     if (change == 1)
                     {
                         couleurPortes.Add("Pas de porte");
+                        coupelles.Add(false);
                     }
+                    
                     else
                     {
                         couleurPortes.Add(comboBox3.Text);
+                        if (comboBox3.Text != "Glass")
+                        {
+                            coupelles.Add(true);
+                        }
+                        else
+                        {
+                            coupelles.Add(false);
+                        }
+                        prix += (db.Search("POR"+, "Price", "Catalogue"));
                     }
                     couleurPanneaux.Add(comboBox5.Text);
                     p++;
@@ -142,16 +154,6 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (comboBox7.Text != "")
-            {
-                tabControl1.SelectedTab = Box;
-                button4.Enabled = true;
-                couleurCorniere.Add(comboBox7.Text);
-            }
-            else
-            {
-                textBox7.Text = "Champs incomplets !";
-            }
         }
 
 
@@ -217,7 +219,21 @@ namespace WindowsFormsApplication1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
+            textBox7.Text = "";
+            comboBox3.Enabled = true;
+            string[] splitString = comboBox4.Text.Split(' ');
+            FRrail frRail = new FRrail(Int32.Parse(splitString[0]));
 
+            List<string> listDoor = new List<string> { };
+            listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
+            comboBox3.Items.Clear();
+            foreach (string i in listDoor)
+            {
+                comboBox3.Items.Add(i);
+            }
+
+            
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
@@ -314,20 +330,34 @@ namespace WindowsFormsApplication1
 
         private void button8_Click(object sender, EventArgs e)
         {
+            comboBox2.Items.Clear();
+            comboBox4.Items.Clear();
             tabControl1.SelectedTab = Base;
-            List<string> listWidth = new List<string> {};
-            listWidth = db.Search("TRF", "Width", "Catalogue");
-            foreach (string i in listWidth)
-            {
-                comboBox4.Items.Add(i);
-            }
-
-            List<string> listDepth = new List<string> {};
+            List<string> listDepth = new List<string> { };
             listDepth = db.Search("TRG", "Depth", "Catalogue");
             foreach (string i in listDepth)
             {
                 comboBox2.Items.Add(i);
             }
+            List<string> listWidth = new List<string> {};
+            List<string> listWidthPOR = new List<string> { };
+            listWidth = db.Search("TRF", "Width", "Catalogue");
+
+            listWidthPOR = db.Search("POR","Width","Catalogue");
+
+            foreach (string i in listWidth)
+            {
+                if (listWidthPOR.Contains(i))
+                {
+                    comboBox4.Items.Add(i + " (Portes disponibles)");
+                }
+                else
+                { 
+                    comboBox4.Items.Add(i);
+
+                }
+            }
+
 
 
             //Partie masquée car crash, je l'ai laissée en suspens pour les tests visuels
@@ -395,17 +425,22 @@ namespace WindowsFormsApplication1
 
         private void button6_Click(object sender, EventArgs e)
         {
-             
+            comboBox3.Enabled = false;
+            comboBox1.Items.Clear();
+            comboBox3.Items.Clear();
+            comboBox5.Items.Clear();
+            checkBox1.Checked = false;
             if (comboBox2.Text != "" & comboBox4.Text != "")
             {
                 LRrail lrRail = new LRrail(Int32.Parse(comboBox2.Text));
-                FRrail frRail = new FRrail(Int32.Parse(comboBox4.Text));
-                BArail baRail = new BArail(Int32.Parse(comboBox4.Text));
-
+                string[] splitString = comboBox4.Text.Split(' ');
+                FRrail frRail = new FRrail(Int32.Parse(splitString[0]));
+                BArail baRail = new BArail(Int32.Parse(splitString[0]));
 
                 textBox7.Text = "";
+
                 List<string> listHeight = new List<string> {};
-                listHeight = db.Search("TRG", "Height", "Catalogue");
+                listHeight = db.Search("TAS", "Height", "Catalogue");
                 foreach (string i in listHeight)
                 {
                     comboBox1.Items.Add(i);
@@ -417,16 +452,23 @@ namespace WindowsFormsApplication1
                 {
                     comboBox5.Items.Add(i);
                 }
-
-                //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
-                List<string> listDoor = new List<string> {};
-                listDoor = db.Search("POR" + comboBox1.Text + frRail.width.ToString(), "Color", "Catalogue");  //boxHeight ou box.Height (attention au type) etc..
-                foreach (string i in listColor)
+                if (comboBox4.Text.Contains("(Portes disponibles)"))
                 {
-                    comboBox3.Items.Add(i);
+                    checkBox1.Enabled = true;
                 }
-
+                if (!(comboBox4.Text.Contains("(Portes disponibles)")))
+                {
+                    checkBox1.Enabled = false;
+                }
+                //Faire comboBox4.Text=splitString[0] bug parfois, donc je vide tout, j'ajoute l'élement 
+                //purement int, et je prends l'élements 0 que je change en string. Et là ça bug plus
+                comboBox4.Items.Clear();
+                comboBox4.Items.Add(splitString[0]);
+                comboBox4.Text = comboBox4.Items[0].ToString();
+                largeur.Add(Int32.Parse(comboBox4.Text));
+                longueur.Add(Int32.Parse(comboBox2.Text));
                 tabControl1.SelectedTab = Box;
+
                 //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
                 //et qu'on passe à l'onglet Corniere, ça fait une recherche pour remplir le comboBox7
                 //qui correspond à la couleur des cornières
@@ -445,7 +487,10 @@ namespace WindowsFormsApplication1
 
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
-            
+            if (comboBox1.Text == "")
+            {
+                textBox7.Text = "Entrer une hauteur pour obtenir les couleurs de porte.";
+            }
             if (change==1) {
                 textBox4.Visible = true;
                 comboBox3.Visible = true;
@@ -466,22 +511,24 @@ namespace WindowsFormsApplication1
 
         private void button7_Click(object sender, EventArgs e)
         {
+            comboBox8.Items.Clear();
             List<string> listCor = new List<string> { };
             //Trouver la hauteur totale à prendre pour notre armoire :
             List<string> listTotHeight = new List<string> { };
             listTotHeight = db.Search("COR", "Height", "Catalogue");
+
             int i = 0;
-            int corHeight = 0;
-            while (Int32.Parse(listTotHeight[i]) >= hauteurtotale)
+            int corHeight = Int32.Parse(listTotHeight[0]); ;
+            while (Int32.Parse(listTotHeight[i]) < hauteurtotale)
             {
                 corHeight = Int32.Parse(listTotHeight[i]);
                 i++;
             }
-            
             listCor = db.Search("COR" + Convert.ToString(corHeight), "Color", "Catalogue");
+
             foreach (string j in listCor)
             {
-                comboBox8.Items.Add(i);
+                comboBox8.Items.Add(j);
             }
 
 
@@ -532,7 +579,7 @@ namespace WindowsFormsApplication1
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox10.Text + "--->" + comboBox6.Text;
-                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
+                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where d.ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
 
                 MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
                 try
@@ -641,6 +688,7 @@ namespace WindowsFormsApplication1
             {
                 finished = true;
                 tabControl1.SelectedTab = CommandDetail;
+                couleurCorniere.Add(comboBox8.Text);
                 Display13();
             }
             else
@@ -650,6 +698,16 @@ namespace WindowsFormsApplication1
         }
 
         private void ComboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
         {
 
         }
