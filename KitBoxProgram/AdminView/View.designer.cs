@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button3 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.Seller = new System.Windows.Forms.TabPage();
@@ -77,6 +78,7 @@
             this.MainID = new System.Windows.Forms.TabPage();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Seller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.CommandDetail.SuspendLayout();
@@ -89,17 +91,19 @@
             this.Main.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.MainID.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.SystemColors.Window;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(974, 306);
+            this.button3.Location = new System.Drawing.Point(974, 419);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(238, 51);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Annuler";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Text = "Back";
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox7
@@ -108,7 +112,7 @@
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.ForeColor = System.Drawing.Color.Maroon;
-            this.textBox7.Location = new System.Drawing.Point(974, 206);
+            this.textBox7.Location = new System.Drawing.Point(974, 280);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
@@ -671,7 +675,7 @@
             this.tabControl1.Controls.Add(this.MainID);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl1.ItemSize = new System.Drawing.Size(45, 15);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(12, 160);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -711,14 +715,25 @@
             this.button2.Text = "Seller";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(2, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1307, 696);
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1225, 556);
+            this.ClientSize = new System.Drawing.Size(1309, 696);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "View User";
@@ -742,6 +757,7 @@
             this.tabControl1.ResumeLayout(false);
             this.MainID.ResumeLayout(false);
             this.MainID.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -797,6 +813,7 @@
         private System.Windows.Forms.TabPage MainID;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
