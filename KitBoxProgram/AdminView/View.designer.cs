@@ -101,7 +101,7 @@
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Window;
             this.button3.Font = new System.Drawing.Font("Agency FB", 18F);
-            this.button3.Location = new System.Drawing.Point(1034, 455);
+            this.button3.Location = new System.Drawing.Point(1030, 455);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(238, 51);
             this.button3.TabIndex = 2;
@@ -582,29 +582,31 @@
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Font = new System.Drawing.Font("Agency FB", 18F);
             this.textBox2.ForeColor = System.Drawing.Color.MediumVioletRed;
-            this.textBox2.Location = new System.Drawing.Point(127, 98);
+            this.textBox2.Location = new System.Drawing.Point(127, 86);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(250, 40);
+            this.textBox2.Size = new System.Drawing.Size(250, 50);
             this.textBox2.TabIndex = 4;
             this.textBox2.Text = "Select depth:";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Font = new System.Drawing.Font("Agency FB", 18F);
             this.textBox3.ForeColor = System.Drawing.Color.MediumVioletRed;
-            this.textBox3.Location = new System.Drawing.Point(127, 254);
+            this.textBox3.Location = new System.Drawing.Point(127, 244);
             this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(250, 40);
+            this.textBox3.Size = new System.Drawing.Size(250, 50);
             this.textBox3.TabIndex = 5;
             this.textBox3.Text = "Select width:";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // comboBox2
@@ -612,7 +614,6 @@
             this.comboBox2.AllowDrop = true;
             this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.ItemHeight = 37;
@@ -625,7 +626,6 @@
             // comboBox4
             // 
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.ItemHeight = 37;
@@ -772,9 +772,9 @@
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(449, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(460, -53);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(441, 423);
+            this.pictureBox2.Size = new System.Drawing.Size(467, 448);
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -785,10 +785,10 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1300, 695);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox11);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox11);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "View User";
