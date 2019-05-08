@@ -96,3 +96,6 @@ C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminVi
 C:\Users\userj\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\userj\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.xml
 >>>>>>> 0baead5e894cb2fbf273e02170916b5be82f9133
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\AlphaBlendTextBox.dll
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.dll
+C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.pdb

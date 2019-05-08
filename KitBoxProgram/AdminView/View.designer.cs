@@ -78,7 +78,10 @@
             this.MainID = new System.Windows.Forms.TabPage();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.textBox11 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.overlayControl11 = new AdminView.OverlayControl1();
+            this.overlayControl12 = new AdminView.OverlayControl1();
             this.Seller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.CommandDetail.SuspendLayout();
@@ -97,8 +100,8 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(974, 419);
+            this.button3.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(999, 485);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(238, 51);
             this.button3.TabIndex = 2;
@@ -108,11 +111,11 @@
             // 
             // textBox7
             // 
-            this.textBox7.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.textBox7.BackColor = System.Drawing.SystemColors.Window;
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.ForeColor = System.Drawing.Color.Maroon;
-            this.textBox7.Location = new System.Drawing.Point(974, 280);
+            this.textBox7.Location = new System.Drawing.Point(999, 299);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
@@ -132,7 +135,7 @@
             this.Seller.Location = new System.Drawing.Point(4, 19);
             this.Seller.Name = "Seller";
             this.Seller.Padding = new System.Windows.Forms.Padding(3);
-            this.Seller.Size = new System.Drawing.Size(928, 501);
+            this.Seller.Size = new System.Drawing.Size(930, 522);
             this.Seller.TabIndex = 7;
             this.Seller.Text = "Seller";
             this.Seller.UseVisualStyleBackColor = true;
@@ -215,7 +218,7 @@
             this.CommandDetail.Location = new System.Drawing.Point(4, 19);
             this.CommandDetail.Name = "CommandDetail";
             this.CommandDetail.Padding = new System.Windows.Forms.Padding(3);
-            this.CommandDetail.Size = new System.Drawing.Size(928, 501);
+            this.CommandDetail.Size = new System.Drawing.Size(930, 522);
             this.CommandDetail.TabIndex = 6;
             this.CommandDetail.Text = "CommandDetail";
             this.CommandDetail.UseVisualStyleBackColor = true;
@@ -250,7 +253,7 @@
             this.StoreKeeper.Location = new System.Drawing.Point(4, 19);
             this.StoreKeeper.Name = "StoreKeeper";
             this.StoreKeeper.Padding = new System.Windows.Forms.Padding(3);
-            this.StoreKeeper.Size = new System.Drawing.Size(928, 501);
+            this.StoreKeeper.Size = new System.Drawing.Size(930, 522);
             this.StoreKeeper.TabIndex = 5;
             this.StoreKeeper.Text = "StoreKeeper";
             this.StoreKeeper.UseVisualStyleBackColor = true;
@@ -294,7 +297,7 @@
             this.Recap.Location = new System.Drawing.Point(4, 19);
             this.Recap.Name = "Recap";
             this.Recap.Padding = new System.Windows.Forms.Padding(3);
-            this.Recap.Size = new System.Drawing.Size(928, 501);
+            this.Recap.Size = new System.Drawing.Size(930, 522);
             this.Recap.TabIndex = 4;
             this.Recap.Text = "Recap";
             this.Recap.UseVisualStyleBackColor = true;
@@ -329,7 +332,7 @@
             this.End.Location = new System.Drawing.Point(4, 19);
             this.End.Name = "End";
             this.End.Padding = new System.Windows.Forms.Padding(3);
-            this.End.Size = new System.Drawing.Size(928, 501);
+            this.End.Size = new System.Drawing.Size(930, 522);
             this.End.TabIndex = 8;
             this.End.Text = "End";
             // 
@@ -386,7 +389,7 @@
             this.Box.Location = new System.Drawing.Point(4, 19);
             this.Box.Name = "Box";
             this.Box.Padding = new System.Windows.Forms.Padding(3);
-            this.Box.Size = new System.Drawing.Size(928, 501);
+            this.Box.Size = new System.Drawing.Size(930, 522);
             this.Box.TabIndex = 2;
             this.Box.Text = "Box";
             this.Box.Click += new System.EventHandler(this.Box_Click);
@@ -543,7 +546,7 @@
             this.Base.Location = new System.Drawing.Point(4, 19);
             this.Base.Name = "Base";
             this.Base.Padding = new System.Windows.Forms.Padding(3);
-            this.Base.Size = new System.Drawing.Size(928, 501);
+            this.Base.Size = new System.Drawing.Size(930, 522);
             this.Base.TabIndex = 1;
             this.Base.Text = "Base";
             // 
@@ -612,7 +615,7 @@
             // 
             // Main
             // 
-            this.Main.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Main.BackColor = System.Drawing.SystemColors.Window;
             this.Main.Controls.Add(this.button10);
             this.Main.Controls.Add(this.button9);
             this.Main.Controls.Add(this.button8);
@@ -620,7 +623,7 @@
             this.Main.Location = new System.Drawing.Point(4, 19);
             this.Main.Name = "Main";
             this.Main.Padding = new System.Windows.Forms.Padding(3);
-            this.Main.Size = new System.Drawing.Size(928, 501);
+            this.Main.Size = new System.Drawing.Size(930, 522);
             this.Main.TabIndex = 0;
             this.Main.Text = "Main";
             this.Main.Click += new System.EventHandler(this.tabPage1_Click);
@@ -628,8 +631,8 @@
             // button10
             // 
             this.button10.BackColor = System.Drawing.SystemColors.Window;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(342, 186);
+            this.button10.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.Location = new System.Drawing.Point(338, 223);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(238, 51);
             this.button10.TabIndex = 39;
@@ -640,8 +643,8 @@
             // button9
             // 
             this.button9.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(29, 428);
+            this.button9.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(18, 396);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(238, 51);
             this.button9.TabIndex = 38;
@@ -652,8 +655,8 @@
             // button8
             // 
             this.button8.BackColor = System.Drawing.SystemColors.Window;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(189, 83);
+            this.button8.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(182, 103);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(549, 69);
             this.button8.TabIndex = 37;
@@ -675,11 +678,11 @@
             this.tabControl1.Controls.Add(this.MainID);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl1.ItemSize = new System.Drawing.Size(45, 15);
-            this.tabControl1.Location = new System.Drawing.Point(12, 160);
+            this.tabControl1.Location = new System.Drawing.Point(12, 129);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(936, 524);
+            this.tabControl1.Size = new System.Drawing.Size(938, 545);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 37;
             // 
@@ -690,7 +693,7 @@
             this.MainID.Controls.Add(this.button2);
             this.MainID.Location = new System.Drawing.Point(4, 19);
             this.MainID.Name = "MainID";
-            this.MainID.Size = new System.Drawing.Size(928, 501);
+            this.MainID.Size = new System.Drawing.Size(930, 522);
             this.MainID.TabIndex = 9;
             this.MainID.Text = "MainID";
             // 
@@ -715,21 +718,50 @@
             this.button2.Text = "Seller";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // textBox11
+            // 
+            this.textBox11.BackColor = System.Drawing.Color.White;
+            this.textBox11.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox11.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox11.Font = new System.Drawing.Font("Impact", 50F);
+            this.textBox11.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox11.Location = new System.Drawing.Point(125, -3);
+            this.textBox11.Multiline = true;
+            this.textBox11.Name = "textBox11";
+            this.textBox11.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBox11.Size = new System.Drawing.Size(990, 117);
+            this.textBox11.TabIndex = 38;
+            this.textBox11.Text = "KITBOX";
+            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged_1);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(2, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(-4, -3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1307, 696);
-            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.Size = new System.Drawing.Size(1276, 686);
+            this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
+            // 
+            // overlayControl11
+            // 
+            this.overlayControl11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.overlayControl11.Location = new System.Drawing.Point(999, 129);
+            this.overlayControl11.Name = "overlayControl11";
+            this.overlayControl11.Size = new System.Drawing.Size(222, 144);
+            this.overlayControl11.TabIndex = 40;
+            this.overlayControl11.Click += new System.EventHandler(this.overlayControl11_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1309, 696);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(1274, 679);
+            this.Controls.Add(this.overlayControl12);
+            this.Controls.Add(this.overlayControl11);
+            this.Controls.Add(this.textBox11);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.button3);
@@ -813,7 +845,10 @@
         private System.Windows.Forms.TabPage MainID;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private AdminView.OverlayControl1 overlayControl11;
+        private AdminView.OverlayControl1 overlayControl12;
     }
 }
 

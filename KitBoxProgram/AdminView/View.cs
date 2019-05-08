@@ -130,7 +130,7 @@ namespace WindowsFormsApplication1
                         {
                             coupelles.Add(false);
                         }
-                        prix += (db.Search("POR"+, "Price", "Catalogue"));
+                        //prix += (db.Search("POR"+, "Price", "Catalogue"));
                     }
                     couleurPanneaux.Add(comboBox5.Text);
                     p++;
@@ -711,5 +711,12 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void textBox11_TextChanged_1(object sender, EventArgs e)
+        {
+           
+        }
+
+      
     }
 }
