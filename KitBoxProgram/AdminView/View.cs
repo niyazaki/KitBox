@@ -41,18 +41,18 @@ namespace WindowsFormsApplication1
             while (m != (n - 1))
             {
                 
-                textBox9.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[m] + "\r\n";
+                textBox9.Text += "\r\nBox" + (m + 1) + " : Height: " + hauteur[m] + " ; Color of doors:  " + couleurPortes[m] + " ; Color of panels: " + couleurPanneaux[m] + "\r\n";
                 m++;
 
             }
-            textBox9.Text += "\r\n Largeur de l'armoire: " + largeur[0];
+            textBox9.Text += "\r\n Cabinet's width: " + largeur[0];
             textBox9.Text += " ; et profondeur  de l'armoire: " + longueur[0];
             hauteurtotale = 0;
             foreach (int x in hauteur)
             {
                 hauteurtotale += x;
             }
-            textBox9.Text += "\r\n Hauteur totale : " + (hauteurtotale);
+            textBox9.Text += "\r\n Total height : " + (hauteurtotale);
         }
         public void Display13()
         {
@@ -62,20 +62,20 @@ namespace WindowsFormsApplication1
             while (m != (n - 1))
             {
 
-                textBox13.Text += "\r\nCasier" + (m + 1) + " : Hauteur: " + hauteur[m] + " ; Couleur des portes:  " + couleurPortes[m] + " ; Couleur des panneaux: " + couleurPanneaux[m] + "\r\n";
+                textBox13.Text += "\r\nBox" + (m + 1) + " : Height: " + hauteur[m] + " ; Color of doors:  " + couleurPortes[m] + " ; Color of panels: " + couleurPanneaux[m] + "\r\n";
                 m++;
 
             }
-            textBox13.Text += "\r\n Largeur de l'armoire: " + largeur[0];
+            textBox13.Text += "\r\n Cabinet's width: " + largeur[0];
             textBox13.Text += " ; et la profondeur de l'armoire: " + longueur[0];
-            textBox13.Text += "\r\n Couleur des cornières : " + couleurCorniere[0];
+            textBox13.Text += "\r\n Color of angles : " + couleurCorniere[0];
             int hauteurtotale = 0;
             foreach (int x in hauteur)
             {
                 hauteurtotale += x;
             }
-            textBox13.Text += "\r\n Hauteur totale : " + (hauteurtotale);
-            textBox13.Text += "\r\n Prix total : " + prix + "€";
+            textBox13.Text += "\r\n Total height : " + (hauteurtotale);
+            textBox13.Text += "\r\n Total Price : " + prix + "€";
         }
 
         private bool a;
@@ -110,12 +110,12 @@ namespace WindowsFormsApplication1
                 {
                     button4.Enabled = true;
                     n++;
-                    textBox6.Text = "Casier " + n;
+                    textBox6.Text = "Box" + n;
                     hauteur.Add(Convert.ToInt32(comboBox1.Text) + 4);
                     //PasAbouti int prixTemp = db.Search("PAG"+comboBox1.Text+comboBox5.Text,"Price","Catalogue") ;
                     if (change == 1)
                     {
-                        couleurPortes.Add("Pas de porte");
+                        couleurPortes.Add("No door");
                         coupelles.Add(false);
                     }
                     
@@ -136,13 +136,13 @@ namespace WindowsFormsApplication1
                     p++;
                     if (p ==7)
                     {
-                        textBox6.Text = "Limite atteinte";
+                        textBox6.Text = "Limit reached";
                         button1.Enabled = false;
                     }
                 }
                 else
                 {
-                    textBox6.Text = "Limite atteinte";
+                    textBox6.Text = "Limit reached";
                     button1.Enabled = false; // le rend non clickable
                 }
             }
@@ -278,7 +278,7 @@ namespace WindowsFormsApplication1
             n = 1;
             p = 0;
             textBox6.Visible = true;
-            textBox6.Text = "Casier " + n;
+            textBox6.Text = "Box " + n;
             button1.Enabled = true; // le rend clickable
             button1.Visible = true; // le rend visible
             textBox2.Visible = true;
@@ -452,11 +452,11 @@ namespace WindowsFormsApplication1
                 {
                     comboBox5.Items.Add(i);
                 }
-                if (comboBox4.Text.Contains("(Portes disponibles)"))
+                if (comboBox4.Text.Contains("(Doors available)"))
                 {
                     checkBox1.Enabled = true;
                 }
-                if (!(comboBox4.Text.Contains("(Portes disponibles)")))
+                if (!(comboBox4.Text.Contains("(Doors available)")))
                 {
                     checkBox1.Enabled = false;
                 }
@@ -489,7 +489,7 @@ namespace WindowsFormsApplication1
         {
             if (comboBox1.Text == "")
             {
-                textBox7.Text = "Entrer une hauteur pour obtenir les couleurs de porte.";
+                textBox7.Text = "Enter a height to get the doors colors.";
             }
             if (change==1) {
                 textBox4.Visible = true;
