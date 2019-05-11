@@ -156,7 +156,7 @@
             this.comboBox6.Items.AddRange(new object[] {
             "Payed",
             "Unpayed"});
-            this.comboBox6.Location = new System.Drawing.Point(585, 415);
+            this.comboBox6.Location = new System.Drawing.Point(585, 408);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(136, 41);
             this.comboBox6.TabIndex = 38;
@@ -167,7 +167,7 @@
             this.button11.Enabled = false;
             this.button11.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.Olive;
-            this.button11.Location = new System.Drawing.Point(727, 416);
+            this.button11.Location = new System.Drawing.Point(727, 409);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(197, 40);
             this.button11.TabIndex = 5;
@@ -178,7 +178,7 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(438, 416);
+            this.textBox10.Location = new System.Drawing.Point(438, 409);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(141, 40);
@@ -189,7 +189,7 @@
             this.textBox12.BackColor = System.Drawing.SystemColors.Window;
             this.textBox12.Font = new System.Drawing.Font("Agency FB", 14F);
             this.textBox12.ForeColor = System.Drawing.Color.Olive;
-            this.textBox12.Location = new System.Drawing.Point(6, 416);
+            this.textBox12.Location = new System.Drawing.Point(6, 409);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
@@ -201,11 +201,11 @@
             // button13
             // 
             this.button13.BackColor = System.Drawing.SystemColors.Window;
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.Color.Olive;
-            this.button13.Location = new System.Drawing.Point(3, 462);
+            this.button13.Location = new System.Drawing.Point(3, 455);
             this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(916, 43);
+            this.button13.Size = new System.Drawing.Size(921, 45);
             this.button13.TabIndex = 4;
             this.button13.Text = "Load Table";
             this.button13.UseVisualStyleBackColor = false;
@@ -218,7 +218,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(3, 6);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(916, 404);
+            this.dataGridView2.Size = new System.Drawing.Size(916, 393);
             this.dataGridView2.TabIndex = 1;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
@@ -588,7 +588,7 @@
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Location = new System.Drawing.Point(460, -64);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(467, 448);
+            this.pictureBox2.Size = new System.Drawing.Size(467, 503);
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -728,7 +728,7 @@
             this.tabControl1.Controls.Add(this.MainID);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControl1.ItemSize = new System.Drawing.Size(45, 15);
-            this.tabControl1.Location = new System.Drawing.Point(90, 151);
+            this.tabControl1.Location = new System.Drawing.Point(90, 138);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -775,7 +775,7 @@
             this.textBox11.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBox11.Font = new System.Drawing.Font("Impact", 50F);
             this.textBox11.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBox11.Location = new System.Drawing.Point(94, 12);
+            this.textBox11.Location = new System.Drawing.Point(86, 12);
             this.textBox11.Multiline = true;
             this.textBox11.Name = "textBox11";
             this.textBox11.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -789,9 +789,9 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(249, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(263, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 152);
+            this.pictureBox1.Size = new System.Drawing.Size(135, 122);
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -806,7 +806,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(1020, 0);
+            this.pictureBox4.Location = new System.Drawing.Point(1019, 0);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(94, 696);
             this.pictureBox4.TabIndex = 41;
