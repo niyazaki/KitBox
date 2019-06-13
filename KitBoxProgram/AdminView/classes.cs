@@ -171,6 +171,38 @@ namespace KitBoxProgram
                 return res;
             }
         }
+        public string SearchPrice(string reff, int height, int depth, int width, string color="")
+        {
+            string query = "SELECT Price FROM Catalogue d WHERE d.Ref ='" + reff+ "' and d.Height="+height+" and d.Depth="+depth+ " and d.Width=" + width;
+            if (color!="")
+            {
+                query += " and d.Color='" + color+"'";
+            }
+            string price = "0" ;
+            if (this.OpenCo() == true)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        price = dataReader.GetString(0);
+                    }
+                    dataReader.Close();
+                    this.CloseCo();
+                    return price;
+                }
+                catch
+                {
+                    return price;
+                }
+            }
+            else
+            {
+                return price;
+            }
+        }
     }
     class Cabinet
     {
