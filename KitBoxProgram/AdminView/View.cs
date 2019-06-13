@@ -20,7 +20,6 @@ namespace WindowsFormsApplication1
         
         int n = 1 ;
         int p = 0;
-        bool finished = false;
         List<int> longueur = new List<int>();
         List<int> largeur = new List<int>();
         List<int> hauteur = new List<int>();
@@ -46,7 +45,7 @@ namespace WindowsFormsApplication1
 
             }
             textBox9.Text += "\r\n Cabinet's width: " + largeur[0];
-            textBox9.Text += " ; et profondeur  de l'armoire: " + longueur[0];
+            textBox9.Text += " ; cabinet's depth: " + longueur[0];
             hauteurtotale = 0;
             foreach (int x in hauteur)
             {
@@ -67,7 +66,7 @@ namespace WindowsFormsApplication1
 
             }
             textBox13.Text += "\r\n Cabinet's width: " + largeur[0];
-            textBox13.Text += " ; et la profondeur de l'armoire: " + longueur[0];
+            textBox13.Text += " ; cabinet's depth: " + longueur[0];
             textBox13.Text += "\r\n Color of angles : " + couleurCorniere[0];
             int hauteurtotale = 0;
             foreach (int x in hauteur)
@@ -78,7 +77,6 @@ namespace WindowsFormsApplication1
             textBox13.Text += "\r\n Total Price : " + prix + "€";
         }
 
-        private bool a;
 
         public Form1()
         {
@@ -349,7 +347,7 @@ namespace WindowsFormsApplication1
             {
                 if (listWidthPOR.Contains(i))
                 {
-                    comboBox4.Items.Add(i + " (Portes disponibles)");
+                    comboBox4.Items.Add(i + " (Doors available)");
                 }
                 else
                 { 
@@ -398,7 +396,7 @@ namespace WindowsFormsApplication1
         {
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
+            MySqlCommand commandDB = new MySqlCommand("select ID_Command, ID_Customer, ID_Cabinet from Command;", myConn);
             try
             {
                 MySqlDataAdapter sda = new MySqlDataAdapter();
@@ -475,7 +473,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                textBox7.Text = "Champs incomplets !";
+                textBox7.Text = "Incomplete fields !";
             }
         }
 
@@ -598,7 +596,7 @@ namespace WindowsFormsApplication1
                 }
                 catch (Exception ex)
                 {
-                    textBox7.Text = "Champs invalides !";
+                    textBox7.Text = "Invalid fields !";
                     MessageBox.Show(ex.Message);
                 }
             }
@@ -648,7 +646,7 @@ namespace WindowsFormsApplication1
                 n = 1;
                 p = 0;
                 textBox6.Visible = true;
-                textBox6.Text = "Casier " + n;
+                textBox6.Text = "Box " + n;
                 button1.Enabled = true; // le rend clickable
                 button1.Visible = true; // le rend visible
                 textBox2.Visible = true;
@@ -693,7 +691,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                textBox7.Text = "Champs incomplets !";
+                textBox7.Text = "Incomplete fields !";
             }
         }
 
