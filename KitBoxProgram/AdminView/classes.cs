@@ -203,18 +203,28 @@ namespace KitBoxProgram
                 return price;
             }
         }
-        public void CustomerRegister(string name, string email, string adress)
+        public string CustomerRegister(string name, string email, string adress)
         {
             string query = "INSERT INTO Customer(Name, E_mail, Adress) VALUES ('" + name + "', '"+email+"', '"+adress+"')";
+            string secondQuery = "SELECT ID_Customer FROM Customer where Name='"+name+"' AND E_mail='"+email+"' AND Adress='"+adress+"' LIMIT 1";
+            string res = "";
             if (this.OpenCo() == true)
             {
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.CommandText = query;
                 cmd.Connection = connection;
                 cmd.ExecuteNonQuery();
-                this.CloseCo();
 
+                MySqlCommand secondCmd = new MySqlCommand(secondQuery, connection);
+                MySqlDataReader dataReader = secondCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    res = dataReader.GetString(0);
+                }
+                dataReader.Close();
+                this.CloseCo();
             }
+            return res;
         }
     }
     class Cabinet

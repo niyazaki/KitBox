@@ -67,9 +67,10 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(319, 111);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "The command has been saved and will be cleaned. Do you want to purchase anyway ? " +
-    "";
+            this.textBox1.Text = "The command has been saved and the view will be cleaned. Do you want to purchase " +
+    "anyway ? ";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // PopupForm
             // 

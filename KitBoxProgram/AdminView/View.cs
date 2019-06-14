@@ -68,21 +68,24 @@ namespace WindowsFormsApplication1
                 price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m], profondeur[0], 0, couleurPanneaux[m]));
                 price += float.Parse(db.SearchPrice("BA Panel", hauteur[m], 0, largeur[0], couleurPanneaux[m]));
                 price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]));
-                price += 2 * float.Parse(db.SearchPrice("BA Rail",0, 0, largeur[0]));
+                price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
                 price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
                 price += 4 * float.Parse(db.SearchPrice("Lr Rail", 0, profondeur[0], 0));
-                if (coupelles[m]==true)
+                if (coupelles[m] == true)
                 {
                     price += 2 * float.Parse(db.SearchPrice("Coupelles", 0, 0, 0));
                 }
-                if (couleurPortes[m]!="No door")
+                if (couleurPortes[m] != "No door")
                 {
-                    price += 2 * float.Parse(db.SearchPrice("Door",hauteur[m], 0,largeur[0], couleurPortes[m]));
+                    price += 2 * float.Parse(db.SearchPrice("Door", hauteur[m], 0, largeur[0], couleurPortes[m]));
                 }
-                
+
                 m++;
             }
-            price += 4 * float.Parse(db.SearchPrice("Angle", corHeight, 0, 0, couleurCorniere[0]));
+            if ((n-1) != 0)
+            {
+                price += 4 * float.Parse(db.SearchPrice("Angle", corHeight, 0, 0, couleurCorniere[0]));
+            }
 
             textBox13.Text += "\r\n Cabinet's width: " + largeur[0];
             textBox13.Text += " ; cabinet's depth: " + profondeur[0];
@@ -628,6 +631,9 @@ namespace WindowsFormsApplication1
             {
                 tabControl1.SelectedTab = Main;
                 textBox7.Text = "";
+                textBox19.Text = "";
+                textBox20.Text = "";
+                textBox21.Text = "";
                 n = 1;
                 p = 0;
                 textBox6.Visible = true;
@@ -705,7 +711,9 @@ namespace WindowsFormsApplication1
             {
                 finished = true;
                 tabControl1.SelectedTab = CommandDetail;
-                db.CustomerRegister(textBox19.Text, textBox20.Text, textBox21.Text);
+                string Id_Customer = db.CustomerRegister(textBox19.Text, textBox20.Text, textBox21.Text);
+
+                //db.CommandRegister(Id_Customer, Id_Angle);
                 Display13();
             }
             else
