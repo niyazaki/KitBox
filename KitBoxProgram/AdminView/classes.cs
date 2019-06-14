@@ -203,6 +203,19 @@ namespace KitBoxProgram
                 return price;
             }
         }
+        public void CustomerRegister(string name, string email, string adress)
+        {
+            string query = "INSERT INTO Customer(Name, E_mail, Adress) VALUES ('" + name + "', '"+email+"', '"+adress+"')";
+            if (this.OpenCo() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseCo();
+
+            }
+        }
     }
     class Cabinet
     {

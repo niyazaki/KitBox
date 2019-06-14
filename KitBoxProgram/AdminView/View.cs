@@ -669,10 +669,8 @@ namespace WindowsFormsApplication1
         {
             if (comboBox8.Text != "")
             {
-                finished = true;
-                tabControl1.SelectedTab = CommandDetail;
+                tabControl1.SelectedTab = Register;
                 couleurCorniere.Add(comboBox8.Text);
-                Display13();
             }
             else
             {
@@ -699,6 +697,21 @@ namespace WindowsFormsApplication1
         }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (textBox19.Text != "" & textBox20.Text != "" & textBox21.Text != "")
+            {
+                finished = true;
+                tabControl1.SelectedTab = CommandDetail;
+                db.CustomerRegister(textBox19.Text, textBox20.Text, textBox21.Text);
+                Display13();
+            }
+            else
+            {
+                textBox7.Text = "Incomplete fields !";
+            }
         }
     }
 }
