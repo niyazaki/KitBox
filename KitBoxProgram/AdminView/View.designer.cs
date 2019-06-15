@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button3 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -102,6 +102,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.textBox25 = new System.Windows.Forms.TextBox();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
             this.Seller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.CommandDetail.SuspendLayout();
@@ -243,6 +245,7 @@
             // CommandDetail
             // 
             this.CommandDetail.BackColor = System.Drawing.SystemColors.Window;
+            this.CommandDetail.Controls.Add(this.button21);
             this.CommandDetail.Controls.Add(this.button14);
             this.CommandDetail.Controls.Add(this.textBox13);
             this.CommandDetail.Location = new System.Drawing.Point(4, 19);
@@ -256,7 +259,7 @@
             // 
             this.button14.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button14.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(6, 453);
+            this.button14.Location = new System.Drawing.Point(3, 471);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(916, 45);
             this.button14.TabIndex = 37;
@@ -271,12 +274,13 @@
             this.textBox13.Location = new System.Drawing.Point(6, 16);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(916, 431);
+            this.textBox13.Size = new System.Drawing.Size(916, 400);
             this.textBox13.TabIndex = 1;
             // 
             // StoreKeeper
             // 
             this.StoreKeeper.BackColor = System.Drawing.SystemColors.Window;
+            this.StoreKeeper.Controls.Add(this.button20);
             this.StoreKeeper.Controls.Add(this.textBox25);
             this.StoreKeeper.Controls.Add(this.textBox24);
             this.StoreKeeper.Controls.Add(this.checkBox4);
@@ -423,18 +427,18 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HotTrack;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Location = new System.Drawing.Point(0, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(916, 343);
+            this.dataGridView1.Size = new System.Drawing.Size(916, 294);
             this.dataGridView1.TabIndex = 0;
             // 
             // Recap
@@ -456,14 +460,14 @@
             this.textBox9.Location = new System.Drawing.Point(6, 16);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(916, 431);
+            this.textBox9.Size = new System.Drawing.Size(916, 440);
             this.textBox9.TabIndex = 0;
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button5.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(6, 453);
+            this.button5.Location = new System.Drawing.Point(6, 462);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(916, 45);
             this.button5.TabIndex = 36;
@@ -1058,6 +1062,30 @@
             this.textBox25.Text = "Search Criteria :";
             this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.Color.Silver;
+            this.button20.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button20.Location = new System.Drawing.Point(3, 327);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(913, 43);
+            this.button20.TabIndex = 54;
+            this.button20.Text = "Save in the file \"command.txt\"";
+            this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // button21
+            // 
+            this.button21.BackColor = System.Drawing.Color.Silver;
+            this.button21.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.Location = new System.Drawing.Point(6, 422);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(913, 43);
+            this.button21.TabIndex = 55;
+            this.button21.Text = "Save in the file \"ticket.txt\"";
+            this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1178,6 +1206,8 @@
         private System.Windows.Forms.TextBox textBox24;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button21;
     }
 }
 

@@ -1,0 +1,7 @@
+
+Box1 : Height: 46 ; Color of doors:  No door ; Color of panels: Brown
+
+ Cabinet's width: 42 ; cabinet's depth: 42
+ Color of angles : Black
+ Total height : 46
+ Total Price : 25,692€

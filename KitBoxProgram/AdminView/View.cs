@@ -10,6 +10,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using KitBoxProgram;
 using AdminView;
+using System.IO;
 
 //Note: GenerateMember dans Propreties doit être True sinon la variable est invisible dans le code
 
@@ -798,6 +799,31 @@ namespace WindowsFormsApplication1
             textBox24.Visible = !(textBox24.Visible);
             textBox24.Text = "";
             textBox7.Text = "";
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            TextWriter writer = new StreamWriter(@"command.txt");
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
+                }
+                writer.WriteLine("");
+                writer.WriteLine("-----------------------------------------------------");
+            }
+            writer.Close();
+            MessageBox.Show("Data Exported");
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            TextWriter writer = new StreamWriter(@"ticket.txt");
+
+            writer.Write(textBox13.Text);
+            writer.Close();
+            MessageBox.Show("Data Exported");
         }
     }
 }
