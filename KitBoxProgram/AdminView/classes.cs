@@ -171,6 +171,136 @@ namespace KitBoxProgram
                 return res;
             }
         }
+        public string SearchPrice(string reff, int height, int depth, int width, string color="")
+        {
+            string query = "SELECT Price FROM Catalogue d WHERE d.Ref ='" + reff+ "' and d.Height="+height+" and d.Depth="+depth+ " and d.Width=" + width;
+            if (color!="")
+            {
+                query += " and d.Color='" + color+"'";
+            }
+            string price = "0" ;
+            if (this.OpenCo() == true)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        price = dataReader.GetString(0);
+                    }
+                    dataReader.Close();
+                    this.CloseCo();
+                    return price;
+                }
+                catch
+                {
+                    return price;
+                }
+            }
+            else
+            {
+                return price;
+            }
+        }
+        public string CustomerRegister(string name, string email, string adress)
+        {
+            string query = "INSERT INTO Customer(Name, E_mail, Adress) VALUES ('" + name + "', '"+email+"', '"+adress+"')";
+            string secondQuery = "SELECT ID_Customer FROM Customer where Name='"+name+"' AND E_mail='"+email+"' AND Adress='"+adress+"' LIMIT 1";
+            string res = "";
+            if (this.OpenCo() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+
+                MySqlCommand secondCmd = new MySqlCommand(secondQuery, connection);
+                MySqlDataReader dataReader = secondCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    res = dataReader.GetString(0);
+                }
+                dataReader.Close();
+                this.CloseCo();
+            }
+            return res;
+        }
+        public string SearchAngle(int height, string color)
+        {
+            string query = "SELECT ID_Accessory FROM Catalogue where Height='" + height + "' AND Color='" + color +"' LIMIT 1";
+            string id_angle = "";
+            if (this.OpenCo() == true)
+            {
+                MySqlCommand secondCmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = secondCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    id_angle = dataReader.GetString(0);
+                }
+                dataReader.Close();
+                this.CloseCo();
+            }
+            return id_angle;
+        }
+        public string CabinetRegister(string id_angle, int depth, int width, float price)
+        {
+            string query = "INSERT INTO Cabinet(ID_Angle, Depth, Width, Price) VALUES ('" + id_angle + "', '" + depth + "', '" + width + "', '"+ price +"')";
+            string secondQuery = "SELECT ID_Cabinet FROM Cabinet where ID_Angle='" + id_angle + "' AND Depth='" + depth + "' AND Width='" + width + "' AND Price=\"" + price+ "\" ORDER BY ID_Cabinet DESC LIMIT 1";
+            string id_cabinet = "";
+            if (this.OpenCo() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+
+                MySqlCommand secondCmd = new MySqlCommand(secondQuery, connection);
+                MySqlDataReader dataReader = secondCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    id_cabinet = dataReader.GetString(0);
+                }
+                dataReader.Close();
+                this.CloseCo();
+            }
+            return id_cabinet;
+        }
+        public string CommandRegister(string id_customer, string id_cabinet)
+        {
+            string query = "INSERT INTO Command(ID_Customer, ID_Cabinet, Payed) VALUES ('" + id_customer + "', '" + id_cabinet + "', 'Unpayed')";
+            string secondQuery = "SELECT ID_Command FROM Command where ID_Customer='" + id_customer + "' AND ID_Cabinet='" + id_cabinet + "' LIMIT 1";
+            string id_command = "";
+            if (this.OpenCo() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+
+                MySqlCommand secondCmd = new MySqlCommand(secondQuery, connection);
+                MySqlDataReader dataReader = secondCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    id_command = dataReader.GetString(0);
+                }
+                dataReader.Close();
+                this.CloseCo();
+            }
+            return id_command;
+        }
+        public void BoxRegister(string id_cabinet, int height, string door, bool cups, string panel)
+        {
+            string query = "INSERT INTO Box(ID_Cabinet, Height, Color_Doors, Cups, Color_Panels) VALUES ('" + id_cabinet + "', '" + height + "', '" + door + "', '" + cups + "', '" + panel + "')";
+            if (this.OpenCo() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseCo();
+            }
+        }
     }
     class Cabinet
     {

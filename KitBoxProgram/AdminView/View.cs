@@ -20,8 +20,12 @@ namespace WindowsFormsApplication1
         
         int n = 1 ;
         int p = 0;
-        bool finished = false;
-        List<int> longueur = new List<int>();
+        int corHeight;
+        string Id_Customer;
+        string Id_Angle;
+        string Id_Cabinet;
+        string Id_Command;
+        List<int> profondeur = new List<int>();
         List<int> largeur = new List<int>();
         List<int> hauteur = new List<int>();
         List<string> couleurPortes = new List<string>();
@@ -29,6 +33,7 @@ namespace WindowsFormsApplication1
         List<string> couleurCorniere = new List<string>();
         List<string> choixCorniere = new List<string>();
         List<bool> coupelles = new List<bool>();
+        bool finished = false;
         int prix = 0;
         int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
@@ -46,7 +51,7 @@ namespace WindowsFormsApplication1
 
             }
             textBox9.Text += "\r\n Cabinet's width: " + largeur[0];
-            textBox9.Text += " ; et profondeur  de l'armoire: " + longueur[0];
+            textBox9.Text += " ; cabinet's depth: " + profondeur[0];
             hauteurtotale = 0;
             foreach (int x in hauteur)
             {
@@ -59,15 +64,34 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             textBox13.Text = "";
             int m = 0;
+            float price = 0;
             while (m != (n - 1))
             {
-
                 textBox13.Text += "\r\nBox" + (m + 1) + " : Height: " + hauteur[m] + " ; Color of doors:  " + couleurPortes[m] + " ; Color of panels: " + couleurPanneaux[m] + "\r\n";
+                price += 4 * float.Parse(db.SearchPrice("Cleat", hauteur[m]-2, 0, 0));
+                price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-2, profondeur[0], 0, couleurPanneaux[m]));
+                price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-2, 0, largeur[0], couleurPanneaux[m]));
+                price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]));
+                price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
+                price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
+                price += 4 * float.Parse(db.SearchPrice("Lr Rail", 0, profondeur[0], 0));
+                if (coupelles[m] == true)
+                {
+                    price += 2 * float.Parse(db.SearchPrice("Coupelles", 0, 0, 0));
+                }
+                if (couleurPortes[m] != "No door")
+                {
+                    price += 2 * float.Parse(db.SearchPrice("Door", hauteur[m]-4, 0, largeur[0], couleurPortes[m]));
+                }
                 m++;
-
             }
+            if ((n-1) != 0)
+            {
+                price += 4 * float.Parse(db.SearchPrice("Angle", corHeight, 0, 0, couleurCorniere[0]));
+            }
+
             textBox13.Text += "\r\n Cabinet's width: " + largeur[0];
-            textBox13.Text += " ; et la profondeur de l'armoire: " + longueur[0];
+            textBox13.Text += " ; cabinet's depth: " + profondeur[0];
             textBox13.Text += "\r\n Color of angles : " + couleurCorniere[0];
             int hauteurtotale = 0;
             foreach (int x in hauteur)
@@ -75,15 +99,23 @@ namespace WindowsFormsApplication1
                 hauteurtotale += x;
             }
             textBox13.Text += "\r\n Total height : " + (hauteurtotale);
-            textBox13.Text += "\r\n Total Price : " + prix + "€";
+            textBox13.Text += "\r\n Total Price : " + price + "€";
+
+            Id_Cabinet = db.CabinetRegister(Id_Angle, profondeur[0], largeur[0], price);
+            Id_Command = db.CommandRegister(Id_Customer, Id_Cabinet);
+            m = 0;
+            while (m != (n - 1))
+            {
+                db.BoxRegister(Id_Cabinet, hauteur[m], couleurPortes[m], coupelles[m], couleurPanneaux[m]);
+                m++;
+            }
+
         }
 
-        private bool a;
 
         public Form1()
         {
             InitializeComponent();
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -105,6 +137,8 @@ namespace WindowsFormsApplication1
                 comboBox2.Visible = false;
                 comboBox4.Visible = false;
 
+                button7.Enabled = true;
+
                 textBox7.Text = "";
                 if (p < 7)
                 {
@@ -112,7 +146,6 @@ namespace WindowsFormsApplication1
                     n++;
                     textBox6.Text = "Box" + n;
                     hauteur.Add(Convert.ToInt32(comboBox1.Text) + 4);
-                    //PasAbouti int prixTemp = db.Search("PAG"+comboBox1.Text+comboBox5.Text,"Price","Catalogue") ;
                     if (change == 1)
                     {
                         couleurPortes.Add("No door");
@@ -130,7 +163,6 @@ namespace WindowsFormsApplication1
                         {
                             coupelles.Add(false);
                         }
-                        //prix += (db.Search("POR"+, "Price", "Catalogue"));
                     }
                     couleurPanneaux.Add(comboBox5.Text);
                     p++;
@@ -148,73 +180,18 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                textBox7.Text = "Champs incomplets !";
+                textBox7.Text = "Incomplete fields !";
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-        }
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Recap;
 
-            longueur.Add(0);
+            profondeur.Add(0);
             largeur.Add(0);
 
             Display();
-        }
-
-        private void ftesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripComboBox2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -236,51 +213,18 @@ namespace WindowsFormsApplication1
             
         }
 
-        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_MouseClick(object sender, MouseEventArgs e)
-        {
-            
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
+           
             textBox7.Text = "";
             n = 1;
             p = 0;
+            corHeight = 0;
             textBox6.Visible = true;
             textBox6.Text = "Box " + n;
             button1.Enabled = true; // le rend clickable
-            button1.Visible = true; // le rend visible
+            button1.Visible = true; // le rend visible 
+            button7.Enabled = false;
             textBox2.Visible = true;
             textBox3.Visible = true;
             comboBox2.Visible = true;
@@ -290,7 +234,7 @@ namespace WindowsFormsApplication1
             comboBox3.Text = "";
             comboBox4.Text = "";
             comboBox5.Text = "";
-            List<int> longueur = new List<int>();
+            List<int> profondeur = new List<int>();
             List<int> largeur = new List<int>();
             List<int> hauteur = new List<int>();
             List<string> couleurPortes = new List<string>();
@@ -298,24 +242,13 @@ namespace WindowsFormsApplication1
             List<string> couleurCorniere = new List<string>();
             tabControl1.SelectedTab = Main;
             button4.Enabled = false;
-
-        }
-
-        private void textBox7_TextChanged_1(object sender, EventArgs e)
-        {
+          
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Box;
-            
-           
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -326,6 +259,8 @@ namespace WindowsFormsApplication1
         private void button10_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Seller;
+            textBox7.Text += db.SearchPrice("LR Rail", 0, 62, 0);
+            textBox7.Text += "coucou"; 
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -349,7 +284,7 @@ namespace WindowsFormsApplication1
             {
                 if (listWidthPOR.Contains(i))
                 {
-                    comboBox4.Items.Add(i + " (Portes disponibles)");
+                    comboBox4.Items.Add(i + " (Doors available)");
                 }
                 else
                 { 
@@ -357,32 +292,6 @@ namespace WindowsFormsApplication1
 
                 }
             }
-
-
-
-            //Partie masquée car crash, je l'ai laissée en suspens pour les tests visuels
-            //Faudra l'exploiter une fois le bug résolue pour afficher les elements dans comboBox Longueur
-            //foreach (string i in s.Search("TRG", "depth", "Accessory"))
-            //{
-            // comboBox2.Items.Add(i);
-            // }
-
-            // A MODIFIER pour le comboBox Largeur, crash aussi pour l'instant
-            //foreach (string i in s.Search("TRG", "depth", "Accessory"))
-            //{
-            // comboBox4.Items.Add(i);
-            // }
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void Form1_Load_1(object sender, EventArgs e)
@@ -390,15 +299,11 @@ namespace WindowsFormsApplication1
             tabControl1.ItemSize = new Size(0,1);
         }
 
-        private void button11_Click(object sender, EventArgs e)
-        {
-        }
-
         private void button12_Click(object sender, EventArgs e)
         {
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
+            MySqlCommand commandDB = new MySqlCommand("select ID_Command, ID_Customer, ID_Cabinet from Command;", myConn);
             try
             {
                 MySqlDataAdapter sda = new MySqlDataAdapter();
@@ -416,11 +321,6 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void tabPage7_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -466,7 +366,7 @@ namespace WindowsFormsApplication1
                 comboBox4.Items.Add(splitString[0]);
                 comboBox4.Text = comboBox4.Items[0].ToString();
                 largeur.Add(Int32.Parse(comboBox4.Text));
-                longueur.Add(Int32.Parse(comboBox2.Text));
+                profondeur.Add(Int32.Parse(comboBox2.Text));
                 tabControl1.SelectedTab = Box;
 
                 //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
@@ -475,17 +375,11 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                textBox7.Text = "Champs incomplets !";
+                textBox7.Text = "Incomplete fields !";
             }
         }
 
-
-        private void Box_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (comboBox1.Text == "")
             {
@@ -504,11 +398,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button7_Click(object sender, EventArgs e)
         {
             comboBox8.Items.Clear();
@@ -518,7 +407,7 @@ namespace WindowsFormsApplication1
             listTotHeight = db.Search("COR", "Height", "Catalogue");
 
             int i = 0;
-            int corHeight = Int32.Parse(listTotHeight[0]); ;
+            corHeight = Int32.Parse(listTotHeight[0]); ;
             while (Int32.Parse(listTotHeight[i]) < hauteurtotale)
             {
                 corHeight = Int32.Parse(listTotHeight[i]);
@@ -533,16 +422,6 @@ namespace WindowsFormsApplication1
 
 
             tabControl1.SelectedTab = End;
-
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -598,7 +477,7 @@ namespace WindowsFormsApplication1
                 }
                 catch (Exception ex)
                 {
-                    textBox7.Text = "Champs invalides !";
+                    textBox7.Text = "Invalid fields !";
                     MessageBox.Show(ex.Message);
                 }
             }
@@ -606,11 +485,6 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -645,10 +519,13 @@ namespace WindowsFormsApplication1
             {
                 tabControl1.SelectedTab = Main;
                 textBox7.Text = "";
+                textBox19.Text = "";
+                textBox20.Text = "";
+                textBox21.Text = "";
                 n = 1;
                 p = 0;
                 textBox6.Visible = true;
-                textBox6.Text = "Casier " + n;
+                textBox6.Text = "Box " + n;
                 button1.Enabled = true; // le rend clickable
                 button1.Visible = true; // le rend visible
                 textBox2.Visible = true;
@@ -660,7 +537,7 @@ namespace WindowsFormsApplication1
                 comboBox3.Text = "";
                 comboBox4.Text = "";
                 comboBox5.Text = "";
-                List<int> longueur = new List<int>();
+                List<int> profondeur = new List<int>();
                 List<int> largeur = new List<int>();
                 List<int> hauteur = new List<int>();
                 List<string> couleurPortes = new List<string>();
@@ -677,59 +554,34 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button16_Click(object sender, EventArgs e)
         {
             if (comboBox8.Text != "")
             {
-                finished = true;
-                tabControl1.SelectedTab = CommandDetail;
+                tabControl1.SelectedTab = Register;
                 couleurCorniere.Add(comboBox8.Text);
-                Display13();
             }
             else
             {
-                textBox7.Text = "Champs incomplets !";
+                textBox7.Text = "Incomplete fields !";
             }
         }
 
-        private void ComboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        private void button17_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox8_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_TextChanged_1(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
+            if (textBox19.Text != "" & textBox20.Text != "" & textBox21.Text != "")
+            {
+                finished = true;
+                tabControl1.SelectedTab = CommandDetail;
+                Id_Customer = db.CustomerRegister(textBox19.Text, textBox20.Text, textBox21.Text);
+                Id_Angle = db.SearchAngle(corHeight, couleurCorniere[0]);
+                Display13();
+  
+            }
+            else
+            {
+                textBox7.Text = "Incomplete fields !";
+            }
         }
     }
 }

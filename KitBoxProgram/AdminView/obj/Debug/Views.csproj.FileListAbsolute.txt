@@ -99,3 +99,24 @@ C:\Users\userj\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\AlphaBlendTextBox.dll
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.dll
 C:\Users\jbrha\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.pdb
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.exe.config
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.exe
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.pdb
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.dll
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.dll
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.dll
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.xml
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.xml
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.pdb
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csprojAssemblyReference.cache
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.PopupForm.resources
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Properties.Resources.resources
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.GenerateResource.cache
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.CoreCompileInputs.cache
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.CopyComplete
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.exe
+C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb
+F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.dll
+F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.pdb
