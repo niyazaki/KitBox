@@ -235,8 +235,10 @@ namespace WindowsFormsApplication1
             checkBox1.Checked = false;
             checkBox2.Checked = false;
             checkBox3.Checked = false;
+            checkBox4.Checked = false;
             textBox22.Visible = false;
             textBox23.Visible = false;
+            textBox24.Visible = false;
             List<int> profondeur = new List<int>();
             List<int> largeur = new List<int>();
             List<int> hauteur = new List<int>();
@@ -646,15 +648,41 @@ namespace WindowsFormsApplication1
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Box ";
-            if (textBox22.Text!="")
+            if (textBox22.Text!="" | textBox23.Text != "")
             {
-                try
-                {
-                    query += "where ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                query += "where ";
+                if (textBox22.Text != "" & textBox23.Text =="")
+                { 
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter an integrer";
+                    }
                 }
-                catch
+                if (textBox22.Text == "" & textBox23.Text != "")
                 {
-                    textBox7.Text = "Error: Enter an integrer";
+                    try
+                    {
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter an integrer";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
                 }
             }
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
@@ -684,18 +712,35 @@ namespace WindowsFormsApplication1
             MySqlConnection myConn = new MySqlConnection(myConnection);
 
             string query = "select * from Customer ";
-            if (textBox23.Text != "")
+            if (textBox23.Text != "" | textBox24.Text !="")
             {
-                try
-                {
-
-                    query += "where ID_Customer =  CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                query += "where ";
+                if (textBox23.Text != "" & textBox24.Text=="")
+                { 
+                    try
+                    {
+                        query += "ID_Customer =  CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter an integrer";
+                    }
                 }
-                catch
+                if (textBox23.Text == "" & textBox24.Text != "")
                 {
-                    textBox7.Text = "Error: Enter an integrer";
+                    query += "Name = '" + textBox24.Text + "'";
                 }
-
+                if (textBox23.Text != "" & textBox24.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND Name='"+textBox24.Text+"'";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
             }
             MySqlCommand commandDB = new MySqlCommand(query, myConn); 
             try
@@ -735,12 +780,24 @@ namespace WindowsFormsApplication1
 
         private void textBox23_TextChanged(object sender, EventArgs e)
         {
-            textBox7.Text = "Load Customer table.";
+            textBox7.Text = "Load a table.";
         }
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             button11.Enabled = true;
+        }
+
+        private void textBox24_TextChanged(object sender, EventArgs e)
+        {
+            textBox7.Text = "Load Customer table.";
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox24.Visible = !(textBox24.Visible);
+            textBox24.Text = "";
+            textBox7.Text = "";
         }
     }
 }

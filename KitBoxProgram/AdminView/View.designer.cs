@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button3 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -43,6 +43,8 @@
             this.button14 = new System.Windows.Forms.Button();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.StoreKeeper = new System.Windows.Forms.TabPage();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.textBox23 = new System.Windows.Forms.TextBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.textBox22 = new System.Windows.Forms.TextBox();
@@ -99,6 +101,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.textBox25 = new System.Windows.Forms.TextBox();
             this.Seller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.CommandDetail.SuspendLayout();
@@ -274,6 +277,9 @@
             // StoreKeeper
             // 
             this.StoreKeeper.BackColor = System.Drawing.SystemColors.Window;
+            this.StoreKeeper.Controls.Add(this.textBox25);
+            this.StoreKeeper.Controls.Add(this.textBox24);
+            this.StoreKeeper.Controls.Add(this.checkBox4);
             this.StoreKeeper.Controls.Add(this.textBox23);
             this.StoreKeeper.Controls.Add(this.checkBox3);
             this.StoreKeeper.Controls.Add(this.textBox22);
@@ -290,12 +296,37 @@
             this.StoreKeeper.TabIndex = 5;
             this.StoreKeeper.Text = "StoreKeeper";
             // 
+            // textBox24
+            // 
+            this.textBox24.BackColor = System.Drawing.SystemColors.Highlight;
+            this.textBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox24.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox24.Location = new System.Drawing.Point(781, 404);
+            this.textBox24.Multiline = true;
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(135, 34);
+            this.textBox24.TabIndex = 52;
+            this.textBox24.Visible = false;
+            this.textBox24.TextChanged += new System.EventHandler(this.textBox24_TextChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox4.Location = new System.Drawing.Point(514, 410);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(204, 24);
+            this.checkBox4.TabIndex = 51;
+            this.checkBox4.Text = "Enter a specific Name";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
             // textBox23
             // 
             this.textBox23.BackColor = System.Drawing.SystemColors.Highlight;
             this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox23.Location = new System.Drawing.Point(789, 393);
+            this.textBox23.Location = new System.Drawing.Point(781, 444);
             this.textBox23.Multiline = true;
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(135, 34);
@@ -307,7 +338,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(522, 403);
+            this.checkBox3.Location = new System.Drawing.Point(514, 450);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(261, 24);
             this.checkBox3.TabIndex = 49;
@@ -320,7 +351,7 @@
             this.textBox22.BackColor = System.Drawing.SystemColors.Highlight;
             this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox22.Location = new System.Drawing.Point(789, 433);
+            this.textBox22.Location = new System.Drawing.Point(781, 484);
             this.textBox22.Multiline = true;
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(135, 34);
@@ -332,7 +363,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(522, 439);
+            this.checkBox2.Location = new System.Drawing.Point(514, 490);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(251, 24);
             this.checkBox2.TabIndex = 34;
@@ -344,9 +375,9 @@
             // 
             this.button19.BackColor = System.Drawing.SystemColors.Window;
             this.button19.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button19.Location = new System.Drawing.Point(617, 473);
+            this.button19.Location = new System.Drawing.Point(320, 376);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(301, 43);
+            this.button19.Size = new System.Drawing.Size(148, 143);
             this.button19.TabIndex = 7;
             this.button19.Text = "Load Customer Table";
             this.button19.UseVisualStyleBackColor = false;
@@ -356,7 +387,7 @@
             // 
             this.button18.BackColor = System.Drawing.SystemColors.Window;
             this.button18.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.Location = new System.Drawing.Point(310, 473);
+            this.button18.Location = new System.Drawing.Point(3, 473);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(301, 43);
             this.button18.TabIndex = 6;
@@ -368,7 +399,7 @@
             // 
             this.button15.BackColor = System.Drawing.SystemColors.Window;
             this.button15.Font = new System.Drawing.Font("Agency FB", 15F);
-            this.button15.Location = new System.Drawing.Point(3, 425);
+            this.button15.Location = new System.Drawing.Point(3, 376);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(301, 38);
             this.button15.TabIndex = 5;
@@ -380,7 +411,7 @@
             // 
             this.button12.BackColor = System.Drawing.SystemColors.Window;
             this.button12.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(3, 473);
+            this.button12.Location = new System.Drawing.Point(3, 420);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(301, 43);
             this.button12.TabIndex = 3;
@@ -392,18 +423,18 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HotTrack;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(916, 381);
+            this.dataGridView1.Size = new System.Drawing.Size(916, 343);
             this.dataGridView1.TabIndex = 0;
             // 
             // Recap
@@ -1013,6 +1044,20 @@
             this.pictureBox4.TabIndex = 41;
             this.pictureBox4.TabStop = false;
             // 
+            // textBox25
+            // 
+            this.textBox25.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox25.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox25.Location = new System.Drawing.Point(514, 376);
+            this.textBox25.Multiline = true;
+            this.textBox25.Name = "textBox25";
+            this.textBox25.ReadOnly = true;
+            this.textBox25.Size = new System.Drawing.Size(402, 28);
+            this.textBox25.TabIndex = 53;
+            this.textBox25.Text = "Search Criteria :";
+            this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1130,6 +1175,9 @@
         private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.TextBox textBox25;
     }
 }
 
