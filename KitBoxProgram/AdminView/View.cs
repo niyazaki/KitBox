@@ -258,11 +258,51 @@ namespace WindowsFormsApplication1
         private void button9_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = StoreKeeper;
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            string query = "select * from Command d where d.Payed=\'Payed\';";
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView1.DataSource = bSource;
+                sda.Update(dbdataset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Seller;
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView2.DataSource = bSource;
+                sda.Update(dbdataset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -443,7 +483,7 @@ namespace WindowsFormsApplication1
 
         private void button13_Click_1(object sender, EventArgs e)
         {
-            
+            textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
@@ -458,8 +498,6 @@ namespace WindowsFormsApplication1
                 bSource.DataSource = dbdataset;
                 dataGridView2.DataSource = bSource;
                 sda.Update(dbdataset);
-                button11.Enabled = true;
-
             }
             catch (Exception ex)
             {
@@ -469,7 +507,8 @@ namespace WindowsFormsApplication1
 
         private void button11_Click_1(object sender, EventArgs e)
         {
-            try
+
+            if (textBox10.Text != "")
             {
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
@@ -497,9 +536,9 @@ namespace WindowsFormsApplication1
                     MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                textBox7.Text = "Enter an ID_Command";
             }
         }
 
@@ -697,6 +736,11 @@ namespace WindowsFormsApplication1
         private void textBox23_TextChanged(object sender, EventArgs e)
         {
             textBox7.Text = "Load Customer table.";
+        }
+
+        private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            button11.Enabled = true;
         }
     }
 }
