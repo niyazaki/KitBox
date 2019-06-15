@@ -21,6 +21,10 @@ namespace WindowsFormsApplication1
         int n = 1 ;
         int p = 0;
         int corHeight;
+        string Id_Customer;
+        string Id_Angle;
+        string Id_Cabinet;
+        string Id_Command;
         List<int> profondeur = new List<int>();
         List<int> largeur = new List<int>();
         List<int> hauteur = new List<int>();
@@ -79,7 +83,6 @@ namespace WindowsFormsApplication1
                 {
                     price += 2 * float.Parse(db.SearchPrice("Door", hauteur[m]-4, 0, largeur[0], couleurPortes[m]));
                 }
-
                 m++;
             }
             if ((n-1) != 0)
@@ -97,7 +100,16 @@ namespace WindowsFormsApplication1
             }
             textBox13.Text += "\r\n Total height : " + (hauteurtotale);
             textBox13.Text += "\r\n Total Price : " + price + "€";
-        
+
+            Id_Cabinet = db.CabinetRegister(Id_Angle, profondeur[0], largeur[0], price);
+            Id_Command = db.CommandRegister(Id_Customer, Id_Cabinet);
+            m = 0;
+            while (m != (n - 1))
+            {
+                db.BoxRegister(Id_Cabinet, hauteur[m], couleurPortes[m], coupelles[m], couleurPanneaux[m]);
+                m++;
+            }
+
         }
 
 
@@ -367,7 +379,7 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (comboBox1.Text == "")
             {
@@ -561,12 +573,10 @@ namespace WindowsFormsApplication1
             {
                 finished = true;
                 tabControl1.SelectedTab = CommandDetail;
-                string Id_Customer = db.CustomerRegister(textBox19.Text, textBox20.Text, textBox21.Text);
-                string Id_Angle = db.SearchAngle(corHeight, couleurCorniere[0]);
-                textBox7.Text = Id_Angle + "coucou";
-                //db.CommandRegister(Id_Customer, Id_Angle);
+                Id_Customer = db.CustomerRegister(textBox19.Text, textBox20.Text, textBox21.Text);
+                Id_Angle = db.SearchAngle(corHeight, couleurCorniere[0]);
                 Display13();
-                textBox7.Text = Id_Angle + "coucou";
+  
             }
             else
             {
