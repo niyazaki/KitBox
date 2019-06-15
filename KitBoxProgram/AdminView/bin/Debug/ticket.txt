@@ -1,7 +1,9 @@
+Thank you for your command ! Here are the details of it : Box N°    Height       Color of Doors      Color of panels
+1  :               36                Glass                       Brown
 
-Box1 : Height: 46 ; Color of doors:  No door ; Color of panels: Brown
+2  :               36                Glass                       Brown
 
- Cabinet's width: 42 ; cabinet's depth: 42
- Color of angles : Black
- Total height : 46
- Total Price : 25,692€
+ Cabinet's width: 80 ; cabinet's depth: 42
+ Color of angles : Galvanized
+ Total height : 72
+ Total Price : 80,75999€
