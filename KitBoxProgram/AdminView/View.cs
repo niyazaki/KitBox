@@ -214,9 +214,7 @@ namespace WindowsFormsApplication1
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {
-           
-            textBox7.Text = "";
+        { 
             n = 1;
             p = 0;
             corHeight = 0;
@@ -234,6 +232,11 @@ namespace WindowsFormsApplication1
             comboBox3.Text = "";
             comboBox4.Text = "";
             comboBox5.Text = "";
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            textBox22.Visible = false;
+            textBox23.Visible = false;
             List<int> profondeur = new List<int>();
             List<int> largeur = new List<int>();
             List<int> hauteur = new List<int>();
@@ -242,7 +245,8 @@ namespace WindowsFormsApplication1
             List<string> couleurCorniere = new List<string>();
             tabControl1.SelectedTab = Main;
             button4.Enabled = false;
-          
+            textBox7.Text = "";
+
 
         }
 
@@ -259,8 +263,6 @@ namespace WindowsFormsApplication1
         private void button10_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Seller;
-            textBox7.Text += db.SearchPrice("LR Rail", 0, 62, 0);
-            textBox7.Text += "coucou"; 
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -301,9 +303,23 @@ namespace WindowsFormsApplication1
 
         private void button12_Click(object sender, EventArgs e)
         {
+            textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            MySqlCommand commandDB = new MySqlCommand("select ID_Command, ID_Customer, ID_Cabinet from Command;", myConn);
+            string query = "select * from Command ";
+            if (textBox22.Text != "")
+            {
+                try
+                {
+                    query += "where ID_Cabinet=  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                }
+                catch
+                {
+                    textBox7.Text = "Error: Enter an integrer";
+                }
+
+            }
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
             try
             {
                 MySqlDataAdapter sda = new MySqlDataAdapter();
@@ -489,6 +505,7 @@ namespace WindowsFormsApplication1
 
         private void button15_Click(object sender, EventArgs e)
         {
+            textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             MySqlCommand commandDB = new MySqlCommand("select * from Command d where d.Payed=\'Payed\';", myConn);
@@ -582,6 +599,104 @@ namespace WindowsFormsApplication1
             {
                 textBox7.Text = "Incomplete fields !";
             }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            string query = "select * from Box ";
+            if (textBox22.Text!="")
+            {
+                try
+                {
+                    query += "where ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                }
+                catch
+                {
+                    textBox7.Text = "Error: Enter an integrer";
+                }
+            }
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView1.DataSource = bSource;
+                sda.Update(dbdataset);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+
+            string query = "select * from Customer ";
+            if (textBox23.Text != "")
+            {
+                try
+                {
+
+                    query += "where ID_Customer =  CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                }
+                catch
+                {
+                    textBox7.Text = "Error: Enter an integrer";
+                }
+
+            }
+            MySqlCommand commandDB = new MySqlCommand(query, myConn); 
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView1.DataSource = bSource;
+                sda.Update(dbdataset);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox22.Visible = !(textBox22.Visible);
+            textBox22.Text = "";
+            textBox7.Text = "";
+        }
+        private void textBox22_TextChanged(object sender, EventArgs e)
+        {
+            textBox7.Text = "Load a table.";
+        }
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox23.Visible = !(textBox23.Visible);
+            textBox23.Text = "";
+            textBox7.Text = "";
+        }
+
+        private void textBox23_TextChanged(object sender, EventArgs e)
+        {
+            textBox7.Text = "Load Customer table.";
         }
     }
 }

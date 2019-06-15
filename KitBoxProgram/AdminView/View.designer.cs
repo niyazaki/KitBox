@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button3 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -92,6 +93,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.textBox23 = new System.Windows.Forms.TextBox();
             this.Seller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.CommandDetail.SuspendLayout();
@@ -165,7 +172,7 @@
             this.comboBox6.Items.AddRange(new object[] {
             "Payed",
             "Unpayed"});
-            this.comboBox6.Location = new System.Drawing.Point(585, 408);
+            this.comboBox6.Location = new System.Drawing.Point(585, 412);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(136, 32);
             this.comboBox6.TabIndex = 38;
@@ -176,7 +183,7 @@
             this.button11.Enabled = false;
             this.button11.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.Olive;
-            this.button11.Location = new System.Drawing.Point(727, 409);
+            this.button11.Location = new System.Drawing.Point(727, 408);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(197, 40);
             this.button11.TabIndex = 5;
@@ -266,6 +273,12 @@
             // StoreKeeper
             // 
             this.StoreKeeper.BackColor = System.Drawing.SystemColors.Window;
+            this.StoreKeeper.Controls.Add(this.textBox23);
+            this.StoreKeeper.Controls.Add(this.checkBox3);
+            this.StoreKeeper.Controls.Add(this.textBox22);
+            this.StoreKeeper.Controls.Add(this.checkBox2);
+            this.StoreKeeper.Controls.Add(this.button19);
+            this.StoreKeeper.Controls.Add(this.button18);
             this.StoreKeeper.Controls.Add(this.button15);
             this.StoreKeeper.Controls.Add(this.button12);
             this.StoreKeeper.Controls.Add(this.dataGridView1);
@@ -280,11 +293,11 @@
             // 
             this.button15.BackColor = System.Drawing.SystemColors.Window;
             this.button15.Font = new System.Drawing.Font("Agency FB", 15F);
-            this.button15.Location = new System.Drawing.Point(6, 400);
+            this.button15.Location = new System.Drawing.Point(3, 414);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(916, 43);
+            this.button15.Size = new System.Drawing.Size(298, 38);
             this.button15.TabIndex = 5;
-            this.button15.Text = "Load Table (payed commands)";
+            this.button15.Text = "Load Command Table (payed commands)";
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
@@ -292,11 +305,11 @@
             // 
             this.button12.BackColor = System.Drawing.SystemColors.Window;
             this.button12.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(6, 449);
+            this.button12.Location = new System.Drawing.Point(3, 473);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(916, 43);
+            this.button12.Size = new System.Drawing.Size(301, 43);
             this.button12.TabIndex = 3;
-            this.button12.Text = "Load Table";
+            this.button12.Text = "Load Command Table";
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
@@ -304,10 +317,18 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HotTrack;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.Location = new System.Drawing.Point(6, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(916, 388);
+            this.dataGridView1.Size = new System.Drawing.Size(916, 381);
             this.dataGridView1.TabIndex = 0;
             // 
             // Recap
@@ -917,6 +938,80 @@
             this.pictureBox4.TabIndex = 41;
             this.pictureBox4.TabStop = false;
             // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.SystemColors.Window;
+            this.button18.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.Location = new System.Drawing.Point(310, 473);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(301, 43);
+            this.button18.TabIndex = 6;
+            this.button18.Text = "Load Box Table";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.SystemColors.Window;
+            this.button19.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.Location = new System.Drawing.Point(617, 473);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(301, 43);
+            this.button19.TabIndex = 7;
+            this.button19.Text = "Load Customer Table";
+            this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(522, 439);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(251, 24);
+            this.checkBox2.TabIndex = 34;
+            this.checkBox2.Text = "Enter a specific Id_Cabinet ";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // textBox22
+            // 
+            this.textBox22.BackColor = System.Drawing.SystemColors.Highlight;
+            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox22.Location = new System.Drawing.Point(789, 433);
+            this.textBox22.Multiline = true;
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(135, 34);
+            this.textBox22.TabIndex = 48;
+            this.textBox22.Visible = false;
+            this.textBox22.TextChanged += new System.EventHandler(this.textBox22_TextChanged);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.Location = new System.Drawing.Point(522, 403);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(261, 24);
+            this.checkBox3.TabIndex = 49;
+            this.checkBox3.Text = "Enter a specific Id_Customer";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // textBox23
+            // 
+            this.textBox23.BackColor = System.Drawing.SystemColors.Highlight;
+            this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox23.Location = new System.Drawing.Point(789, 393);
+            this.textBox23.Multiline = true;
+            this.textBox23.Name = "textBox23";
+            this.textBox23.Size = new System.Drawing.Size(135, 34);
+            this.textBox23.TabIndex = 50;
+            this.textBox23.Visible = false;
+            this.textBox23.TextChanged += new System.EventHandler(this.textBox23_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -939,6 +1034,7 @@
             this.CommandDetail.ResumeLayout(false);
             this.CommandDetail.PerformLayout();
             this.StoreKeeper.ResumeLayout(false);
+            this.StoreKeeper.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Recap.ResumeLayout(false);
             this.Recap.PerformLayout();
@@ -1027,6 +1123,12 @@
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.CheckBox checkBox3;
     }
 }
 
