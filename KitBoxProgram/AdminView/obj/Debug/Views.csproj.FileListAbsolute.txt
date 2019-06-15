@@ -125,3 +125,22 @@ D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.dll
 D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.dll
 D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.xml
 D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.pdb
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.exe.config
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.exe
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\AdminView.pdb
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\BouncyCastle.Crypto.dll
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.dll
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.dll
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.dll
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.xml
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.xml
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.pdb
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csprojAssemblyReference.cache
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.PopupForm.resources
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.Properties.Resources.resources
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.GenerateResource.cache
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.CoreCompileInputs.cache
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.CopyComplete
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.exe
+D:\Utilisateur\Niyazaki\Documents\GitHub\Kitbox\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb

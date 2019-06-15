@@ -62,18 +62,18 @@ namespace WindowsFormsApplication1
         public void Display13()
         {
             textBox7.Text = "";
-            textBox13.Text = "Thank you for your command ! Here are the details of it :";
+            textBox13.Text = "Thank you for your command ! Here are the details of it : \rBox N°    Height       Color of Doors      Color of panels";
             int m = 0;
             float price = 0;
             while (m != (n - 1))
             {
-                textBox13.Text += "\r\nBox" + (m + 1) + " : Height: " + hauteur[m] + " ; Color of doors:  " + couleurPortes[m] + " ; Color of panels: " + couleurPanneaux[m] + "\r\n";
+                textBox13.Text += "\r\n" + (m + 1) + "  :               " + hauteur[m] + "                " + couleurPortes[m] + "                       " + couleurPanneaux[m] + "\r\n";
                 price += 4 * float.Parse(db.SearchPrice("Cleat", hauteur[m]-2, 0, 0));
                 price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-2, profondeur[0], 0, couleurPanneaux[m]));
                 price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-2, 0, largeur[0], couleurPanneaux[m]));
                 price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]));
-                price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
-                price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
+                price += float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
+                price += float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
                 price += 4 * float.Parse(db.SearchPrice("Lr Rail", 0, profondeur[0], 0));
                 if (coupelles[m] == true)
                 {
