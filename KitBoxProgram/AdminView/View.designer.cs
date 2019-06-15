@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button3 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -42,6 +43,14 @@
             this.button14 = new System.Windows.Forms.Button();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.StoreKeeper = new System.Windows.Forms.TabPage();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.button19 = new System.Windows.Forms.Button();
+            this.button18 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -92,6 +101,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
             this.Seller.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.CommandDetail.SuspendLayout();
@@ -165,18 +177,19 @@
             this.comboBox6.Items.AddRange(new object[] {
             "Payed",
             "Unpayed"});
-            this.comboBox6.Location = new System.Drawing.Point(585, 408);
+            this.comboBox6.Location = new System.Drawing.Point(585, 412);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(136, 32);
             this.comboBox6.TabIndex = 38;
+            this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
             // button11
             // 
             this.button11.BackColor = System.Drawing.SystemColors.Window;
             this.button11.Enabled = false;
-            this.button11.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.Olive;
-            this.button11.Location = new System.Drawing.Point(727, 409);
+            this.button11.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.Color.Black;
+            this.button11.Location = new System.Drawing.Point(727, 408);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(197, 40);
             this.button11.TabIndex = 5;
@@ -186,7 +199,7 @@
             // 
             // textBox10
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox10.Location = new System.Drawing.Point(438, 409);
             this.textBox10.Multiline = true;
             this.textBox10.Name = "textBox10";
@@ -196,8 +209,8 @@
             // textBox12
             // 
             this.textBox12.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox12.Font = new System.Drawing.Font("Agency FB", 14F);
-            this.textBox12.ForeColor = System.Drawing.Color.Olive;
+            this.textBox12.Font = new System.Drawing.Font("Agency FB", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.ForeColor = System.Drawing.Color.Black;
             this.textBox12.Location = new System.Drawing.Point(6, 409);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
@@ -211,7 +224,7 @@
             this.button13.BackColor = System.Drawing.SystemColors.Window;
             this.button13.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button13.ForeColor = System.Drawing.Color.Black;
-            this.button13.Location = new System.Drawing.Point(3, 455);
+            this.button13.Location = new System.Drawing.Point(0, 471);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(921, 45);
             this.button13.TabIndex = 4;
@@ -232,6 +245,7 @@
             // CommandDetail
             // 
             this.CommandDetail.BackColor = System.Drawing.SystemColors.Window;
+            this.CommandDetail.Controls.Add(this.button21);
             this.CommandDetail.Controls.Add(this.button14);
             this.CommandDetail.Controls.Add(this.textBox13);
             this.CommandDetail.Location = new System.Drawing.Point(4, 19);
@@ -245,7 +259,7 @@
             // 
             this.button14.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button14.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.Location = new System.Drawing.Point(6, 453);
+            this.button14.Location = new System.Drawing.Point(3, 471);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(916, 45);
             this.button14.TabIndex = 37;
@@ -260,12 +274,22 @@
             this.textBox13.Location = new System.Drawing.Point(6, 16);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(916, 431);
+            this.textBox13.Size = new System.Drawing.Size(916, 400);
             this.textBox13.TabIndex = 1;
             // 
             // StoreKeeper
             // 
             this.StoreKeeper.BackColor = System.Drawing.SystemColors.Window;
+            this.StoreKeeper.Controls.Add(this.button20);
+            this.StoreKeeper.Controls.Add(this.textBox25);
+            this.StoreKeeper.Controls.Add(this.textBox24);
+            this.StoreKeeper.Controls.Add(this.checkBox4);
+            this.StoreKeeper.Controls.Add(this.textBox23);
+            this.StoreKeeper.Controls.Add(this.checkBox3);
+            this.StoreKeeper.Controls.Add(this.textBox22);
+            this.StoreKeeper.Controls.Add(this.checkBox2);
+            this.StoreKeeper.Controls.Add(this.button19);
+            this.StoreKeeper.Controls.Add(this.button18);
             this.StoreKeeper.Controls.Add(this.button15);
             this.StoreKeeper.Controls.Add(this.button12);
             this.StoreKeeper.Controls.Add(this.dataGridView1);
@@ -276,15 +300,114 @@
             this.StoreKeeper.TabIndex = 5;
             this.StoreKeeper.Text = "StoreKeeper";
             // 
+            // textBox24
+            // 
+            this.textBox24.BackColor = System.Drawing.SystemColors.Highlight;
+            this.textBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox24.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox24.Location = new System.Drawing.Point(781, 404);
+            this.textBox24.Multiline = true;
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(135, 34);
+            this.textBox24.TabIndex = 52;
+            this.textBox24.Visible = false;
+            this.textBox24.TextChanged += new System.EventHandler(this.textBox24_TextChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox4.Location = new System.Drawing.Point(514, 410);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(204, 24);
+            this.checkBox4.TabIndex = 51;
+            this.checkBox4.Text = "Enter a specific Name";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
+            // 
+            // textBox23
+            // 
+            this.textBox23.BackColor = System.Drawing.SystemColors.Highlight;
+            this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox23.Location = new System.Drawing.Point(781, 444);
+            this.textBox23.Multiline = true;
+            this.textBox23.Name = "textBox23";
+            this.textBox23.Size = new System.Drawing.Size(135, 34);
+            this.textBox23.TabIndex = 50;
+            this.textBox23.Visible = false;
+            this.textBox23.TextChanged += new System.EventHandler(this.textBox23_TextChanged);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.Location = new System.Drawing.Point(514, 450);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(261, 24);
+            this.checkBox3.TabIndex = 49;
+            this.checkBox3.Text = "Enter a specific Id_Customer";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // textBox22
+            // 
+            this.textBox22.BackColor = System.Drawing.SystemColors.Highlight;
+            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox22.Location = new System.Drawing.Point(781, 484);
+            this.textBox22.Multiline = true;
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(135, 34);
+            this.textBox22.TabIndex = 48;
+            this.textBox22.Visible = false;
+            this.textBox22.TextChanged += new System.EventHandler(this.textBox22_TextChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(514, 490);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(251, 24);
+            this.checkBox2.TabIndex = 34;
+            this.checkBox2.Text = "Enter a specific Id_Cabinet ";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.SystemColors.Window;
+            this.button19.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button19.Location = new System.Drawing.Point(320, 376);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(148, 143);
+            this.button19.TabIndex = 7;
+            this.button19.Text = "Load Customer Table";
+            this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
+            // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.SystemColors.Window;
+            this.button18.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.Location = new System.Drawing.Point(3, 473);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(301, 43);
+            this.button18.TabIndex = 6;
+            this.button18.Text = "Load Box Table";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
             // button15
             // 
             this.button15.BackColor = System.Drawing.SystemColors.Window;
             this.button15.Font = new System.Drawing.Font("Agency FB", 15F);
-            this.button15.Location = new System.Drawing.Point(6, 400);
+            this.button15.Location = new System.Drawing.Point(3, 376);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(916, 43);
+            this.button15.Size = new System.Drawing.Size(301, 38);
             this.button15.TabIndex = 5;
-            this.button15.Text = "Load Table (payed commands)";
+            this.button15.Text = "Load Command Table (payed commands)";
             this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
@@ -292,11 +415,11 @@
             // 
             this.button12.BackColor = System.Drawing.SystemColors.Window;
             this.button12.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.Location = new System.Drawing.Point(6, 449);
+            this.button12.Location = new System.Drawing.Point(3, 420);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(916, 43);
+            this.button12.Size = new System.Drawing.Size(301, 43);
             this.button12.TabIndex = 3;
-            this.button12.Text = "Load Table";
+            this.button12.Text = "Load All Command Table";
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
@@ -304,10 +427,18 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HotTrack;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(916, 388);
+            this.dataGridView1.Size = new System.Drawing.Size(916, 294);
             this.dataGridView1.TabIndex = 0;
             // 
             // Recap
@@ -329,14 +460,14 @@
             this.textBox9.Location = new System.Drawing.Point(6, 16);
             this.textBox9.Multiline = true;
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(916, 431);
+            this.textBox9.Size = new System.Drawing.Size(916, 440);
             this.textBox9.TabIndex = 0;
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.SystemColors.HotTrack;
             this.button5.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(6, 453);
+            this.button5.Location = new System.Drawing.Point(6, 462);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(916, 45);
             this.button5.TabIndex = 36;
@@ -917,6 +1048,44 @@
             this.pictureBox4.TabIndex = 41;
             this.pictureBox4.TabStop = false;
             // 
+            // textBox25
+            // 
+            this.textBox25.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox25.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox25.Location = new System.Drawing.Point(514, 376);
+            this.textBox25.Multiline = true;
+            this.textBox25.Name = "textBox25";
+            this.textBox25.ReadOnly = true;
+            this.textBox25.Size = new System.Drawing.Size(402, 28);
+            this.textBox25.TabIndex = 53;
+            this.textBox25.Text = "Search Criteria :";
+            this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button20
+            // 
+            this.button20.BackColor = System.Drawing.Color.Silver;
+            this.button20.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button20.Location = new System.Drawing.Point(3, 327);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(913, 43);
+            this.button20.TabIndex = 54;
+            this.button20.Text = "Save in the file \"command.txt\"";
+            this.button20.UseVisualStyleBackColor = false;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
+            // button21
+            // 
+            this.button21.BackColor = System.Drawing.Color.Silver;
+            this.button21.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.Location = new System.Drawing.Point(6, 422);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(913, 43);
+            this.button21.TabIndex = 55;
+            this.button21.Text = "Save in the file \"ticket.txt\"";
+            this.button21.UseVisualStyleBackColor = false;
+            this.button21.Click += new System.EventHandler(this.button21_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -939,6 +1108,7 @@
             this.CommandDetail.ResumeLayout(false);
             this.CommandDetail.PerformLayout();
             this.StoreKeeper.ResumeLayout(false);
+            this.StoreKeeper.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Recap.ResumeLayout(false);
             this.Recap.PerformLayout();
@@ -1027,6 +1197,17 @@
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button button19;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.TextBox textBox25;
+        private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button21;
     }
 }
 
