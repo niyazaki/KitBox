@@ -35,7 +35,6 @@ namespace WindowsFormsApplication1
         List<string> choixCorniere = new List<string>();
         List<bool> coupelles = new List<bool>();
         bool finished = false;
-        int prix = 0;
         int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
         public int hauteurtotale;
@@ -63,7 +62,7 @@ namespace WindowsFormsApplication1
         public void Display13()
         {
             textBox7.Text = "";
-            textBox13.Text = "";
+            textBox13.Text = "Thank you for your command ! Here are the details of it :";
             int m = 0;
             float price = 0;
             while (m != (n - 1))
@@ -117,6 +116,7 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
+            textBox8.PasswordChar = '*';
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -260,51 +260,67 @@ namespace WindowsFormsApplication1
 
         private void button9_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = StoreKeeper;
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select * from Command d where d.Payed=\'Payed\';";
-            MySqlCommand commandDB = new MySqlCommand(query, myConn);
-            try
+            if (textBox8.Text == "0000")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
+                textBox7.Text = "";
+                tabControl1.SelectedTab = StoreKeeper;
+                textBox7.Text = "";
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                string query = "select * from Command d where d.Payed=\'Payed\';";
+                MySqlCommand commandDB = new MySqlCommand(query, myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
 
-                bSource.DataSource = dbdataset;
-                dataGridView1.DataSource = bSource;
-                sda.Update(dbdataset);
+                    bSource.DataSource = dbdataset;
+                    dataGridView1.DataSource = bSource;
+                    sda.Update(dbdataset);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                textBox7.Text = "Enter the password !";
             }
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
-            tabControl1.SelectedTab = Seller;
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
-            MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
-            try
+            if (textBox8.Text == "0000")
             {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
+                textBox7.Text = "";
+                tabControl1.SelectedTab = Seller;
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
 
-                bSource.DataSource = dbdataset;
-                dataGridView2.DataSource = bSource;
-                sda.Update(dbdataset);
+                    bSource.DataSource = dbdataset;
+                    dataGridView2.DataSource = bSource;
+                    sda.Update(dbdataset);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
+                textBox7.Text = "Enter the password !" ;
             }
         }
 
