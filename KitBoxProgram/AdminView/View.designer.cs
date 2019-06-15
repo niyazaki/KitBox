@@ -137,7 +137,6 @@
             this.textBox7.Size = new System.Drawing.Size(255, 110);
             this.textBox7.TabIndex = 34;
             this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged_1);
             // 
             // Seller
             // 
@@ -206,7 +205,6 @@
             this.textBox12.Size = new System.Drawing.Size(426, 40);
             this.textBox12.TabIndex = 6;
             this.textBox12.Text = "Enter an ID_COMMAND to edit the value \"Payed\" :";
-            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
             // 
             // button13
             // 
@@ -230,7 +228,6 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(916, 393);
             this.dataGridView2.TabIndex = 1;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // CommandDetail
             // 
@@ -243,7 +240,6 @@
             this.CommandDetail.Size = new System.Drawing.Size(930, 522);
             this.CommandDetail.TabIndex = 6;
             this.CommandDetail.Text = "CommandDetail";
-            this.CommandDetail.Click += new System.EventHandler(this.tabPage7_Click);
             // 
             // button14
             // 
@@ -266,7 +262,6 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(916, 431);
             this.textBox13.TabIndex = 1;
-            this.textBox13.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
             // StoreKeeper
             // 
@@ -314,7 +309,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(916, 388);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Recap
             // 
@@ -337,7 +331,6 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(916, 431);
             this.textBox9.TabIndex = 0;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // button5
             // 
@@ -376,7 +369,6 @@
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(250, 33);
             this.comboBox8.TabIndex = 29;
-            this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.ComboBox8_SelectedIndexChanged);
             // 
             // textBox14
             // 
@@ -423,7 +415,6 @@
             this.Box.Size = new System.Drawing.Size(930, 522);
             this.Box.TabIndex = 2;
             this.Box.Text = "Box";
-            this.Box.Click += new System.EventHandler(this.Box_Click);
             // 
             // button7
             // 
@@ -448,7 +439,6 @@
             this.checkBox1.TabIndex = 33;
             this.checkBox1.Text = "Include doors";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged_1);
             // 
             // button4
             // 
@@ -476,7 +466,6 @@
             this.textBox1.TabIndex = 3;
             this.textBox1.Text = "Box\'s Height";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox6
             // 
@@ -491,7 +480,6 @@
             this.textBox6.TabIndex = 33;
             this.textBox6.Text = "Box 1";
             this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // textBox5
             // 
@@ -521,7 +509,6 @@
             this.textBox4.Text = "Doors\'s Color";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox4.Visible = false;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // comboBox1
             // 
@@ -550,7 +537,6 @@
             this.comboBox3.Size = new System.Drawing.Size(250, 33);
             this.comboBox3.TabIndex = 29;
             this.comboBox3.Visible = false;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // comboBox5
             // 
@@ -563,7 +549,6 @@
             this.comboBox5.Name = "comboBox5";
             this.comboBox5.Size = new System.Drawing.Size(253, 33);
             this.comboBox5.TabIndex = 31;
-            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -576,7 +561,6 @@
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
             // Base
             // 
@@ -604,7 +588,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(467, 503);
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // button6
             // 
@@ -633,7 +616,6 @@
             this.textBox2.TabIndex = 4;
             this.textBox2.Text = "Select depth:";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
@@ -648,7 +630,6 @@
             this.textBox3.TabIndex = 5;
             this.textBox3.Text = "Select width:";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // comboBox2
             // 
@@ -662,7 +643,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(250, 33);
             this.comboBox2.TabIndex = 28;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // comboBox4
             // 
@@ -674,7 +654,6 @@
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(250, 33);
             this.comboBox4.TabIndex = 30;
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // Main
             // 
@@ -689,7 +668,6 @@
             this.Main.Size = new System.Drawing.Size(930, 522);
             this.Main.TabIndex = 0;
             this.Main.Text = "Main";
-            this.Main.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // button10
             // 
@@ -911,7 +889,6 @@
             this.textBox11.TabIndex = 38;
             this.textBox11.Text = "KITBOX";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged_1);
             // 
             // pictureBox1
             // 
@@ -922,7 +899,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(135, 122);
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox3
             // 

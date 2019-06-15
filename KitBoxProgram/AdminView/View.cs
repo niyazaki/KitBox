@@ -64,9 +64,9 @@ namespace WindowsFormsApplication1
             while (m != (n - 1))
             {
                 textBox13.Text += "\r\nBox" + (m + 1) + " : Height: " + hauteur[m] + " ; Color of doors:  " + couleurPortes[m] + " ; Color of panels: " + couleurPanneaux[m] + "\r\n";
-                price += 4 * float.Parse(db.SearchPrice("Cleat", hauteur[m], 0, 0));
-                price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m], profondeur[0], 0, couleurPanneaux[m]));
-                price += float.Parse(db.SearchPrice("BA Panel", hauteur[m], 0, largeur[0], couleurPanneaux[m]));
+                price += 4 * float.Parse(db.SearchPrice("Cleat", hauteur[m]-2, 0, 0));
+                price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-2, profondeur[0], 0, couleurPanneaux[m]));
+                price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-2, 0, largeur[0], couleurPanneaux[m]));
                 price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]));
                 price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
                 price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
@@ -77,7 +77,7 @@ namespace WindowsFormsApplication1
                 }
                 if (couleurPortes[m] != "No door")
                 {
-                    price += 2 * float.Parse(db.SearchPrice("Door", hauteur[m], 0, largeur[0], couleurPortes[m]));
+                    price += 2 * float.Parse(db.SearchPrice("Door", hauteur[m]-4, 0, largeur[0], couleurPortes[m]));
                 }
 
                 m++;
@@ -172,33 +172,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Recap;
@@ -207,26 +180,6 @@ namespace WindowsFormsApplication1
             largeur.Add(0);
 
             Display();
-        }
-
-        private void ftesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripComboBox2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -245,42 +198,6 @@ namespace WindowsFormsApplication1
                 comboBox3.Items.Add(i);
             }
 
-            
-        }
-
-        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_MouseClick(object sender, MouseEventArgs e)
-        {
             
         }
 
@@ -317,21 +234,9 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void textBox7_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Box;
-            
-           
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -343,9 +248,7 @@ namespace WindowsFormsApplication1
         {
             tabControl1.SelectedTab = Seller;
             textBox7.Text += db.SearchPrice("LR Rail", 0, 62, 0);
-            textBox7.Text += "coucou";
-            
-            
+            textBox7.Text += "coucou"; 
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -379,20 +282,11 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
         private void Form1_Load_1(object sender, EventArgs e)
         {
             tabControl1.ItemSize = new Size(0,1);
         }
 
-        private void button11_Click(object sender, EventArgs e)
-        {
-        }
         private void button12_Click(object sender, EventArgs e)
         {
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
@@ -415,11 +309,6 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void tabPage7_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -478,9 +367,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void Box_Click(object sender, EventArgs e)
-        {
-        }
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             if (comboBox1.Text == "")
@@ -500,9 +386,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
         private void button7_Click(object sender, EventArgs e)
         {
             comboBox8.Items.Clear();
@@ -530,12 +413,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button13_Click(object sender, EventArgs e)
-        {
-        }
-        private void textBox9_TextChanged(object sender, EventArgs e)
-        {
-        }
         private void button13_Click_1(object sender, EventArgs e)
         {
             
@@ -596,11 +473,6 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button15_Click(object sender, EventArgs e)
@@ -670,11 +542,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void textBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button16_Click(object sender, EventArgs e)
         {
             if (comboBox8.Text != "")
@@ -686,27 +553,6 @@ namespace WindowsFormsApplication1
             {
                 textBox7.Text = "Incomplete fields !";
             }
-        }
-        private void ComboBox8_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-        private void textBox8_TextChanged_1(object sender, EventArgs e)
-        {
-        }
-        private void textBox12_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void textBox11_TextChanged_1(object sender, EventArgs e)
-        {          
-        }
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-        }
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-        }
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
         }
 
         private void button17_Click(object sender, EventArgs e)
