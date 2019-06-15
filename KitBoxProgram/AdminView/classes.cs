@@ -349,7 +349,6 @@ namespace KitBoxProgram
     {
         string color;
         public int height;
-        bool hasDoor;
         public double price;
 
         List<Accessory> accessories;
@@ -382,7 +381,7 @@ namespace KitBoxProgram
 
         public double price;
         public string code;
-        int stock;
+        public int stock;
         public int nbPiece;
 
         public double GetPrice()
@@ -410,7 +409,6 @@ namespace KitBoxProgram
 
     abstract class Rail : Accessory
     {
-
         public string GetCode(string dimension)
         {
             return code + dimension;
@@ -550,8 +548,8 @@ namespace KitBoxProgram
 
     class Door : Accessory
     {
-        string color;
-        bool cup;
+        public string color;
+        public bool cup;
 
         public Door(string color, bool cup)
         {
@@ -567,8 +565,8 @@ namespace KitBoxProgram
 
     class Angle : Accessory
     {
-        int height;
-        string color;
+        public int height;
+        public string color;
 
         public Angle(int height, string color)
         {

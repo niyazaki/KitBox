@@ -120,3 +120,8 @@ C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminVi
 C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb
 F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.dll
 F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.pdb
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\BouncyCastle.Crypto.dll
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\MySql.Data.dll
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.dll
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\Google.Protobuf.xml
+D:\ECAM\BA3\Projet info\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.pdb
