@@ -261,6 +261,7 @@
             this.comboBox6.ItemHeight = 24;
             this.comboBox6.Items.AddRange(new object[] {
             "Payed",
+            "Advance Payment",
             "Unpayed"});
             this.comboBox6.Location = new System.Drawing.Point(438, 425);
             this.comboBox6.Name = "comboBox6";
@@ -559,10 +560,10 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(916, 294);
+            this.dataGridView1.Size = new System.Drawing.Size(916, 315);
             this.dataGridView1.TabIndex = 0;
             // 
             // Recap

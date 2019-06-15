@@ -72,8 +72,8 @@ namespace WindowsFormsApplication1
                 price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-2, profondeur[0], 0, couleurPanneaux[m]));
                 price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-2, 0, largeur[0], couleurPanneaux[m]));
                 price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]));
-                price += float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
-                price += float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
+                price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
+                price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
                 price += 4 * float.Parse(db.SearchPrice("Lr Rail", 0, profondeur[0], 0));
                 if (coupelles[m] == true)
                 {
