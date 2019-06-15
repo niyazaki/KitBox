@@ -125,6 +125,8 @@ namespace WindowsFormsApplication1
                 comboBox2.Visible = false;
                 comboBox4.Visible = false;
 
+                button7.Enabled = true;
+
                 textBox7.Text = "";
                 if (p < 7)
                 {
@@ -284,6 +286,7 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
+           
             textBox7.Text = "";
             n = 1;
             p = 0;
@@ -291,7 +294,8 @@ namespace WindowsFormsApplication1
             textBox6.Visible = true;
             textBox6.Text = "Box " + n;
             button1.Enabled = true; // le rend clickable
-            button1.Visible = true; // le rend visible
+            button1.Visible = true; // le rend visible 
+            button7.Enabled = false;
             textBox2.Visible = true;
             textBox3.Visible = true;
             comboBox2.Visible = true;
@@ -712,9 +716,11 @@ namespace WindowsFormsApplication1
                 finished = true;
                 tabControl1.SelectedTab = CommandDetail;
                 string Id_Customer = db.CustomerRegister(textBox19.Text, textBox20.Text, textBox21.Text);
-
+                string Id_Angle = db.SearchAngle(corHeight, couleurCorniere[0]);
+                textBox7.Text = Id_Angle + "coucou";
                 //db.CommandRegister(Id_Customer, Id_Angle);
                 Display13();
+                textBox7.Text = Id_Angle + "coucou";
             }
             else
             {

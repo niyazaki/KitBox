@@ -226,6 +226,23 @@ namespace KitBoxProgram
             }
             return res;
         }
+        public string SearchAngle(int height, string color)
+        {
+            string query = "SELECT ID_Accessory FROM Catalogue where Height='" + height + "' AND Color='" + color +"' LIMIT 1";
+            string id_angle = "";
+            if (this.OpenCo() == true)
+            {
+                MySqlCommand secondCmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = secondCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    id_angle = dataReader.GetString(0);
+                }
+                dataReader.Close();
+                this.CloseCo();
+            }
+            return id_angle;
+        }
     }
     class Cabinet
     {
