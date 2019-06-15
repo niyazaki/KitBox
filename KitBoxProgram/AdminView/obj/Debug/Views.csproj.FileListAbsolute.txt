@@ -118,3 +118,5 @@ C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.c
 C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\Views.csproj.CopyComplete
 C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.exe
 C:\Users\Maman\Documents\GitHub\KitBox\KitBoxProgram\AdminView\obj\Debug\AdminView.pdb
+F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.dll
+F:\Utilisateur\Documents\GitHub Repo\KitBox\KitBoxProgram\AdminView\bin\Debug\Windows.Forms.HintTextBox.pdb
