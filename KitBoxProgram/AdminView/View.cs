@@ -288,7 +288,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                textBox7.Text = "Enter the password !";
+                textBox7.Text = "Enter the correct password !";
             }
         }
 
@@ -320,7 +320,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                textBox7.Text = "Enter the password !" ;
+                textBox7.Text = "Enter the correct password !" ;
             }
         }
 
@@ -505,9 +505,21 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
+            string query = "select * from Command ";
+            if (checkBox5.Checked == true)
+            {
+                try
+                {
+                    query += "where ID_Command=  CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER)";
+                }
+                catch
+                {
+                    textBox7.Text = "Error: Enter an integrer";
+                }
+            }
             try
             {
+                MySqlCommand commandDB = new MySqlCommand(query, myConn);
                 MySqlDataAdapter sda = new MySqlDataAdapter();
                 sda.SelectCommand = commandDB;
                 DataTable dbdataset = new DataTable();
@@ -727,7 +739,6 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-
             string query = "select * from Customer ";
             if (textBox23.Text != "" | textBox24.Text !="")
             {
@@ -840,6 +851,33 @@ namespace WindowsFormsApplication1
             writer.Write(textBox13.Text);
             writer.Close();
             MessageBox.Show("Data Exported");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TextWriter writer = new StreamWriter(@"proof.txt");
+            writer.WriteLine("--------------PROOF OF THE PAYEMENT--------------------------------");
+            writer.WriteLine(" ID_Command \t | ID_Customer \t |  ID_Cabinet \t |  Payed \t ");
+            writer.WriteLine("-------------------------------------------------------------------");
+            for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dataGridView2.Columns.Count; j++)
+                {
+                    writer.Write("\t" + dataGridView2.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
+                }
+                writer.WriteLine("");
+                writer.WriteLine("-------------------------------------------------------------------");
+            }
+            writer.Close();
+            MessageBox.Show("Data Exported");
+        }
+
+        private void checkBox5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox5.Checked == true)
+            {
+                textBox7.Text = "Enter an ID_Command and reload the table.";
+            }
         }
     }
 }
