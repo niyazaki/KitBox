@@ -41,12 +41,12 @@ namespace WindowsFormsApplication1
         public void Display()
         {
             textBox7.Text = "";
-            textBox9.Text = "";
+            textBox9.Text = "Box N°    Height       Color of Doors      Color of panels"; ;
             int m = 0;
             while (m != (n - 1))
             {
                 
-                textBox9.Text += "\r\nBox" + (m + 1) + " : Height: " + hauteur[m] + " ; Color of doors:  " + couleurPortes[m] + " ; Color of panels: " + couleurPanneaux[m] + "\r\n";
+                textBox9.Text += "\r\n" + (m + 1) + "  :               " + hauteur[m] + "                " + couleurPortes[m] + "                       " + couleurPanneaux[m] + "\r\n";
                 m++;
 
             }
@@ -857,7 +857,7 @@ namespace WindowsFormsApplication1
         {
             TextWriter writer = new StreamWriter(@"proof.txt");
             writer.WriteLine("--------------PROOF OF THE PAYEMENT--------------------------------");
-            writer.WriteLine(" ID_Command \t | ID_Customer \t |  ID_Cabinet \t |  Payed \t ");
+            writer.WriteLine(" ID_Command \t| ID_Customer \t|  ID_Cabinet \t|  Payed \t|");
             writer.WriteLine("-------------------------------------------------------------------");
             for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
             {
