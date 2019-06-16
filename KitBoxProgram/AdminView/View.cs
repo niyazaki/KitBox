@@ -1123,5 +1123,14 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox41_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
