@@ -105,30 +105,54 @@ namespace WindowsFormsApplication1
             Id_Cabinet = db.CabinetRegister(Id_Angle, profondeur[0], largeur[0], price);
             Id_Command = db.CommandRegister(Id_Customer, Id_Cabinet);
 
+
+            List<bool> stock_good = new List<bool>();
             m = 0;
             while (m != (n - 1))
             {
+                string Id_Cleat = db.SearchID("Cleat", hauteur[m] - 4, 0, 0);
+                string Id_BAPanel = db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur[0], couleurPanneaux[m]);
+                string Id_UDPanel = db.SearchID("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]);
+                string Id_BARail = db.SearchID("BA Rail", 0, 0, largeur[0]);
+                string Id_FrRail = db.SearchID("Fr Rail", 0, 0, largeur[0]);
+                string Id_LrRail = db.SearchID("Lr Rail", 0, profondeur[0], 0);
                 db.BoxRegister(Id_Cabinet, hauteur[m], couleurPortes[m], coupelles[m], couleurPanneaux[m]);
-                db.AddList(Id_Command, db.SearchID("Cleat", hauteur[m] - 4, 0, 0), 4);
-                db.AddList(Id_Command, db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur[0], couleurPanneaux[m]), 2);
-                db.AddList(Id_Command, db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur[0], couleurPanneaux[m]), 1);
-                db.AddList(Id_Command, db.SearchID("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]), 2);
-                db.AddList(Id_Command, db.SearchID("BA Rail", 0, 0, largeur[0]), 2);
-                db.AddList(Id_Command, db.SearchID("Fr Rail", 0, 0, largeur[0]), 1);
-                db.AddList(Id_Command, db.SearchID("Lr Rail", 0, profondeur[0], 0), 4);
+                db.AddList(Id_Command, Id_Cleat, 4);
+                db.AddList(Id_Command, Id_BAPanel, 1);
+                db.AddList(Id_Command, Id_UDPanel, 2);
+                db.AddList(Id_Command, Id_BARail, 2);
+                db.AddList(Id_Command, Id_FrRail, 1);
+                db.AddList(Id_Command, Id_LrRail, 4);
+                stock_good.Add(db.StockVerify(Id_Cleat, 4));
+                stock_good.Add(db.StockVerify(Id_BAPanel, 1));
+                stock_good.Add(db.StockVerify(Id_UDPanel, 2));
+                stock_good.Add(db.StockVerify(Id_BARail, 2));
+                stock_good.Add(db.StockVerify(Id_FrRail, 1));
+                stock_good.Add(db.StockVerify(Id_LrRail, 4));
+                
                 if (coupelles[m] == true)
                 {
-                    db.AddList(Id_Command, db.SearchID("Coupelles", 0, 0, 0), 2);
+                    string Id_Cups = db.SearchID("Coupelles", 0, 0, 0);
+                    db.AddList(Id_Command, Id_Cups, 2);
+                    stock_good.Add(db.StockVerify(Id_Cups, 2));
                 }
                 if (couleurPortes[m] != "No door")
                 {
-                    db.AddList(Id_Command, db.SearchID("Door", hauteur[m] - 4, 0, largeur[0], couleurPortes[m]) , 2);
+                    string Id_Doors = db.SearchID("Door", hauteur[m] - 4, 0, largeur[0], couleurPortes[m]);
+                    db.AddList(Id_Command, Id_Doors , 2);
+                    stock_good.Add(db.StockVerify(Id_Doors, 2));
                 }
                 m++;
             }
             if ((n - 1) != 0)
             {
                 db.AddList(Id_Command, Id_Angle, 4);
+                stock_good.Add(db.StockVerify(Id_Angle, 4));
+            }
+
+            if (stock_good.Contains(false))
+            {
+                textBox13.Text += "\r\nMissing stock : a down payment is allowed (50% of the initial price).";
             }
         }
         public Form1()
@@ -286,7 +310,7 @@ namespace WindowsFormsApplication1
                 textBox7.Text = "";
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
-                string query = "select * from Command d where d.Payed=\'Payed\';";
+                string query = "select * from Catalogue where (Stock - Stock_min - Nb_Pieces_Box) <= 0;";
                 MySqlCommand commandDB = new MySqlCommand(query, myConn);
                 try
                 {
@@ -298,7 +322,12 @@ namespace WindowsFormsApplication1
 
                     bSource.DataSource = dbdataset;
                     dataGridView1.DataSource = bSource;
+                    
                     sda.Update(dbdataset);
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    { 
+                        row.DefaultCellStyle.ForeColor = Color.Red;
+                    }
                 }
                 catch (Exception ex)
                 {

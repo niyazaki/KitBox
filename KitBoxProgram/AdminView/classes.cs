@@ -296,6 +296,7 @@ namespace KitBoxProgram
             {
                 query += " and Color='" + color + "'";
             }
+            query += " LIMIT 1";
             string id = "";
             if (this.OpenCo() == true)
             {
@@ -313,6 +314,27 @@ namespace KitBoxProgram
                 catch { return id; }
             }
         return id;
+        }
+        public bool StockVerify(string id_accessory, int quantity)
+        {
+            int stock = Int32.Parse(Search(id_accessory, "Stock", "Catalogue")[0]);
+            int stock_min = Int32.Parse(Search(id_accessory, "Stock_Min", "Catalogue")[0]);
+            int result = stock - quantity - stock_min;
+            string query = "";
+            if (result >= 0)
+            {
+                query += "update Catalogue set Stock= \'" + (stock-quantity) + "\' where ID_Accessory= '" + id_accessory + "'";
+                if (this.OpenCo() == true)
+                {
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.CommandText = query;
+                    cmd.Connection = connection;
+                    cmd.ExecuteNonQuery();
+                    this.CloseCo();
+                    return true; 
+                }
+            }
+            return false; ;
         }
         public void BoxRegister(string id_cabinet, int height, string door, bool cups, string panel)
         {

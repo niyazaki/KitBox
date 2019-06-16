@@ -1213,6 +1213,7 @@
             // 
             // Secretary
             // 
+            this.Secretary.BackColor = System.Drawing.SystemColors.Window;
             this.Secretary.Controls.Add(this.textBox41);
             this.Secretary.Controls.Add(this.textBox40);
             this.Secretary.Controls.Add(this.textBox39);
@@ -1240,7 +1241,6 @@
             this.Secretary.Size = new System.Drawing.Size(930, 522);
             this.Secretary.TabIndex = 11;
             this.Secretary.Text = "Secretary";
-            this.Secretary.UseVisualStyleBackColor = true;
             // 
             // textBox41
             // 
@@ -1256,7 +1256,7 @@
             // 
             this.textBox40.BackColor = System.Drawing.SystemColors.Window;
             this.textBox40.Font = new System.Drawing.Font("Agency FB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox40.ForeColor = System.Drawing.Color.Black;
+            this.textBox40.ForeColor = System.Drawing.Color.DeepPink;
             this.textBox40.Location = new System.Drawing.Point(6, 392);
             this.textBox40.Multiline = true;
             this.textBox40.Name = "textBox40";
@@ -1270,7 +1270,7 @@
             // 
             this.textBox39.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox39.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox39.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox39.ForeColor = System.Drawing.Color.DeepPink;
             this.textBox39.Location = new System.Drawing.Point(565, 294);
             this.textBox39.Multiline = true;
             this.textBox39.Name = "textBox39";
@@ -1284,7 +1284,7 @@
             // 
             this.textBox38.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox38.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox38.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox38.ForeColor = System.Drawing.Color.DeepPink;
             this.textBox38.Location = new System.Drawing.Point(221, 294);
             this.textBox38.Multiline = true;
             this.textBox38.Name = "textBox38";
@@ -1456,7 +1456,7 @@
             // 
             this.textBox27.BackColor = System.Drawing.SystemColors.Window;
             this.textBox27.Font = new System.Drawing.Font("Agency FB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox27.ForeColor = System.Drawing.Color.Black;
+            this.textBox27.ForeColor = System.Drawing.Color.DeepPink;
             this.textBox27.Location = new System.Drawing.Point(6, 292);
             this.textBox27.Multiline = true;
             this.textBox27.Name = "textBox27";
