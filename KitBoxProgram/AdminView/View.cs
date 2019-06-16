@@ -340,6 +340,7 @@ namespace WindowsFormsApplication1
         {
             if (textBox8.Text == "0000")
             {
+                tabControl1.SelectedTab = Seller;
                 DisplayDataGridView("select * from Command where Payed!='Closed' ;", dataGridView2);
             }
             else
