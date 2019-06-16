@@ -27,6 +27,7 @@ namespace WindowsFormsApplication1
         string Id_Command;
         int profondeur;
         int largeur;
+        int hauteurtotale;
         List<int> hauteur = new List<int>();
         List<string> couleurPortes = new List<string>();
         List<string> couleurPanneaux = new List<string>();
@@ -36,7 +37,7 @@ namespace WindowsFormsApplication1
         bool finished = false;
         int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
-        public int hauteurtotale;
+
         
         public void DisplayDataGridView(string query,DataGridView dgv , bool color=false)
         {
@@ -183,7 +184,7 @@ namespace WindowsFormsApplication1
             {
                 textBox13.Text += "\r\nMissing stock : a down payment is allowed (50% of the initial price).";
             }
-            DisplayDataGridView("select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory", dataGridView4);
+            DisplayDataGridView("select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory where i.ID_Command='" + Id_Command + "' GROUP BY i.ID_Accessory, i.Quantity, c.Stock", dataGridView4);
         }
         public Form1()
         {
@@ -843,10 +844,12 @@ namespace WindowsFormsApplication1
                 List<int> profondeur = new List<int>();
                 List<int> largeur = new List<int>();
                 List<int> hauteur = new List<int>();
+                hauteurtotale = 0;
                 List<string> couleurPortes = new List<string>();
                 List<string> couleurPanneaux = new List<string>();
                 List<string> couleurCorniere = new List<string>();
                 List<string> choixCorniere = new List<string>();
+                List<string> coupelles = new List<string>();
                 tabControl1.SelectedTab = Main;
                 button4.Enabled = false;
             }
@@ -1382,7 +1385,7 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory";
+            string query = "select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory where i.ID_Command='"+Id_Command+"' GROUP BY i.ID_Accessory, i.Quantity, c.Stock";
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
             try
             {

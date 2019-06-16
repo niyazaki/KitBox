@@ -53,6 +53,11 @@
             this.button14 = new System.Windows.Forms.Button();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.StoreKeeper = new System.Windows.Forms.TabPage();
+            this.button33 = new System.Windows.Forms.Button();
+            this.textBox46 = new System.Windows.Forms.TextBox();
+            this.textBox45 = new System.Windows.Forms.TextBox();
+            this.textBox44 = new System.Windows.Forms.TextBox();
+            this.textBox43 = new System.Windows.Forms.TextBox();
             this.button30 = new System.Windows.Forms.Button();
             this.textBox42 = new System.Windows.Forms.TextBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
@@ -135,11 +140,6 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.textBox43 = new System.Windows.Forms.TextBox();
-            this.textBox44 = new System.Windows.Forms.TextBox();
-            this.textBox45 = new System.Windows.Forms.TextBox();
-            this.textBox46 = new System.Windows.Forms.TextBox();
-            this.button33 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -446,7 +446,7 @@
             // textBox13
             // 
             this.textBox13.BackColor = System.Drawing.Color.Gold;
-            this.textBox13.Font = new System.Drawing.Font("Agency FB", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox13.Location = new System.Drawing.Point(6, 16);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
@@ -484,6 +484,68 @@
             this.StoreKeeper.Size = new System.Drawing.Size(930, 522);
             this.StoreKeeper.TabIndex = 5;
             this.StoreKeeper.Text = "StoreKeeper";
+            // 
+            // button33
+            // 
+            this.button33.BackColor = System.Drawing.SystemColors.Window;
+            this.button33.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button33.Location = new System.Drawing.Point(652, 261);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(267, 38);
+            this.button33.TabIndex = 63;
+            this.button33.Text = "Validate ";
+            this.button33.UseVisualStyleBackColor = false;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
+            // 
+            // textBox46
+            // 
+            this.textBox46.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox46.Location = new System.Drawing.Point(507, 266);
+            this.textBox46.Multiline = true;
+            this.textBox46.Name = "textBox46";
+            this.textBox46.Size = new System.Drawing.Size(145, 30);
+            this.textBox46.TabIndex = 62;
+            this.textBox46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox45
+            // 
+            this.textBox45.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox45.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox45.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox45.Location = new System.Drawing.Point(470, 266);
+            this.textBox45.Multiline = true;
+            this.textBox45.Name = "textBox45";
+            this.textBox45.ReadOnly = true;
+            this.textBox45.Size = new System.Drawing.Size(41, 29);
+            this.textBox45.TabIndex = 61;
+            this.textBox45.Text = "to :";
+            this.textBox45.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox44
+            // 
+            this.textBox44.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox44.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox44.Location = new System.Drawing.Point(285, 266);
+            this.textBox44.Multiline = true;
+            this.textBox44.Name = "textBox44";
+            this.textBox44.Size = new System.Drawing.Size(191, 29);
+            this.textBox44.TabIndex = 60;
+            this.textBox44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox43
+            // 
+            this.textBox43.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox43.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox43.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox43.Location = new System.Drawing.Point(6, 266);
+            this.textBox43.Multiline = true;
+            this.textBox43.Name = "textBox43";
+            this.textBox43.ReadOnly = true;
+            this.textBox43.Size = new System.Drawing.Size(282, 29);
+            this.textBox43.TabIndex = 59;
+            this.textBox43.Text = "Change Stock of the ID_Accessory  :";
+            this.textBox43.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // button30
             // 
@@ -1555,68 +1617,6 @@
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(913, 280);
             this.dataGridView3.TabIndex = 2;
-            // 
-            // textBox43
-            // 
-            this.textBox43.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox43.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox43.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBox43.Location = new System.Drawing.Point(6, 266);
-            this.textBox43.Multiline = true;
-            this.textBox43.Name = "textBox43";
-            this.textBox43.ReadOnly = true;
-            this.textBox43.Size = new System.Drawing.Size(282, 29);
-            this.textBox43.TabIndex = 59;
-            this.textBox43.Text = "Change Stock of the ID_Accessory  :";
-            this.textBox43.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox44
-            // 
-            this.textBox44.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox44.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox44.Location = new System.Drawing.Point(285, 266);
-            this.textBox44.Multiline = true;
-            this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(191, 29);
-            this.textBox44.TabIndex = 60;
-            this.textBox44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox45
-            // 
-            this.textBox45.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox45.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox45.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBox45.Location = new System.Drawing.Point(470, 266);
-            this.textBox45.Multiline = true;
-            this.textBox45.Name = "textBox45";
-            this.textBox45.ReadOnly = true;
-            this.textBox45.Size = new System.Drawing.Size(41, 29);
-            this.textBox45.TabIndex = 61;
-            this.textBox45.Text = "to :";
-            this.textBox45.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox46
-            // 
-            this.textBox46.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.textBox46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox46.Location = new System.Drawing.Point(507, 266);
-            this.textBox46.Multiline = true;
-            this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(145, 30);
-            this.textBox46.TabIndex = 62;
-            this.textBox46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // button33
-            // 
-            this.button33.BackColor = System.Drawing.SystemColors.Window;
-            this.button33.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button33.Location = new System.Drawing.Point(652, 261);
-            this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(267, 38);
-            this.button33.TabIndex = 63;
-            this.button33.Text = "Validate ";
-            this.button33.UseVisualStyleBackColor = false;
-            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // Form1
             // 
