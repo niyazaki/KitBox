@@ -289,6 +289,31 @@ namespace KitBoxProgram
             }
             return id_command;
         }
+        public string SearchID(string reff, int height, int depth, int width, string color = "")
+        {
+            string query = "SELECT ID_Accessory FROM Catalogue  WHERE Ref ='" + reff + "' and Height=" + height + " and Depth=" + depth + " and Width=" + width;
+            if (color != "")
+            {
+                query += " and Color='" + color + "'";
+            }
+            string id = "";
+            if (this.OpenCo() == true)
+            {
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    MySqlDataReader dataReader = cmd.ExecuteReader();
+                    while (dataReader.Read())
+                    {
+                        id = dataReader.GetString(0);
+                    }
+                    dataReader.Close();
+                    this.CloseCo();
+                }
+                catch { return id; }
+            }
+        return id;
+        }
         public void BoxRegister(string id_cabinet, int height, string door, bool cups, string panel)
         {
             string query = "INSERT INTO Box(ID_Cabinet, Height, Color_Doors, Cups, Color_Panels) VALUES ('" + id_cabinet + "', '" + height + "', '" + door + "', '" + cups + "', '" + panel + "')";
@@ -301,6 +326,19 @@ namespace KitBoxProgram
                 this.CloseCo();
             }
         }
+        public void AddList(string id_command, string id_accessory, int quantity)
+        {
+            string query = "INSERT INTO List(ID_Command, ID_Accessory, Quantity) VALUES ('" + id_command + "', '"+id_accessory+"', " + quantity + ")";
+            if (this.OpenCo() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+                cmd.ExecuteNonQuery();
+                this.CloseCo();
+            }
+        }
+
     }
     class Cabinet
     {

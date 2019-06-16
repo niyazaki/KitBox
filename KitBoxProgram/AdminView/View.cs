@@ -62,15 +62,16 @@ namespace WindowsFormsApplication1
         public void Display13()
         {
             textBox7.Text = "";
-            textBox13.Text = "Thank you for your command ! Here are the details of it : \rBox N°    Height       Color of Doors      Color of panels";
+            textBox13.Text = "Thank you for your command ! Here are the details of it : \r\nBox N°    Height       Color of Doors      Color of panels";
             int m = 0;
             float price = 0;
             while (m != (n - 1))
             {
                 textBox13.Text += "\r\n" + (m + 1) + "  :               " + hauteur[m] + "                " + couleurPortes[m] + "                       " + couleurPanneaux[m] + "\r\n";
-                price += 4 * float.Parse(db.SearchPrice("Cleat", hauteur[m]-2, 0, 0));
-                price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-2, profondeur[0], 0, couleurPanneaux[m]));
-                price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-2, 0, largeur[0], couleurPanneaux[m]));
+
+                price += 4 * float.Parse(db.SearchPrice("Cleat", hauteur[m]-4, 0, 0));
+                price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-4, profondeur[0], 0, couleurPanneaux[m]));
+                price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-4, 0, largeur[0], couleurPanneaux[m]));
                 price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]));
                 price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
                 price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
@@ -103,16 +104,33 @@ namespace WindowsFormsApplication1
 
             Id_Cabinet = db.CabinetRegister(Id_Angle, profondeur[0], largeur[0], price);
             Id_Command = db.CommandRegister(Id_Customer, Id_Cabinet);
+
             m = 0;
             while (m != (n - 1))
             {
                 db.BoxRegister(Id_Cabinet, hauteur[m], couleurPortes[m], coupelles[m], couleurPanneaux[m]);
+                db.AddList(Id_Command, db.SearchID("Cleat", hauteur[m] - 4, 0, 0), 4);
+                db.AddList(Id_Command, db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur[0], couleurPanneaux[m]), 2);
+                db.AddList(Id_Command, db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur[0], couleurPanneaux[m]), 1);
+                db.AddList(Id_Command, db.SearchID("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]), 2);
+                db.AddList(Id_Command, db.SearchID("BA Rail", 0, 0, largeur[0]), 2);
+                db.AddList(Id_Command, db.SearchID("Fr Rail", 0, 0, largeur[0]), 1);
+                db.AddList(Id_Command, db.SearchID("Lr Rail", 0, profondeur[0], 0), 4);
+                if (coupelles[m] == true)
+                {
+                    db.AddList(Id_Command, db.SearchID("Coupelles", 0, 0, 0), 2);
+                }
+                if (couleurPortes[m] != "No door")
+                {
+                    db.AddList(Id_Command, db.SearchID("Door", hauteur[m] - 4, 0, largeur[0], couleurPortes[m]) , 2);
+                }
                 m++;
             }
-
+            if ((n - 1) != 0)
+            {
+                db.AddList(Id_Command, Id_Angle, 4);
+            }
         }
-
-
         public Form1()
         {
             InitializeComponent();
@@ -879,5 +897,231 @@ namespace WindowsFormsApplication1
                 textBox7.Text = "Enter an ID_Command and reload the table.";
             }
         }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+            if (textBox8.Text == "0000")
+            {
+                textBox7.Text = "";
+                tabControl1.SelectedTab = Secretary;
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                MySqlCommand commandDB = new MySqlCommand("select * from Catalogue ;", myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
+
+                    bSource.DataSource = dbdataset;
+                    dataGridView2.DataSource = bSource;
+                    sda.Update(dbdataset);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                textBox7.Text = "Enter the correct password !";
+            }
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            MySqlCommand commandDB = new MySqlCommand("select * from Catalogue ;", myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView3.DataSource = bSource;
+                sda.Update(dbdataset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            MySqlCommand commandDB = new MySqlCommand("select * from Suppliers ;", myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
+
+                bSource.DataSource = dbdataset;
+                dataGridView3.DataSource = bSource;
+                sda.Update(dbdataset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            if (textBox31.Text != "" & textBox32.Text != "")
+            {
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                textBox7.Text = textBox31.Text + "--->" + textBox32.Text;
+                string instruction = "update Catalogue d set d.Price = \'" + textBox32.Text + "\' where d.ID_Accessory= '" + textBox10.Text + "'; SELECT * from Catalogue d";
+
+                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
+
+                    bSource.DataSource = dbdataset;
+                    dataGridView3.DataSource = bSource;
+                    sda.Update(dbdataset);
+                    textBox7.Text = "";
+
+                }
+                catch (Exception ex)
+                {
+                    textBox7.Text = "Invalid fields !";
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                textBox7.Text = "Enter an ID_Command and a new Price";
+            }
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            if (textBox31.Text != "" & textBox33.Text != "")
+            {
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                textBox7.Text = textBox31.Text + "--->" + textBox33.Text;
+                string instruction = "update Catalogue d set d.ID_Supplier = '" + textBox33.Text + "' where d.ID_Accessory= '" + textBox31.Text + "'; SELECT * from Catalogue d";
+
+                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
+
+                    bSource.DataSource = dbdataset;
+                    dataGridView3.DataSource = bSource;
+                    sda.Update(dbdataset);
+                    textBox7.Text = "";
+
+                }
+                catch (Exception ex)
+                {
+                    textBox7.Text = "Invalid fields !";
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                textBox7.Text = "Enter an ID_Command and a new ID_Supplier";
+            }
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            if (textBox31.Text != "" & textBox36.Text != "" & textBox41.Text != "")
+            {
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                textBox7.Text = textBox31.Text + "--->" + textBox36.Text;
+                string instruction = "update Suppliers d set d.Price_Supplier= '" + textBox36.Text + "' where d.ID_Accessory= '" + textBox31.Text + "' and d.ID_Supplier ='"+ textBox41.Text + "'; SELECT * from Suppliers d";
+
+                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
+
+                    bSource.DataSource = dbdataset;
+                    dataGridView3.DataSource = bSource;
+                    sda.Update(dbdataset);
+                    textBox7.Text = "";
+
+                }
+                catch (Exception ex)
+                {
+                    textBox7.Text = "Invalid fields !";
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                textBox7.Text = "Enter an ID_Command, the specifid ID_Supplier and a new Price_Supplier";
+            }
+
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            if (textBox31.Text != "" & textBox37.Text != "" & textBox41.Text !="")
+            {
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                textBox7.Text = textBox31.Text + "--->" + textBox37.Text;
+                string instruction = "update Suppliers d set d.Delay= '" + textBox37.Text + "' where d.ID_Accessory= '" + textBox31.Text + "' and d.ID_Supplier ='" + textBox41.Text + "'; SELECT * from Suppliers d";
+
+                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
+
+                    bSource.DataSource = dbdataset;
+                    dataGridView3.DataSource = bSource;
+                    sda.Update(dbdataset);
+                    textBox7.Text = "";
+
+                }
+                catch (Exception ex)
+                {
+                    textBox7.Text = "Invalid fields !";
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            else
+            {
+                textBox7.Text = "Enter an ID_Command, the specific ID_Supplier and a new Delay";
+            }
+        }
+
     }
 }
