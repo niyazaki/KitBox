@@ -273,7 +273,7 @@
             this.checkBox5.Font = new System.Drawing.Font("Agency FB", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox5.Location = new System.Drawing.Point(666, 371);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(362, 48);
+            this.checkBox5.Size = new System.Drawing.Size(253, 32);
             this.checkBox5.TabIndex = 56;
             this.checkBox5.Text = "Display only this ID_Command";
             this.checkBox5.UseVisualStyleBackColor = true;
@@ -286,14 +286,14 @@
             this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.ItemHeight = 33;
+            this.comboBox6.ItemHeight = 24;
             this.comboBox6.Items.AddRange(new object[] {
             "Payed",
             "Advance Payment",
             "Unpayed"});
             this.comboBox6.Location = new System.Drawing.Point(438, 416);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(222, 41);
+            this.comboBox6.Size = new System.Drawing.Size(222, 32);
             this.comboBox6.TabIndex = 38;
             this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
@@ -448,7 +448,7 @@
             this.textBox42.BackColor = System.Drawing.SystemColors.Highlight;
             this.textBox42.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox42.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox42.Location = new System.Drawing.Point(784, 396);
+            this.textBox42.Location = new System.Drawing.Point(784, 390);
             this.textBox42.Multiline = true;
             this.textBox42.Name = "textBox42";
             this.textBox42.Size = new System.Drawing.Size(135, 34);
@@ -459,10 +459,10 @@
             // checkBox6
             // 
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox6.Location = new System.Drawing.Point(514, 396);
+            this.checkBox6.Font = new System.Drawing.Font("Agency FB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox6.Location = new System.Drawing.Point(514, 390);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(259, 35);
+            this.checkBox6.Size = new System.Drawing.Size(204, 29);
             this.checkBox6.TabIndex = 56;
             this.checkBox6.Text = "Enter a specific Id_Command";
             this.checkBox6.UseVisualStyleBackColor = true;
@@ -472,7 +472,7 @@
             // 
             this.button29.BackColor = System.Drawing.SystemColors.Window;
             this.button29.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button29.Location = new System.Drawing.Point(328, 417);
+            this.button29.Location = new System.Drawing.Point(328, 429);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(148, 62);
             this.button29.TabIndex = 55;
@@ -497,7 +497,7 @@
             this.textBox25.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox25.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox25.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBox25.Location = new System.Drawing.Point(504, 304);
+            this.textBox25.Location = new System.Drawing.Point(507, 301);
             this.textBox25.Multiline = true;
             this.textBox25.Name = "textBox25";
             this.textBox25.ReadOnly = true;
@@ -511,7 +511,7 @@
             this.textBox24.BackColor = System.Drawing.SystemColors.Highlight;
             this.textBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox24.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox24.Location = new System.Drawing.Point(784, 356);
+            this.textBox24.Location = new System.Drawing.Point(784, 350);
             this.textBox24.Multiline = true;
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(135, 34);
@@ -524,7 +524,7 @@
             this.textBox23.BackColor = System.Drawing.SystemColors.Highlight;
             this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox23.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox23.Location = new System.Drawing.Point(784, 434);
+            this.textBox23.Location = new System.Drawing.Point(784, 428);
             this.textBox23.Multiline = true;
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(135, 34);
@@ -537,7 +537,7 @@
             this.textBox22.BackColor = System.Drawing.SystemColors.Highlight;
             this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox22.Location = new System.Drawing.Point(784, 475);
+            this.textBox22.Location = new System.Drawing.Point(784, 468);
             this.textBox22.Multiline = true;
             this.textBox22.Name = "textBox22";
             this.textBox22.Size = new System.Drawing.Size(135, 34);
@@ -548,10 +548,10 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(514, 355);
+            this.checkBox4.Font = new System.Drawing.Font("Agency FB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox4.Location = new System.Drawing.Point(514, 350);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(204, 35);
+            this.checkBox4.Size = new System.Drawing.Size(160, 29);
             this.checkBox4.TabIndex = 51;
             this.checkBox4.Text = "Enter a specific Name";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -560,10 +560,10 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(514, 433);
+            this.checkBox3.Font = new System.Drawing.Font("Agency FB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox3.Location = new System.Drawing.Point(514, 428);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(258, 35);
+            this.checkBox3.Size = new System.Drawing.Size(203, 29);
             this.checkBox3.TabIndex = 49;
             this.checkBox3.Text = "Enter a specific Id_Customer";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -572,10 +572,10 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(514, 474);
+            this.checkBox2.Font = new System.Drawing.Font("Agency FB", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(514, 469);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(245, 35);
+            this.checkBox2.Size = new System.Drawing.Size(193, 29);
             this.checkBox2.TabIndex = 34;
             this.checkBox2.Text = "Enter a specific Id_Cabinet ";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -806,10 +806,10 @@
             this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox8.FormattingEnabled = true;
             this.comboBox8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox8.ItemHeight = 37;
+            this.comboBox8.ItemHeight = 25;
             this.comboBox8.Location = new System.Drawing.Point(333, 229);
             this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(250, 45);
+            this.comboBox8.Size = new System.Drawing.Size(250, 33);
             this.comboBox8.TabIndex = 29;
             // 
             // textBox14
@@ -877,7 +877,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox1.Location = new System.Drawing.Point(240, 226);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(198, 33);
+            this.checkBox1.Size = new System.Drawing.Size(137, 24);
             this.checkBox1.TabIndex = 33;
             this.checkBox1.Text = "Include doors";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -960,10 +960,10 @@
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.ItemHeight = 37;
+            this.comboBox1.ItemHeight = 25;
             this.comboBox1.Location = new System.Drawing.Point(376, 76);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(250, 45);
+            this.comboBox1.Size = new System.Drawing.Size(250, 33);
             this.comboBox1.TabIndex = 27;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -974,10 +974,10 @@
             this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.ItemHeight = 37;
+            this.comboBox3.ItemHeight = 25;
             this.comboBox3.Location = new System.Drawing.Point(376, 266);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(250, 45);
+            this.comboBox3.Size = new System.Drawing.Size(250, 33);
             this.comboBox3.TabIndex = 29;
             this.comboBox3.Visible = false;
             // 
@@ -987,10 +987,10 @@
             this.comboBox5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.ItemHeight = 37;
+            this.comboBox5.ItemHeight = 25;
             this.comboBox5.Location = new System.Drawing.Point(376, 166);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(253, 45);
+            this.comboBox5.Size = new System.Drawing.Size(253, 33);
             this.comboBox5.TabIndex = 31;
             // 
             // button1
@@ -1081,10 +1081,10 @@
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ItemHeight = 37;
+            this.comboBox2.ItemHeight = 25;
             this.comboBox2.Location = new System.Drawing.Point(127, 144);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(250, 45);
+            this.comboBox2.Size = new System.Drawing.Size(250, 33);
             this.comboBox2.TabIndex = 28;
             // 
             // comboBox4
@@ -1092,10 +1092,10 @@
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.ItemHeight = 37;
+            this.comboBox4.ItemHeight = 25;
             this.comboBox4.Location = new System.Drawing.Point(127, 300);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(250, 45);
+            this.comboBox4.Size = new System.Drawing.Size(250, 33);
             this.comboBox4.TabIndex = 30;
             // 
             // Main
