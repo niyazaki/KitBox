@@ -1052,12 +1052,12 @@ namespace WindowsFormsApplication1
 
         private void button27_Click(object sender, EventArgs e)
         {
-            if (textBox31.Text != "" & textBox36.Text != "")
+            if (textBox31.Text != "" & textBox36.Text != "" & textBox41.Text != "")
             {
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox31.Text + "--->" + textBox36.Text;
-                string instruction = "update Suppliers d set d.Price_Supplier= '" + textBox36.Text + "' where d.ID_Accessory= '" + textBox31.Text + "'; SELECT * from Suppliers d";
+                string instruction = "update Suppliers d set d.Price_Supplier= '" + textBox36.Text + "' where d.ID_Accessory= '" + textBox31.Text + "' and d.ID_Supplier ='"+ textBox41.Text + "'; SELECT * from Suppliers d";
 
                 MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
                 try
@@ -1082,19 +1082,19 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                textBox7.Text = "Enter an ID_Command and a new Price_Supplier";
+                textBox7.Text = "Enter an ID_Command, the specifid ID_Supplier and a new Price_Supplier";
             }
 
         }
 
         private void button28_Click(object sender, EventArgs e)
         {
-            if (textBox31.Text != "" & textBox37.Text != "")
+            if (textBox31.Text != "" & textBox37.Text != "" & textBox41.Text !="")
             {
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox31.Text + "--->" + textBox37.Text;
-                string instruction = "update Suppliers d set d.Delay= '" + textBox37.Text + "' where d.ID_Accessory= '" + textBox31.Text + "'; SELECT * from Suppliers d";
+                string instruction = "update Suppliers d set d.Delay= '" + textBox37.Text + "' where d.ID_Accessory= '" + textBox31.Text + "' and d.ID_Supplier ='" + textBox41.Text + "'; SELECT * from Suppliers d";
 
                 MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
                 try
@@ -1119,8 +1119,9 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                textBox7.Text = "Enter an ID_Command and a new Delay";
+                textBox7.Text = "Enter an ID_Command, the specific ID_Supplier and a new Delay";
             }
         }
+
     }
 }
