@@ -46,6 +46,7 @@
             this.button13 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.CommandDetail = new System.Windows.Forms.TabPage();
+            this.button32 = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.button31 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
@@ -134,7 +135,11 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button32 = new System.Windows.Forms.Button();
+            this.textBox43 = new System.Windows.Forms.TextBox();
+            this.textBox44 = new System.Windows.Forms.TextBox();
+            this.textBox45 = new System.Windows.Forms.TextBox();
+            this.textBox46 = new System.Windows.Forms.TextBox();
+            this.button33 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -378,6 +383,19 @@
             this.CommandDetail.TabIndex = 6;
             this.CommandDetail.Text = "CommandDetail";
             // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.Color.DarkRed;
+            this.button32.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button32.ForeColor = System.Drawing.SystemColors.Control;
+            this.button32.Location = new System.Drawing.Point(822, 399);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(100, 43);
+            this.button32.TabIndex = 58;
+            this.button32.Text = "Load table";
+            this.button32.UseVisualStyleBackColor = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
+            // 
             // dataGridView4
             // 
             this.dataGridView4.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -438,6 +456,11 @@
             // StoreKeeper
             // 
             this.StoreKeeper.BackColor = System.Drawing.SystemColors.Window;
+            this.StoreKeeper.Controls.Add(this.button33);
+            this.StoreKeeper.Controls.Add(this.textBox46);
+            this.StoreKeeper.Controls.Add(this.textBox45);
+            this.StoreKeeper.Controls.Add(this.textBox44);
+            this.StoreKeeper.Controls.Add(this.textBox43);
             this.StoreKeeper.Controls.Add(this.button30);
             this.StoreKeeper.Controls.Add(this.textBox42);
             this.StoreKeeper.Controls.Add(this.checkBox6);
@@ -515,9 +538,9 @@
             // 
             this.button20.BackColor = System.Drawing.Color.Silver;
             this.button20.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button20.Location = new System.Drawing.Point(0, 301);
+            this.button20.Location = new System.Drawing.Point(6, 301);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(221, 43);
+            this.button20.Size = new System.Drawing.Size(215, 43);
             this.button20.TabIndex = 54;
             this.button20.Text = "Save in the file \"command1.txt\"";
             this.button20.UseVisualStyleBackColor = false;
@@ -664,10 +687,10 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HotTrack;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 6);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(919, 289);
+            this.dataGridView1.Size = new System.Drawing.Size(913, 246);
             this.dataGridView1.TabIndex = 0;
             // 
             // Recap
@@ -1533,18 +1556,67 @@
             this.dataGridView3.Size = new System.Drawing.Size(913, 280);
             this.dataGridView3.TabIndex = 2;
             // 
-            // button32
+            // textBox43
             // 
-            this.button32.BackColor = System.Drawing.Color.DarkRed;
-            this.button32.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button32.ForeColor = System.Drawing.SystemColors.Control;
-            this.button32.Location = new System.Drawing.Point(822, 399);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(100, 43);
-            this.button32.TabIndex = 58;
-            this.button32.Text = "Load table";
-            this.button32.UseVisualStyleBackColor = false;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
+            this.textBox43.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox43.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox43.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox43.Location = new System.Drawing.Point(6, 266);
+            this.textBox43.Multiline = true;
+            this.textBox43.Name = "textBox43";
+            this.textBox43.ReadOnly = true;
+            this.textBox43.Size = new System.Drawing.Size(282, 29);
+            this.textBox43.TabIndex = 59;
+            this.textBox43.Text = "Change Stock of the ID_Accessory  :";
+            this.textBox43.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox44
+            // 
+            this.textBox44.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox44.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox44.Location = new System.Drawing.Point(285, 266);
+            this.textBox44.Multiline = true;
+            this.textBox44.Name = "textBox44";
+            this.textBox44.Size = new System.Drawing.Size(191, 29);
+            this.textBox44.TabIndex = 60;
+            this.textBox44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox45
+            // 
+            this.textBox45.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox45.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox45.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.textBox45.Location = new System.Drawing.Point(470, 266);
+            this.textBox45.Multiline = true;
+            this.textBox45.Name = "textBox45";
+            this.textBox45.ReadOnly = true;
+            this.textBox45.Size = new System.Drawing.Size(41, 29);
+            this.textBox45.TabIndex = 61;
+            this.textBox45.Text = "to :";
+            this.textBox45.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox46
+            // 
+            this.textBox46.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.textBox46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox46.Location = new System.Drawing.Point(507, 266);
+            this.textBox46.Multiline = true;
+            this.textBox46.Name = "textBox46";
+            this.textBox46.Size = new System.Drawing.Size(145, 30);
+            this.textBox46.TabIndex = 62;
+            this.textBox46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // button33
+            // 
+            this.button33.BackColor = System.Drawing.SystemColors.Window;
+            this.button33.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button33.Location = new System.Drawing.Point(652, 261);
+            this.button33.Name = "button33";
+            this.button33.Size = new System.Drawing.Size(267, 38);
+            this.button33.TabIndex = 63;
+            this.button33.Text = "Validate ";
+            this.button33.UseVisualStyleBackColor = false;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
             // Form1
             // 
@@ -1703,6 +1775,11 @@
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.Button button32;
+        private System.Windows.Forms.Button button33;
+        private System.Windows.Forms.TextBox textBox46;
+        private System.Windows.Forms.TextBox textBox45;
+        private System.Windows.Forms.TextBox textBox44;
+        private System.Windows.Forms.TextBox textBox43;
     }
 }
 

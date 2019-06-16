@@ -697,7 +697,6 @@ namespace WindowsFormsApplication1
                     bSource.DataSource = dbdataset;
                     dataGridView2.DataSource = bSource;
                     sda.Update(dbdataset);
-                    textBox7.Text = "";
 
                 }
                 catch (Exception ex)
@@ -1406,6 +1405,45 @@ namespace WindowsFormsApplication1
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            if (textBox44.Text != "" & textBox46.Text != "")
+            {
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                textBox7.Text = textBox44.Text + "--->" + textBox46.Text;
+                string instruction = "UPDATE Catalogue d SET d.Stock= '"+textBox46.Text+"' where d.ID_Accessory='"+textBox44.Text+"' ; select * from Catalogue where (Stock - Stock_min - Nb_Pieces_Box) <=0;";
+                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
+
+                    bSource.DataSource = dbdataset;
+                    dataGridView1.DataSource = bSource;
+                    sda.Update(dbdataset);
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        row.DefaultCellStyle.ForeColor = Color.Red;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    textBox7.Text = "Invalid fields !";
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+            else
+            {
+                textBox7.Text = "Enter an ID_Command and the new value of its Stock";
             }
         }
     }
