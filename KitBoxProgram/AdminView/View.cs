@@ -370,7 +370,7 @@ namespace WindowsFormsApplication1
                 tabControl1.SelectedTab = Seller;
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
-                MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
+                MySqlCommand commandDB = new MySqlCommand("select * from Command where Payed!='Closed' ;", myConn);
                 try
                 {
                     MySqlDataAdapter sda = new MySqlDataAdapter();
@@ -435,11 +435,11 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select * from Command ";
+            string query = "select * from Command where Payed!='Closed'";
             if (textBox22.Text != "" | textBox42.Text != "")
             {
-                query += "where ";
-                if (textBox22.Text != "" | textBox42.Text == "")
+                query += " AND ";
+                if (textBox22.Text != "" & textBox42.Text == "")
                 {
                     try
                     {
@@ -450,7 +450,7 @@ namespace WindowsFormsApplication1
                         textBox7.Text = "Error: Enter an integer";
                     }
                 }
-                if (textBox22.Text == "" | textBox42.Text != "")
+                if (textBox22.Text == "" & textBox42.Text != "")
                 {
                     try
                     {
@@ -462,7 +462,7 @@ namespace WindowsFormsApplication1
                     }
 
                 }
-                if (textBox22.Text != "" | textBox42.Text != "")
+                if (textBox22.Text != "" & textBox42.Text != "")
                 {
                     try
                     {
@@ -604,12 +604,12 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select * from Command ";
+            string query = "select * from Command where Payed!='Closed'";
             if (checkBox5.Checked == true)
             {
                 try
                 {
-                    query += "where ID_Command=  CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER)";
+                    query += " AND ID_Command=  CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER)";
                 }
                 catch
                 {
@@ -643,7 +643,7 @@ namespace WindowsFormsApplication1
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox10.Text + "--->" + comboBox6.Text;
-                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where d.ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
+                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where d.ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command where Payed!='Closed'";
 
                 MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
                 try
@@ -677,11 +677,11 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select * from Command where Payed=\'Payed\'";
+            string query = "select * from Command where Payed=\'Payed\' OR Payed ='Advance Payment'";
             if (textBox22.Text != "" | textBox42.Text != "")
             {
                 query += " AND ";
-                if (textBox22.Text != "" | textBox42.Text == "")
+                if (textBox22.Text != "" & textBox42.Text == "")
                 {
                     try
                     {
@@ -692,11 +692,11 @@ namespace WindowsFormsApplication1
                         textBox7.Text = "Error: Enter an integer";
                     }
                 }
-                if (textBox22.Text == "" | textBox42.Text != "")
+                if (textBox22.Text == "" & textBox42.Text != "")
                 {
                     try
                     {
-                        query += "ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Command= CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
@@ -704,7 +704,7 @@ namespace WindowsFormsApplication1
                     }
 
                 }
-                if (textBox22.Text != "" | textBox42.Text != "")
+                if (textBox22.Text != "" & textBox42.Text != "")
                 {
                     try
                     {
