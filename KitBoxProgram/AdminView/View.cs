@@ -1237,6 +1237,7 @@ namespace WindowsFormsApplication1
             }
         }
 
+<<<<<<< HEAD
         private void button29_Click(object sender, EventArgs e)
         {
             textBox7.Text = "";
