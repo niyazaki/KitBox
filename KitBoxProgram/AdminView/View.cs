@@ -25,8 +25,8 @@ namespace WindowsFormsApplication1
         string Id_Angle;
         string Id_Cabinet;
         string Id_Command;
-        List<int> profondeur = new List<int>();
-        List<int> largeur = new List<int>();
+        int profondeur;
+        int largeur;
         List<int> hauteur = new List<int>();
         List<string> couleurPortes = new List<string>();
         List<string> couleurPanneaux = new List<string>();
@@ -38,7 +38,7 @@ namespace WindowsFormsApplication1
         DB db = new DB();
         public int hauteurtotale;
         
-        public void DisplayDataGridView(string query, int number,DataGridView dgv , bool color=false)
+        public void DisplayDataGridView(string query,DataGridView dgv , bool color=false)
         {
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
@@ -75,13 +75,11 @@ namespace WindowsFormsApplication1
             int m = 0;
             while (m != (n - 1))
             {
-                
                 textBox9.Text += "\r\n" + (m + 1) + "  :               " + hauteur[m] + "                " + couleurPortes[m] + "                       " + couleurPanneaux[m] + "\r\n";
                 m++;
-
             }
-            textBox9.Text += "\r\n Cabinet's width: " + largeur[0];
-            textBox9.Text += " ; cabinet's depth: " + profondeur[0];
+            textBox9.Text += "\r\n Cabinet's width: " + largeur;
+            textBox9.Text += " ; cabinet's depth: " + profondeur;
             hauteurtotale = 0;
             foreach (int x in hauteur)
             {
@@ -100,19 +98,19 @@ namespace WindowsFormsApplication1
                 textBox13.Text += "\r\n" + (m + 1) + "  :               " + hauteur[m] + "                " + couleurPortes[m] + "                       " + couleurPanneaux[m] + "\r\n";
 
                 price += 4 * float.Parse(db.SearchPrice("Cleat", hauteur[m]-4, 0, 0));
-                price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-4, profondeur[0], 0, couleurPanneaux[m]));
-                price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-4, 0, largeur[0], couleurPanneaux[m]));
-                price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]));
-                price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
-                price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
-                price += 4 * float.Parse(db.SearchPrice("Lr Rail", 0, profondeur[0], 0));
+                price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-4, profondeur, 0, couleurPanneaux[m]));
+                price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-4, 0, largeur, couleurPanneaux[m]));
+                price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur, largeur, couleurPanneaux[m]));
+                price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur));
+                price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur));
+                price += 4 * float.Parse(db.SearchPrice("Lr Rail", 0, profondeur, 0));
                 if (coupelles[m] == true)
                 {
                     price += 2 * float.Parse(db.SearchPrice("Coupelles", 0, 0, 0));
                 }
                 if (couleurPortes[m] != "No door")
                 {
-                    price += 2 * float.Parse(db.SearchPrice("Door", hauteur[m]-4, 0, largeur[0], couleurPortes[m]));
+                    price += 2 * float.Parse(db.SearchPrice("Door", hauteur[m]-4, 0, largeur, couleurPortes[m]));
                 }
                 m++;
             }
@@ -121,8 +119,8 @@ namespace WindowsFormsApplication1
                 price += 4 * float.Parse(db.SearchPrice("Angle", corHeight, 0, 0, couleurCorniere[0]));
             }
 
-            textBox13.Text += "\r\n Cabinet's width: " + largeur[0];
-            textBox13.Text += " ; cabinet's depth: " + profondeur[0];
+            textBox13.Text += "\r\n Cabinet's width: " + largeur;
+            textBox13.Text += " ; cabinet's depth: " + profondeur;
             textBox13.Text += "\r\n Color of angles : " + couleurCorniere[0];
             hauteurtotale = 0;
             foreach (int x in hauteur)
@@ -132,7 +130,7 @@ namespace WindowsFormsApplication1
             textBox13.Text += "\r\n Total height : " + (hauteurtotale);
             textBox13.Text += "\r\n Total Price : " + price + "€";
 
-            Id_Cabinet = db.CabinetRegister(Id_Angle, profondeur[0], largeur[0], price);
+            Id_Cabinet = db.CabinetRegister(Id_Angle, profondeur, largeur, price);
             Id_Command = db.CommandRegister(Id_Customer, Id_Cabinet);
             textBox13.Text += "\r\n";
             textBox13.Text += "\r\nThe ID of your command = " + Id_Command;  
@@ -142,11 +140,11 @@ namespace WindowsFormsApplication1
             while (m != (n - 1))
             {
                 string Id_Cleat = db.SearchID("Cleat", hauteur[m] - 4, 0, 0);
-                string Id_BAPanel = db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur[0], couleurPanneaux[m]);
-                string Id_UDPanel = db.SearchID("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]);
-                string Id_BARail = db.SearchID("BA Rail", 0, 0, largeur[0]);
-                string Id_FrRail = db.SearchID("Fr Rail", 0, 0, largeur[0]);
-                string Id_LrRail = db.SearchID("Lr Rail", 0, profondeur[0], 0);
+                string Id_BAPanel = db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur, couleurPanneaux[m]);
+                string Id_UDPanel = db.SearchID("UD Panel", 0, profondeur, largeur, couleurPanneaux[m]);
+                string Id_BARail = db.SearchID("BA Rail", 0, 0, largeur);
+                string Id_FrRail = db.SearchID("Fr Rail", 0, 0, largeur);
+                string Id_LrRail = db.SearchID("Lr Rail", 0, profondeur, 0);
                 db.BoxRegister(Id_Cabinet, hauteur[m], couleurPortes[m], coupelles[m], couleurPanneaux[m]);
                 db.AddList(Id_Command, Id_Cleat, 4);
                 db.AddList(Id_Command, Id_BAPanel, 1);
@@ -169,7 +167,7 @@ namespace WindowsFormsApplication1
                 }
                 if (couleurPortes[m] != "No door")
                 {
-                    string Id_Doors = db.SearchID("Door", hauteur[m] - 4, 0, largeur[0], couleurPortes[m]);
+                    string Id_Doors = db.SearchID("Door", hauteur[m] - 4, 0, largeur, couleurPortes[m]);
                     db.AddList(Id_Command, Id_Doors , 2);
                     stock_good.Add(db.StockVerify(Id_Doors, 2));
                 }
@@ -185,28 +183,7 @@ namespace WindowsFormsApplication1
             {
                 textBox13.Text += "\r\nMissing stock : a down payment is allowed (50% of the initial price).";
             }
-
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory";
-            MySqlCommand commandDB = new MySqlCommand(query, myConn);
-            try
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = dbdataset;
-                dataGridView4.DataSource = bSource;
-                sda.Update(dbdataset);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView("select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory", dataGridView4);
         }
         public Form1()
         {
@@ -227,14 +204,11 @@ namespace WindowsFormsApplication1
                 UDpanel PanneauHB = new UDpanel(comboBox5.Text, Int32.Parse(comboBox4.Text), Int32.Parse(comboBox2.Text));
                 LRpanel PanneauGD = new LRpanel(comboBox5.Text, Int32.Parse(comboBox2.Text), Int32.Parse(comboBox1.Text));
                 BApanel PanneauAR = new BApanel(comboBox5.Text, Int32.Parse(comboBox4.Text), Int32.Parse(comboBox1.Text));
-
                 textBox2.Visible = false;
                 textBox3.Visible = false;
                 comboBox2.Visible = false;
                 comboBox4.Visible = false;
-
                 button7.Enabled = true;
-
                 textBox7.Text = "";
                 if (p < 7)
                 {
@@ -246,8 +220,7 @@ namespace WindowsFormsApplication1
                     {
                         couleurPortes.Add("No door");
                         coupelles.Add(false);
-                    }
-                    
+                    }   
                     else
                     {
                         couleurPortes.Add(comboBox3.Text);
@@ -283,16 +256,11 @@ namespace WindowsFormsApplication1
         private void button4_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Recap;
-
-            profondeur.Add(0);
-            largeur.Add(0);
-
             Display();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
             textBox7.Text = "";
             comboBox3.Enabled = true;
             string[] splitString = comboBox4.Text.Split(' ');
@@ -305,8 +273,6 @@ namespace WindowsFormsApplication1
             {
                 comboBox3.Items.Add(i);
             }
-
-            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -342,11 +308,10 @@ namespace WindowsFormsApplication1
             List<string> couleurPortes = new List<string>();
             List<string> couleurPanneaux = new List<string>();
             List<string> couleurCorniere = new List<string>();
+            List<bool> coupelles = new List<bool>();
             tabControl1.SelectedTab = Main;
             button4.Enabled = false;
             textBox7.Text = "";
-
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -609,8 +574,8 @@ namespace WindowsFormsApplication1
                 comboBox4.Items.Clear();
                 comboBox4.Items.Add(splitString[0]);
                 comboBox4.Text = comboBox4.Items[0].ToString();
-                largeur.Add(Int32.Parse(comboBox4.Text));
-                profondeur.Add(Int32.Parse(comboBox2.Text));
+                largeur = Int32.Parse(comboBox4.Text);
+                profondeur = Int32.Parse(comboBox2.Text);
                 tabControl1.SelectedTab = Box;
 
                 //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
