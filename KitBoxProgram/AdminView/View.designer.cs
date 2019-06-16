@@ -1515,7 +1515,7 @@
             this.button31.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button31.Location = new System.Drawing.Point(473, 399);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(277, 43);
+            this.button31.Size = new System.Drawing.Size(343, 43);
             this.button31.TabIndex = 56;
             this.button31.Text = "Save in the file \"listComponents.txt\"";
             this.button31.UseVisualStyleBackColor = false;
@@ -1534,13 +1534,13 @@
             // button32
             // 
             this.button32.BackColor = System.Drawing.Color.DarkRed;
-            this.button32.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button32.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button32.ForeColor = System.Drawing.SystemColors.Control;
-            this.button32.Location = new System.Drawing.Point(846, 558);
+            this.button32.Location = new System.Drawing.Point(912, 558);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(166, 43);
+            this.button32.Size = new System.Drawing.Size(100, 43);
             this.button32.TabIndex = 58;
-            this.button32.Text = "Load table if error";
+            this.button32.Text = "Load table";
             this.button32.UseVisualStyleBackColor = false;
             this.button32.Click += new System.EventHandler(this.button32_Click);
             // 

@@ -104,7 +104,8 @@ namespace WindowsFormsApplication1
 
             Id_Cabinet = db.CabinetRegister(Id_Angle, profondeur[0], largeur[0], price);
             Id_Command = db.CommandRegister(Id_Customer, Id_Cabinet);
-
+            textBox13.Text += "\r\n";
+            textBox13.Text += "\r\nThe ID of your command = " + Id_Command;  
 
             List<bool> stock_good = new List<bool>();
             m = 0;
@@ -158,7 +159,7 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select i.ID_List, i.ID_Command, i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory";
+            string query = "select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory";
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
             try
             {
@@ -1375,7 +1376,7 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select i.ID_List, i.ID_Command, i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory";
+            string query = "select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory";
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
             try
             {
