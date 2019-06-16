@@ -783,11 +783,11 @@ namespace WindowsFormsApplication1
         private void button18_Click(object sender, EventArgs e)
         {
             string query = "select * from Box ";
-            if (textBox22.Text != "" | textBox6.Text != "" & textBox42.Text != "")
+            if (textBox22.Text != "")
             {
                 try
                 {
-                    query += "where ID_Cabinet =  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                    query += "where ID_Cabinet =  CONVERT(" + textBox22.Text + ", UNSIGNED INTEGER)";
                 }
                 catch
                 {
