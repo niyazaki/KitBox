@@ -258,6 +258,7 @@ namespace WindowsFormsApplication1
             textBox22.Visible = false;
             textBox23.Visible = false;
             textBox24.Visible = false;
+            textBox42.Visible = false;
             List<int> profondeur = new List<int>();
             List<int> largeur = new List<int>();
             List<int> hauteur = new List<int>();
@@ -384,16 +385,45 @@ namespace WindowsFormsApplication1
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Command ";
-            if (textBox22.Text != "")
+            if (textBox22.Text != "" | textBox42.Text != "")
             {
-                try
+                query += "where ";
+                if (textBox22.Text != "" | textBox42.Text == "")
                 {
-                    query += "where ID_Cabinet=  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                    try
+                    {
+                        query += "ID_Cabinet =  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter an integer";
+                    }
                 }
-                catch
+                if (textBox22.Text == "" | textBox42.Text != "")
                 {
-                    textBox7.Text = "Error: Enter an integrer";
+                    try
+                    {
+                        query += "ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter an integer";
+                    }
+
                 }
+                if (textBox22.Text != "" | textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet=  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter integers";
+                    }
+
+                }
+
 
             }
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
@@ -532,7 +562,7 @@ namespace WindowsFormsApplication1
                 }
                 catch
                 {
-                    textBox7.Text = "Error: Enter an integrer";
+                    textBox7.Text = "Error: Enter an integer";
                 }
             }
             try
@@ -596,7 +626,47 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            MySqlCommand commandDB = new MySqlCommand("select * from Command d where d.Payed=\'Payed\';", myConn);
+            string query = "select * from Command where Payed=\'Payed\'";
+            if (textBox22.Text != "" | textBox42.Text != "")
+            {
+                query += " AND ";
+                if (textBox22.Text != "" | textBox42.Text == "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet =  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter an integer";
+                    }
+                }
+                if (textBox22.Text == "" | textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter an integer";
+                    }
+
+                }
+                if (textBox22.Text != "" | textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet=  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter integers";
+                    }
+
+                }
+            }
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
             try
             {
                 MySqlDataAdapter sda = new MySqlDataAdapter();
@@ -695,10 +765,10 @@ namespace WindowsFormsApplication1
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Box ";
-            if (textBox22.Text!="" | textBox23.Text != "")
+            if (textBox22.Text!="" | textBox23.Text != "" | textBox42.Text != "")
             {
                 query += "where ";
-                if (textBox22.Text != "" & textBox23.Text =="")
+                if (textBox22.Text != "" & textBox23.Text =="" & textBox42.Text == "")
                 { 
                     try
                     {
@@ -706,10 +776,10 @@ namespace WindowsFormsApplication1
                     }
                     catch
                     {
-                        textBox7.Text = "Error: Enter an integrer";
+                        textBox7.Text = "Error: Enter an integer";
                     }
                 }
-                if (textBox22.Text == "" & textBox23.Text != "")
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text == "")
                 {
                     try
                     {
@@ -717,14 +787,58 @@ namespace WindowsFormsApplication1
                     }
                     catch
                     {
-                        textBox7.Text = "Error: Enter an integrer";
+                        textBox7.Text = "Error: Enter an integer";
                     }
                 }
-                if (textBox22.Text != "" & textBox23.Text != "")
+                if (textBox22.Text == "" & textBox23.Text == "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter an integer";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text == "")
                 {
                     try
                     {
                         query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
@@ -769,7 +883,7 @@ namespace WindowsFormsApplication1
                     }
                     catch
                     {
-                        textBox7.Text = "Error: Enter an integrer";
+                        textBox7.Text = "Error: Enter an integer";
                     }
                 }
                 if (textBox23.Text == "" & textBox24.Text != "")
@@ -848,7 +962,7 @@ namespace WindowsFormsApplication1
 
         private void button20_Click(object sender, EventArgs e)
         {
-            TextWriter writer = new StreamWriter(@"command.txt");
+            TextWriter writer = new StreamWriter(@"command1.txt");
             for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
                 for (int j = 0; j < dataGridView1.Columns.Count; j++)
@@ -1122,15 +1236,69 @@ namespace WindowsFormsApplication1
                 textBox7.Text = "Enter an ID_Command, the specific ID_Supplier and a new Delay";
             }
         }
-
-        private void textBox11_TextChanged(object sender, EventArgs e)
+        private void button29_Click(object sender, EventArgs e)
         {
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            string query = "select * from List ";
+            if (textBox42.Text != "")
+            {
+                try
+                {
+                    query += "where ID_Command =  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                }
+                catch
+                {
+                    textBox7.Text = "Error: Enter an integer";
+                }
+            }
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+                BindingSource bSource = new BindingSource();
 
+                bSource.DataSource = dbdataset;
+                dataGridView1.DataSource = bSource;
+                sda.Update(dbdataset);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void textBox41_TextChanged(object sender, EventArgs e)
+        private void button30_Click(object sender, EventArgs e)
         {
+            TextWriter writer = new StreamWriter(@"command2.txt");
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    writer.Write("\t" + dataGridView1.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
+                }
+                writer.WriteLine("");
+                writer.WriteLine("-----------------------------------------------------");
+            }
+            writer.Close();
+            MessageBox.Show("Data Exported");
+        }
 
+        private void checkBox6_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox42.Visible = !(textBox42.Visible);
+            textBox42.Text = "";
+            textBox7.Text = "";
+        }
+
+        private void textBox42_TextChanged(object sender, EventArgs e)
+        {
+            textBox7.Text = "Load Customer table.";
         }
     }
 }
