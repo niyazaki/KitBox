@@ -436,46 +436,86 @@ namespace WindowsFormsApplication1
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Command where Payed!='Closed'";
-            if (textBox22.Text != "" | textBox42.Text != "")
+            if (textBox22.Text != "" | textBox23.Text != "" | textBox42.Text != "")
             {
                 query += " AND ";
-                if (textBox22.Text != "" & textBox42.Text == "")
+                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text == "")
                 {
                     try
                     {
-                        query += "ID_Cabinet =  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
                         textBox7.Text = "Error: Enter an integer";
                     }
                 }
-                if (textBox22.Text == "" & textBox42.Text != "")
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text == "")
                 {
                     try
                     {
-                        query += "ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
                         textBox7.Text = "Error: Enter an integer";
                     }
-
                 }
-                if (textBox22.Text != "" & textBox42.Text != "")
+                if (textBox22.Text == "" & textBox23.Text == "" & textBox42.Text != "")
                 {
                     try
                     {
-                        query += "ID_Cabinet=  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
-                        textBox7.Text = "Error: Enter integers";
+                        textBox7.Text = "Error: Enter an integer";
                     }
-
                 }
-
-
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text == "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
             }
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
             try
@@ -677,46 +717,89 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select * from Command where Payed=\'Payed\' OR Payed ='Advance Payment'";
-            if (textBox22.Text != "" | textBox42.Text != "")
+            string query = "select * from Command where Payed!='Closed' AND Payed !='Unpayed'";
+            if (textBox22.Text != "" | textBox23.Text != "" | textBox42.Text != "")
             {
                 query += " AND ";
-                if (textBox22.Text != "" & textBox42.Text == "")
+                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text == "")
                 {
                     try
                     {
-                        query += "ID_Cabinet =  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
                         textBox7.Text = "Error: Enter an integer";
                     }
                 }
-                if (textBox22.Text == "" & textBox42.Text != "")
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text == "")
                 {
                     try
                     {
-                        query += "ID_Command= CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
                         textBox7.Text = "Error: Enter an integer";
                     }
-
                 }
-                if (textBox22.Text != "" & textBox42.Text != "")
+                if (textBox22.Text == "" & textBox23.Text == "" & textBox42.Text != "")
                 {
                     try
                     {
-                        query += "ID_Cabinet=  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
-                        textBox7.Text = "Error: Enter integers";
+                        textBox7.Text = "Error: Enter an integer";
                     }
-
+                }
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text == "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
                 }
             }
+        
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
             try
             {
@@ -816,85 +899,15 @@ namespace WindowsFormsApplication1
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Box ";
-            if (textBox22.Text!="" | textBox23.Text != "" | textBox42.Text != "")
+            if (textBox22.Text != "" | textBox6.Text != "" & textBox42.Text != "")
             {
-                query += "where ";
-                if (textBox22.Text != "" & textBox23.Text =="" & textBox42.Text == "")
-                { 
-                    try
-                    {
-                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter an integer";
-                    }
-                }
-                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text == "")
+                try
                 {
-                    try
-                    {
-                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter an integer";
-                    }
+                    query += "where ID_Cabinet =  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
                 }
-                if (textBox22.Text == "" & textBox23.Text == "" & textBox42.Text != "")
+                catch
                 {
-                    try
-                    {
-                        query += "ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter an integer";
-                    }
-                }
-                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text == "")
-                {
-                    try
-                    {
-                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter valid fields";
-                    }
-                }
-                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text != "")
-                {
-                    try
-                    {
-                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter valid fields";
-                    }
-                }
-                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text != "")
-                {
-                    try
-                    {
-                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter valid fields";
-                    }
-                }
-                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text != "")
-                {
-                    try
-                    {
-                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter valid fields";
-                    }
+                    textBox7.Text = "Error: Enter an integer";
                 }
             }
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
