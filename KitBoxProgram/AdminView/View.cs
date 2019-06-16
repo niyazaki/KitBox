@@ -18,7 +18,6 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        
         int n = 1 ;
         int p = 0;
         int corHeight;
@@ -26,8 +25,8 @@ namespace WindowsFormsApplication1
         string Id_Angle;
         string Id_Cabinet;
         string Id_Command;
-        List<int> profondeur = new List<int>();
-        List<int> largeur = new List<int>();
+        int profondeur;
+        int largeur;
         List<int> hauteur = new List<int>();
         List<string> couleurPortes = new List<string>();
         List<string> couleurPanneaux = new List<string>();
@@ -38,6 +37,37 @@ namespace WindowsFormsApplication1
         int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
         public int hauteurtotale;
+        
+        public void DisplayDataGridView(string query,DataGridView dgv , bool color=false)
+        {
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = dbdataset;
+                dgv.DataSource = bSource;
+                sda.Update(dbdataset);
+                if (color == true)
+                {
+                    foreach (DataGridViewRow row in dgv.Rows)
+                    {
+                        row.DefaultCellStyle.ForeColor = Color.Red;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void Display()
         {
             textBox7.Text = "";
@@ -45,13 +75,11 @@ namespace WindowsFormsApplication1
             int m = 0;
             while (m != (n - 1))
             {
-                
                 textBox9.Text += "\r\n" + (m + 1) + "  :               " + hauteur[m] + "                " + couleurPortes[m] + "                       " + couleurPanneaux[m] + "\r\n";
                 m++;
-
             }
-            textBox9.Text += "\r\n Cabinet's width: " + largeur[0];
-            textBox9.Text += " ; cabinet's depth: " + profondeur[0];
+            textBox9.Text += "\r\n Cabinet's width: " + largeur;
+            textBox9.Text += " ; cabinet's depth: " + profondeur;
             hauteurtotale = 0;
             foreach (int x in hauteur)
             {
@@ -59,7 +87,7 @@ namespace WindowsFormsApplication1
             }
             textBox9.Text += "\r\n Total height : " + (hauteurtotale);
         }
-        public void Display13()
+        public void FinalDisplay()
         {
             textBox7.Text = "";
             textBox13.Text = "Thank you for your command ! Here are the details of it : \r\nBox N°    Height       Color of Doors      Color of panels";
@@ -70,19 +98,19 @@ namespace WindowsFormsApplication1
                 textBox13.Text += "\r\n" + (m + 1) + "  :               " + hauteur[m] + "                " + couleurPortes[m] + "                       " + couleurPanneaux[m] + "\r\n";
 
                 price += 4 * float.Parse(db.SearchPrice("Cleat", hauteur[m]-4, 0, 0));
-                price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-4, profondeur[0], 0, couleurPanneaux[m]));
-                price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-4, 0, largeur[0], couleurPanneaux[m]));
-                price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]));
-                price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur[0]));
-                price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur[0]));
-                price += 4 * float.Parse(db.SearchPrice("Lr Rail", 0, profondeur[0], 0));
+                price += 2 * float.Parse(db.SearchPrice("LR Panel", hauteur[m]-4, profondeur, 0, couleurPanneaux[m]));
+                price += float.Parse(db.SearchPrice("BA Panel", hauteur[m]-4, 0, largeur, couleurPanneaux[m]));
+                price += 2 * float.Parse(db.SearchPrice("UD Panel", 0, profondeur, largeur, couleurPanneaux[m]));
+                price += 2 * float.Parse(db.SearchPrice("BA Rail", 0, 0, largeur));
+                price += 2 * float.Parse(db.SearchPrice("Fr Rail", 0, 0, largeur));
+                price += 4 * float.Parse(db.SearchPrice("Lr Rail", 0, profondeur, 0));
                 if (coupelles[m] == true)
                 {
                     price += 2 * float.Parse(db.SearchPrice("Coupelles", 0, 0, 0));
                 }
                 if (couleurPortes[m] != "No door")
                 {
-                    price += 2 * float.Parse(db.SearchPrice("Door", hauteur[m]-4, 0, largeur[0], couleurPortes[m]));
+                    price += 2 * float.Parse(db.SearchPrice("Door", hauteur[m]-4, 0, largeur, couleurPortes[m]));
                 }
                 m++;
             }
@@ -91,10 +119,10 @@ namespace WindowsFormsApplication1
                 price += 4 * float.Parse(db.SearchPrice("Angle", corHeight, 0, 0, couleurCorniere[0]));
             }
 
-            textBox13.Text += "\r\n Cabinet's width: " + largeur[0];
-            textBox13.Text += " ; cabinet's depth: " + profondeur[0];
+            textBox13.Text += "\r\n Cabinet's width: " + largeur;
+            textBox13.Text += " ; cabinet's depth: " + profondeur;
             textBox13.Text += "\r\n Color of angles : " + couleurCorniere[0];
-            int hauteurtotale = 0;
+            hauteurtotale = 0;
             foreach (int x in hauteur)
             {
                 hauteurtotale += x;
@@ -102,20 +130,21 @@ namespace WindowsFormsApplication1
             textBox13.Text += "\r\n Total height : " + (hauteurtotale);
             textBox13.Text += "\r\n Total Price : " + price + "€";
 
-            Id_Cabinet = db.CabinetRegister(Id_Angle, profondeur[0], largeur[0], price);
+            Id_Cabinet = db.CabinetRegister(Id_Angle, profondeur, largeur, price);
             Id_Command = db.CommandRegister(Id_Customer, Id_Cabinet);
-
+            textBox13.Text += "\r\n";
+            textBox13.Text += "\r\nThe ID of your command = " + Id_Command;  
 
             List<bool> stock_good = new List<bool>();
             m = 0;
             while (m != (n - 1))
             {
                 string Id_Cleat = db.SearchID("Cleat", hauteur[m] - 4, 0, 0);
-                string Id_BAPanel = db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur[0], couleurPanneaux[m]);
-                string Id_UDPanel = db.SearchID("UD Panel", 0, profondeur[0], largeur[0], couleurPanneaux[m]);
-                string Id_BARail = db.SearchID("BA Rail", 0, 0, largeur[0]);
-                string Id_FrRail = db.SearchID("Fr Rail", 0, 0, largeur[0]);
-                string Id_LrRail = db.SearchID("Lr Rail", 0, profondeur[0], 0);
+                string Id_BAPanel = db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur, couleurPanneaux[m]);
+                string Id_UDPanel = db.SearchID("UD Panel", 0, profondeur, largeur, couleurPanneaux[m]);
+                string Id_BARail = db.SearchID("BA Rail", 0, 0, largeur);
+                string Id_FrRail = db.SearchID("Fr Rail", 0, 0, largeur);
+                string Id_LrRail = db.SearchID("Lr Rail", 0, profondeur, 0);
                 db.BoxRegister(Id_Cabinet, hauteur[m], couleurPortes[m], coupelles[m], couleurPanneaux[m]);
                 db.AddList(Id_Command, Id_Cleat, 4);
                 db.AddList(Id_Command, Id_BAPanel, 1);
@@ -138,7 +167,7 @@ namespace WindowsFormsApplication1
                 }
                 if (couleurPortes[m] != "No door")
                 {
-                    string Id_Doors = db.SearchID("Door", hauteur[m] - 4, 0, largeur[0], couleurPortes[m]);
+                    string Id_Doors = db.SearchID("Door", hauteur[m] - 4, 0, largeur, couleurPortes[m]);
                     db.AddList(Id_Command, Id_Doors , 2);
                     stock_good.Add(db.StockVerify(Id_Doors, 2));
                 }
@@ -154,6 +183,7 @@ namespace WindowsFormsApplication1
             {
                 textBox13.Text += "\r\nMissing stock : a down payment is allowed (50% of the initial price).";
             }
+            DisplayDataGridView("select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory", dataGridView4);
         }
         public Form1()
         {
@@ -174,14 +204,11 @@ namespace WindowsFormsApplication1
                 UDpanel PanneauHB = new UDpanel(comboBox5.Text, Int32.Parse(comboBox4.Text), Int32.Parse(comboBox2.Text));
                 LRpanel PanneauGD = new LRpanel(comboBox5.Text, Int32.Parse(comboBox2.Text), Int32.Parse(comboBox1.Text));
                 BApanel PanneauAR = new BApanel(comboBox5.Text, Int32.Parse(comboBox4.Text), Int32.Parse(comboBox1.Text));
-
                 textBox2.Visible = false;
                 textBox3.Visible = false;
                 comboBox2.Visible = false;
                 comboBox4.Visible = false;
-
                 button7.Enabled = true;
-
                 textBox7.Text = "";
                 if (p < 7)
                 {
@@ -193,8 +220,7 @@ namespace WindowsFormsApplication1
                     {
                         couleurPortes.Add("No door");
                         coupelles.Add(false);
-                    }
-                    
+                    }   
                     else
                     {
                         couleurPortes.Add(comboBox3.Text);
@@ -230,16 +256,11 @@ namespace WindowsFormsApplication1
         private void button4_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = Recap;
-
-            profondeur.Add(0);
-            largeur.Add(0);
-
             Display();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Mettre portes dans un autre onglet car il nous faut la hauteur obtenue dans l'onglet box
             textBox7.Text = "";
             comboBox3.Enabled = true;
             string[] splitString = comboBox4.Text.Split(' ');
@@ -252,8 +273,6 @@ namespace WindowsFormsApplication1
             {
                 comboBox3.Items.Add(i);
             }
-
-            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -289,11 +308,10 @@ namespace WindowsFormsApplication1
             List<string> couleurPortes = new List<string>();
             List<string> couleurPanneaux = new List<string>();
             List<string> couleurCorniere = new List<string>();
+            List<bool> coupelles = new List<bool>();
             tabControl1.SelectedTab = Main;
             button4.Enabled = false;
             textBox7.Text = "";
-
-
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -305,7 +323,6 @@ namespace WindowsFormsApplication1
         {
             if (textBox8.Text == "0000")
             {
-                textBox7.Text = "";
                 tabControl1.SelectedTab = StoreKeeper;
                 textBox7.Text = "";
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
@@ -348,7 +365,7 @@ namespace WindowsFormsApplication1
                 tabControl1.SelectedTab = Seller;
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
-                MySqlCommand commandDB = new MySqlCommand("select * from Command ;", myConn);
+                MySqlCommand commandDB = new MySqlCommand("select * from Command where Payed!='Closed' ;", myConn);
                 try
                 {
                     MySqlDataAdapter sda = new MySqlDataAdapter();
@@ -413,47 +430,87 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select * from Command ";
-            if (textBox22.Text != "" | textBox42.Text != "")
+            string query = "select * from Command where Payed!='Closed'";
+            if (textBox22.Text != "" | textBox23.Text != "" | textBox42.Text != "")
             {
-                query += "where ";
-                if (textBox22.Text != "" | textBox42.Text == "")
+                query += " AND ";
+                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text == "")
                 {
                     try
                     {
-                        query += "ID_Cabinet =  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
                         textBox7.Text = "Error: Enter an integer";
                     }
                 }
-                if (textBox22.Text == "" | textBox42.Text != "")
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text == "")
                 {
                     try
                     {
-                        query += "ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
                         textBox7.Text = "Error: Enter an integer";
                     }
-
                 }
-                if (textBox22.Text != "" | textBox42.Text != "")
+                if (textBox22.Text == "" & textBox23.Text == "" & textBox42.Text != "")
                 {
                     try
                     {
-                        query += "ID_Cabinet=  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
-                        textBox7.Text = "Error: Enter integers";
+                        textBox7.Text = "Error: Enter an integer";
                     }
-
                 }
-
-
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text == "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
             }
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
             try
@@ -517,8 +574,8 @@ namespace WindowsFormsApplication1
                 comboBox4.Items.Clear();
                 comboBox4.Items.Add(splitString[0]);
                 comboBox4.Text = comboBox4.Items[0].ToString();
-                largeur.Add(Int32.Parse(comboBox4.Text));
-                profondeur.Add(Int32.Parse(comboBox2.Text));
+                largeur = Int32.Parse(comboBox4.Text);
+                profondeur = Int32.Parse(comboBox2.Text);
                 tabControl1.SelectedTab = Box;
 
                 //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
@@ -582,12 +639,12 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select * from Command ";
+            string query = "select * from Command where Payed!='Closed'";
             if (checkBox5.Checked == true)
             {
                 try
                 {
-                    query += "where ID_Command=  CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER)";
+                    query += " AND ID_Command=  CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER)";
                 }
                 catch
                 {
@@ -621,7 +678,7 @@ namespace WindowsFormsApplication1
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox10.Text + "--->" + comboBox6.Text;
-                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where d.ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command d";
+                string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where d.ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command where Payed!='Closed'";
 
                 MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
                 try
@@ -635,7 +692,6 @@ namespace WindowsFormsApplication1
                     bSource.DataSource = dbdataset;
                     dataGridView2.DataSource = bSource;
                     sda.Update(dbdataset);
-                    textBox7.Text = "";
 
                 }
                 catch (Exception ex)
@@ -655,46 +711,89 @@ namespace WindowsFormsApplication1
             textBox7.Text = "";
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
-            string query = "select * from Command where Payed=\'Payed\'";
-            if (textBox22.Text != "" | textBox42.Text != "")
+            string query = "select * from Command where Payed!='Closed' AND Payed !='Unpayed'";
+            if (textBox22.Text != "" | textBox23.Text != "" | textBox42.Text != "")
             {
                 query += " AND ";
-                if (textBox22.Text != "" | textBox42.Text == "")
+                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text == "")
                 {
                     try
                     {
-                        query += "ID_Cabinet =  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
                         textBox7.Text = "Error: Enter an integer";
                     }
                 }
-                if (textBox22.Text == "" | textBox42.Text != "")
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text == "")
                 {
                     try
                     {
-                        query += "ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
                         textBox7.Text = "Error: Enter an integer";
                     }
-
                 }
-                if (textBox22.Text != "" | textBox42.Text != "")
+                if (textBox22.Text == "" & textBox23.Text == "" & textBox42.Text != "")
                 {
                     try
                     {
-                        query += "ID_Cabinet=  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command=  CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                        query += "ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
                     }
                     catch
                     {
-                        textBox7.Text = "Error: Enter integers";
+                        textBox7.Text = "Error: Enter an integer";
                     }
-
+                }
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text == "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
+                }
+                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text != "")
+                {
+                    try
+                    {
+                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
+                    }
+                    catch
+                    {
+                        textBox7.Text = "Error: Enter valid fields";
+                    }
                 }
             }
+        
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
             try
             {
@@ -779,8 +878,7 @@ namespace WindowsFormsApplication1
                 tabControl1.SelectedTab = CommandDetail;
                 Id_Customer = db.CustomerRegister(textBox19.Text, textBox20.Text, textBox21.Text);
                 Id_Angle = db.SearchAngle(corHeight, couleurCorniere[0]);
-                Display13();
-  
+                FinalDisplay();
             }
             else
             {
@@ -794,85 +892,15 @@ namespace WindowsFormsApplication1
             string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Box ";
-            if (textBox22.Text!="" | textBox23.Text != "" | textBox42.Text != "")
+            if (textBox22.Text != "" | textBox6.Text != "" & textBox42.Text != "")
             {
-                query += "where ";
-                if (textBox22.Text != "" & textBox23.Text =="" & textBox42.Text == "")
-                { 
-                    try
-                    {
-                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter an integer";
-                    }
-                }
-                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text == "")
+                try
                 {
-                    try
-                    {
-                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter an integer";
-                    }
+                    query += "where ID_Cabinet =  CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER)";
                 }
-                if (textBox22.Text == "" & textBox23.Text == "" & textBox42.Text != "")
+                catch
                 {
-                    try
-                    {
-                        query += "ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter an integer";
-                    }
-                }
-                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text == "")
-                {
-                    try
-                    {
-                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter valid fields";
-                    }
-                }
-                if (textBox22.Text != "" & textBox23.Text == "" & textBox42.Text != "")
-                {
-                    try
-                    {
-                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter valid fields";
-                    }
-                }
-                if (textBox22.Text == "" & textBox23.Text != "" & textBox42.Text != "")
-                {
-                    try
-                    {
-                        query += "ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter valid fields";
-                    }
-                }
-                if (textBox22.Text != "" & textBox23.Text != "" & textBox42.Text != "")
-                {
-                    try
-                    {
-                        query += "ID_Cabinet = CONVERT(" + textBox22.Text + ",UNSIGNED INTEGER) AND ID_Customer = CONVERT(" + textBox23.Text + ",UNSIGNED INTEGER) AND ID_Command = CONVERT(" + textBox42.Text + ",UNSIGNED INTEGER)";
-                    }
-                    catch
-                    {
-                        textBox7.Text = "Error: Enter valid fields";
-                    }
+                    textBox7.Text = "Error: Enter an integer";
                 }
             }
             MySqlCommand commandDB = new MySqlCommand(query, myConn);
@@ -1328,6 +1356,89 @@ namespace WindowsFormsApplication1
         private void textBox42_TextChanged(object sender, EventArgs e)
         {
             textBox7.Text = "Load Customer table.";
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            TextWriter writer = new StreamWriter(@"listComponents.txt");
+            writer.WriteLine("--------------PROOF OF THE PAYEMENT--------------------------------");
+            writer.WriteLine(" ID_Command \t| ID_Customer \t|  ID_Cabinet \t|  Payed \t|");
+            writer.WriteLine("-------------------------------------------------------------------");
+            for (int i = 0; i < dataGridView4.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dataGridView4.Columns.Count; j++)
+                {
+                    writer.Write("\t" + dataGridView4.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
+                }
+                writer.WriteLine("");
+                writer.WriteLine("-------------------------------------------------------------------");
+            }
+            writer.Close();
+            MessageBox.Show("Data Exported");
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            string query = "select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory";
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = dbdataset;
+                dataGridView4.DataSource = bSource;
+                sda.Update(dbdataset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            if (textBox44.Text != "" & textBox46.Text != "")
+            {
+                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                textBox7.Text = textBox44.Text + "--->" + textBox46.Text;
+                string instruction = "UPDATE Catalogue d SET d.Stock= '"+textBox46.Text+"' where d.ID_Accessory='"+textBox44.Text+"' ; select * from Catalogue where (Stock - Stock_min - Nb_Pieces_Box) <=0;";
+                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
+                try
+                {
+                    MySqlDataAdapter sda = new MySqlDataAdapter();
+                    sda.SelectCommand = commandDB;
+                    DataTable dbdataset = new DataTable();
+                    sda.Fill(dbdataset);
+                    BindingSource bSource = new BindingSource();
+
+                    bSource.DataSource = dbdataset;
+                    dataGridView1.DataSource = bSource;
+                    sda.Update(dbdataset);
+
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        row.DefaultCellStyle.ForeColor = Color.Red;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    textBox7.Text = "Invalid fields !";
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+            else
+            {
+                textBox7.Text = "Enter an ID_Command and the new value of its Stock";
+            }
         }
     }
 }
