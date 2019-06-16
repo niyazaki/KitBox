@@ -328,32 +328,7 @@ namespace WindowsFormsApplication1
             if (textBox8.Text == "0000")
             {
                 tabControl1.SelectedTab = StoreKeeper;
-                textBox7.Text = "";
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
-                string query = "select * from Catalogue where (Stock - Stock_min - Nb_Pieces_Box) <= 0;";
-                MySqlCommand commandDB = new MySqlCommand(query, myConn);
-                try
-                {
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = commandDB;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataGridView1.DataSource = bSource;
-                    
-                    sda.Update(dbdataset);
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    { 
-                        row.DefaultCellStyle.ForeColor = Color.Red;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                DisplayDataGridView("select * from Catalogue where (Stock - Stock_min - Nb_Pieces_Box) <= 0;", dataGridView1, true);
             }
             else
             {
@@ -365,27 +340,7 @@ namespace WindowsFormsApplication1
         {
             if (textBox8.Text == "0000")
             {
-                textBox7.Text = "";
-                tabControl1.SelectedTab = Seller;
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
-                MySqlCommand commandDB = new MySqlCommand("select * from Command where Payed!='Closed' ;", myConn);
-                try
-                {
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = commandDB;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataGridView2.DataSource = bSource;
-                    sda.Update(dbdataset);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                DisplayDataGridView("select * from Command where Payed!='Closed' ;", dataGridView2);
             }
             else
             {
@@ -428,12 +383,8 @@ namespace WindowsFormsApplication1
         {
             tabControl1.ItemSize = new Size(0,1);
         }
-
         private void button12_Click(object sender, EventArgs e)
         {
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Command where Payed!='Closed'";
             if (textBox22.Text != "" | textBox23.Text != "" | textBox42.Text != "")
             {
@@ -516,24 +467,7 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
-            MySqlCommand commandDB = new MySqlCommand(query, myConn);
-            try
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataGridView1.DataSource = bSource;
-                sda.Update(dbdataset);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView(query, dataGridView1);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -573,8 +507,7 @@ namespace WindowsFormsApplication1
                 {
                     checkBox1.Enabled = false;
                 }
-                //Faire comboBox4.Text=splitString[0] bug parfois, donc je vide tout, j'ajoute l'élement 
-                //purement int, et je prends l'élements 0 que je change en string. Et là ça bug plus
+
                 comboBox4.Items.Clear();
                 comboBox4.Items.Add(splitString[0]);
                 comboBox4.Text = comboBox4.Items[0].ToString();
@@ -582,9 +515,6 @@ namespace WindowsFormsApplication1
                 profondeur = Int32.Parse(comboBox2.Text);
                 tabControl1.SelectedTab = Box;
 
-                //Faut ajouter aussi fonction search ici pour que quand on clique sur le bouton
-                //et qu'on passe à l'onglet Corniere, ça fait une recherche pour remplir le comboBox7
-                //qui correspond à la couleur des cornières
             }
             else
             {
@@ -679,30 +609,9 @@ namespace WindowsFormsApplication1
 
             if (textBox10.Text != "")
             {
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox10.Text + "--->" + comboBox6.Text;
                 string instruction = "update Command d set d.Payed = \'" + comboBox6.Text + "\' where d.ID_Command= CONVERT(" + textBox10.Text + ",UNSIGNED INTEGER); SELECT * from Command where Payed!='Closed'";
-
-                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
-                try
-                {
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = commandDB;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataGridView2.DataSource = bSource;
-                    sda.Update(dbdataset);
-
-                }
-                catch (Exception ex)
-                {
-                    textBox7.Text = "Invalid fields !";
-                    MessageBox.Show(ex.Message);
-                }
+                DisplayDataGridView(instruction, dataGridView2);
             }
             else
             {
@@ -712,9 +621,6 @@ namespace WindowsFormsApplication1
 
         private void button15_Click(object sender, EventArgs e)
         {
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Command where Payed!='Closed' AND Payed !='Unpayed'";
             if (textBox22.Text != "" | textBox23.Text != "" | textBox42.Text != "")
             {
@@ -797,25 +703,7 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
-        
-            MySqlCommand commandDB = new MySqlCommand(query, myConn);
-            try
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataGridView1.DataSource = bSource;
-                sda.Update(dbdataset);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView(query, dataGridView1);
         }
 
         private void button14_Click(object sender, EventArgs e)
@@ -894,9 +782,6 @@ namespace WindowsFormsApplication1
 
         private void button18_Click(object sender, EventArgs e)
         {
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Box ";
             if (textBox22.Text != "" | textBox6.Text != "" & textBox42.Text != "")
             {
@@ -909,31 +794,11 @@ namespace WindowsFormsApplication1
                     textBox7.Text = "Error: Enter an integer";
                 }
             }
-            MySqlCommand commandDB = new MySqlCommand(query, myConn);
-            try
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataGridView1.DataSource = bSource;
-                sda.Update(dbdataset);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView(query, dataGridView1);
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Customer ";
             if (textBox23.Text != "" | textBox24.Text !="")
             {
@@ -965,24 +830,7 @@ namespace WindowsFormsApplication1
                     }
                 }
             }
-            MySqlCommand commandDB = new MySqlCommand(query, myConn); 
-            try
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataGridView1.DataSource = bSource;
-                sda.Update(dbdataset);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView(query, dataGridView1);
         }
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
@@ -1079,27 +927,8 @@ namespace WindowsFormsApplication1
         {
             if (textBox8.Text == "0000")
             {
-                textBox7.Text = "";
                 tabControl1.SelectedTab = Secretary;
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
-                MySqlCommand commandDB = new MySqlCommand("select * from Catalogue ;", myConn);
-                try
-                {
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = commandDB;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataGridView2.DataSource = bSource;
-                    sda.Update(dbdataset);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                DisplayDataGridView("select * from Catalogue ;" , dataGridView2);
             }
             else
             {
@@ -1109,81 +938,21 @@ namespace WindowsFormsApplication1
 
         private void button23_Click(object sender, EventArgs e)
         {
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
-            MySqlCommand commandDB = new MySqlCommand("select * from Catalogue ;", myConn);
-            try
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataGridView3.DataSource = bSource;
-                sda.Update(dbdataset);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView("select * from Catalogue ;", dataGridView3);
         }
 
         private void button24_Click(object sender, EventArgs e)
         {
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
-            MySqlCommand commandDB = new MySqlCommand("select * from Suppliers ;", myConn);
-            try
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataGridView3.DataSource = bSource;
-                sda.Update(dbdataset);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView("select * from Suppliers ;", dataGridView3);
         }
 
         private void button25_Click(object sender, EventArgs e)
         {
             if (textBox31.Text != "" & textBox32.Text != "")
             {
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox31.Text + "--->" + textBox32.Text;
                 string instruction = "update Catalogue d set d.Price = \'" + textBox32.Text + "\' where d.ID_Accessory= '" + textBox10.Text + "'; SELECT * from Catalogue d";
-
-                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
-                try
-                {
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = commandDB;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataGridView3.DataSource = bSource;
-                    sda.Update(dbdataset);
-                    textBox7.Text = "";
-
-                }
-                catch (Exception ex)
-                {
-                    textBox7.Text = "Invalid fields !";
-                    MessageBox.Show(ex.Message);
-                }
+                DisplayDataGridView(instruction, dataGridView3);
             }
             else
             {
@@ -1195,31 +964,9 @@ namespace WindowsFormsApplication1
         {
             if (textBox31.Text != "" & textBox33.Text != "")
             {
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox31.Text + "--->" + textBox33.Text;
                 string instruction = "update Catalogue d set d.ID_Supplier = '" + textBox33.Text + "' where d.ID_Accessory= '" + textBox31.Text + "'; SELECT * from Catalogue d";
-
-                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
-                try
-                {
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = commandDB;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataGridView3.DataSource = bSource;
-                    sda.Update(dbdataset);
-                    textBox7.Text = "";
-
-                }
-                catch (Exception ex)
-                {
-                    textBox7.Text = "Invalid fields !";
-                    MessageBox.Show(ex.Message);
-                }
+                DisplayDataGridView(instruction, dataGridView3);
             }
             else
             {
@@ -1231,31 +978,9 @@ namespace WindowsFormsApplication1
         {
             if (textBox31.Text != "" & textBox36.Text != "" & textBox41.Text != "")
             {
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox31.Text + "--->" + textBox36.Text;
                 string instruction = "update Suppliers d set d.Price_Supplier= '" + textBox36.Text + "' where d.ID_Accessory= '" + textBox31.Text + "' and d.ID_Supplier ='"+ textBox41.Text + "'; SELECT * from Suppliers d";
-
-                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
-                try
-                {
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = commandDB;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataGridView3.DataSource = bSource;
-                    sda.Update(dbdataset);
-                    textBox7.Text = "";
-
-                }
-                catch (Exception ex)
-                {
-                    textBox7.Text = "Invalid fields !";
-                    MessageBox.Show(ex.Message);
-                }
+                DisplayDataGridView(instruction, dataGridView3);
             }
             else
             {
@@ -1268,31 +993,9 @@ namespace WindowsFormsApplication1
         {
             if (textBox31.Text != "" & textBox37.Text != "" & textBox41.Text !="")
             {
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox31.Text + "--->" + textBox37.Text;
                 string instruction = "update Suppliers d set d.Delay= '" + textBox37.Text + "' where d.ID_Accessory= '" + textBox31.Text + "' and d.ID_Supplier ='" + textBox41.Text + "'; SELECT * from Suppliers d";
-
-                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
-                try
-                {
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = commandDB;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataGridView3.DataSource = bSource;
-                    sda.Update(dbdataset);
-                    textBox7.Text = "";
-
-                }
-                catch (Exception ex)
-                {
-                    textBox7.Text = "Invalid fields !";
-                    MessageBox.Show(ex.Message);
-                }
+                DisplayDataGridView(instruction, dataGridView3);
             }
             else
             {
@@ -1301,9 +1004,6 @@ namespace WindowsFormsApplication1
         }
         private void button29_Click(object sender, EventArgs e)
         {
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from List ";
             if (textBox42.Text != "")
             {
@@ -1316,24 +1016,7 @@ namespace WindowsFormsApplication1
                     textBox7.Text = "Error: Enter an integer";
                 }
             }
-            MySqlCommand commandDB = new MySqlCommand(query, myConn);
-            try
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataGridView1.DataSource = bSource;
-                sda.Update(dbdataset);
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView(query, dataGridView1);
         }
 
         private void button30_Click(object sender, EventArgs e)
@@ -1385,62 +1068,18 @@ namespace WindowsFormsApplication1
 
         private void button32_Click(object sender, EventArgs e)
         {
-            textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory where i.ID_Command='"+Id_Command+"' GROUP BY i.ID_Accessory, i.Quantity, c.Stock";
-            MySqlCommand commandDB = new MySqlCommand(query, myConn);
-            try
-            {
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-
-                BindingSource bSource = new BindingSource();
-                bSource.DataSource = dbdataset;
-                dataGridView4.DataSource = bSource;
-                sda.Update(dbdataset);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView(query, dataGridView4);
         }
 
         private void button33_Click(object sender, EventArgs e)
         {
             if (textBox44.Text != "" & textBox46.Text != "")
             {
-                string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-                MySqlConnection myConn = new MySqlConnection(myConnection);
                 textBox7.Text = textBox44.Text + "--->" + textBox46.Text;
                 string instruction = "UPDATE Catalogue d SET d.Stock= '"+textBox46.Text+"' where d.ID_Accessory='"+textBox44.Text+"' ; select * from Catalogue where (Stock - Stock_min - Nb_Pieces_Box) <=0;";
-                MySqlCommand commandDB = new MySqlCommand(instruction, myConn);
-                try
-                {
-                    MySqlDataAdapter sda = new MySqlDataAdapter();
-                    sda.SelectCommand = commandDB;
-                    DataTable dbdataset = new DataTable();
-                    sda.Fill(dbdataset);
-                    BindingSource bSource = new BindingSource();
-
-                    bSource.DataSource = dbdataset;
-                    dataGridView1.DataSource = bSource;
-                    sda.Update(dbdataset);
-
-                    foreach (DataGridViewRow row in dataGridView1.Rows)
-                    {
-                        row.DefaultCellStyle.ForeColor = Color.Red;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    textBox7.Text = "Invalid fields !";
-                    MessageBox.Show(ex.Message);
-                }
+                DisplayDataGridView(instruction, dataGridView1, true);
             }
-
             else
             {
                 textBox7.Text = "Enter an ID_Command and the new value of its Stock";
