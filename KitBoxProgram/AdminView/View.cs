@@ -571,8 +571,6 @@ namespace WindowsFormsApplication1
         private void button13_Click_1(object sender, EventArgs e)
         {
             textBox7.Text = "";
-            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
-            MySqlConnection myConn = new MySqlConnection(myConnection);
             string query = "select * from Command where Payed!='Closed'";
             if (checkBox5.Checked == true)
             {
@@ -585,23 +583,7 @@ namespace WindowsFormsApplication1
                     textBox7.Text = "Error: Enter an integer";
                 }
             }
-            try
-            {
-                MySqlCommand commandDB = new MySqlCommand(query, myConn);
-                MySqlDataAdapter sda = new MySqlDataAdapter();
-                sda.SelectCommand = commandDB;
-                DataTable dbdataset = new DataTable();
-                sda.Fill(dbdataset);
-                BindingSource bSource = new BindingSource();
-
-                bSource.DataSource = dbdataset;
-                dataGridView2.DataSource = bSource;
-                sda.Update(dbdataset);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            DisplayDataGridView(query,dataGridView2);
         }
 
         private void button11_Click_1(object sender, EventArgs e)
