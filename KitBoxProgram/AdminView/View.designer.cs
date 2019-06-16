@@ -489,9 +489,9 @@
             // 
             this.button33.BackColor = System.Drawing.SystemColors.Window;
             this.button33.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button33.Location = new System.Drawing.Point(658, 266);
+            this.button33.Location = new System.Drawing.Point(662, 262);
             this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(261, 33);
+            this.button33.Size = new System.Drawing.Size(260, 37);
             this.button33.TabIndex = 63;
             this.button33.Text = "Validate ";
             this.button33.UseVisualStyleBackColor = false;
@@ -501,10 +501,10 @@
             // 
             this.textBox46.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox46.Location = new System.Drawing.Point(507, 266);
+            this.textBox46.Location = new System.Drawing.Point(488, 266);
             this.textBox46.Multiline = true;
             this.textBox46.Name = "textBox46";
-            this.textBox46.Size = new System.Drawing.Size(145, 30);
+            this.textBox46.Size = new System.Drawing.Size(170, 29);
             this.textBox46.TabIndex = 62;
             this.textBox46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -513,7 +513,7 @@
             this.textBox45.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox45.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox45.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.textBox45.Location = new System.Drawing.Point(470, 266);
+            this.textBox45.Location = new System.Drawing.Point(451, 266);
             this.textBox45.Multiline = true;
             this.textBox45.Name = "textBox45";
             this.textBox45.ReadOnly = true;
@@ -529,7 +529,7 @@
             this.textBox44.Location = new System.Drawing.Point(285, 266);
             this.textBox44.Multiline = true;
             this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(191, 29);
+            this.textBox44.Size = new System.Drawing.Size(170, 29);
             this.textBox44.TabIndex = 60;
             this.textBox44.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
