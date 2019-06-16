@@ -195,7 +195,6 @@
             this.textBox11.TabIndex = 38;
             this.textBox11.Text = "KITBOX";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
             // 
             // pictureBox1
             // 
@@ -461,11 +460,7 @@
             this.textBox25.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.textBox25.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox25.ForeColor = System.Drawing.SystemColors.InfoText;
-<<<<<<< HEAD
-            this.textBox25.Location = new System.Drawing.Point(514, 330);
-=======
             this.textBox25.Location = new System.Drawing.Point(507, 345);
->>>>>>> c476832d9cf18427f3a9d69db0225d26f6a1fdc1
             this.textBox25.Multiline = true;
             this.textBox25.Name = "textBox25";
             this.textBox25.ReadOnly = true;
@@ -479,11 +474,7 @@
             this.textBox24.BackColor = System.Drawing.SystemColors.Highlight;
             this.textBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox24.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-<<<<<<< HEAD
-            this.textBox24.Location = new System.Drawing.Point(781, 364);
-=======
             this.textBox24.Location = new System.Drawing.Point(784, 394);
->>>>>>> c476832d9cf18427f3a9d69db0225d26f6a1fdc1
             this.textBox24.Multiline = true;
             this.textBox24.Name = "textBox24";
             this.textBox24.Size = new System.Drawing.Size(135, 34);
@@ -520,13 +511,8 @@
             // checkBox4
             // 
             this.checkBox4.AutoSize = true;
-<<<<<<< HEAD
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(514, 376);
-=======
             this.checkBox4.Font = new System.Drawing.Font("Agency FB", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox4.Location = new System.Drawing.Point(514, 394);
->>>>>>> c476832d9cf18427f3a9d69db0225d26f6a1fdc1
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(204, 35);
             this.checkBox4.TabIndex = 51;
@@ -562,11 +548,7 @@
             // 
             this.button19.BackColor = System.Drawing.SystemColors.Window;
             this.button19.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.button19.Location = new System.Drawing.Point(320, 454);
-=======
             this.button19.Location = new System.Drawing.Point(328, 350);
->>>>>>> c476832d9cf18427f3a9d69db0225d26f6a1fdc1
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(148, 60);
             this.button19.TabIndex = 7;
@@ -1232,7 +1214,6 @@
             this.textBox41.Size = new System.Drawing.Size(206, 35);
             this.textBox41.TabIndex = 57;
             this.textBox41.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox41.TextChanged += new System.EventHandler(this.textBox41_TextChanged);
             // 
             // textBox40
             // 

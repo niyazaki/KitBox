@@ -1236,8 +1236,6 @@ namespace WindowsFormsApplication1
                 textBox7.Text = "Enter an ID_Command, the specific ID_Supplier and a new Delay";
             }
         }
-
-<<<<<<< HEAD
         private void button29_Click(object sender, EventArgs e)
         {
             textBox7.Text = "";
