@@ -154,6 +154,28 @@ namespace WindowsFormsApplication1
             {
                 textBox13.Text += "\r\nMissing stock : a down payment is allowed (50% of the initial price).";
             }
+
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            string query = "select i.ID_List, i.ID_Command, i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory";
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = dbdataset;
+                dataGridView4.DataSource = bSource;
+                sda.Update(dbdataset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public Form1()
         {
@@ -305,7 +327,6 @@ namespace WindowsFormsApplication1
         {
             if (textBox8.Text == "0000")
             {
-                textBox7.Text = "";
                 tabControl1.SelectedTab = StoreKeeper;
                 textBox7.Text = "";
                 string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
@@ -1328,6 +1349,50 @@ namespace WindowsFormsApplication1
         private void textBox42_TextChanged(object sender, EventArgs e)
         {
             textBox7.Text = "Load Customer table.";
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            TextWriter writer = new StreamWriter(@"listComponents.txt");
+            writer.WriteLine("--------------PROOF OF THE PAYEMENT--------------------------------");
+            writer.WriteLine(" ID_Command \t| ID_Customer \t|  ID_Cabinet \t|  Payed \t|");
+            writer.WriteLine("-------------------------------------------------------------------");
+            for (int i = 0; i < dataGridView4.Rows.Count - 1; i++)
+            {
+                for (int j = 0; j < dataGridView4.Columns.Count; j++)
+                {
+                    writer.Write("\t" + dataGridView4.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
+                }
+                writer.WriteLine("");
+                writer.WriteLine("-------------------------------------------------------------------");
+            }
+            writer.Close();
+            MessageBox.Show("Data Exported");
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            string query = "select i.ID_List, i.ID_Command, i.ID_Accessory, i.Quantity, c.Stock FROM List i JOIN Catalogue c ON i.ID_Accessory = c.ID_Accessory";
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = dbdataset;
+                dataGridView4.DataSource = bSource;
+                sda.Update(dbdataset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

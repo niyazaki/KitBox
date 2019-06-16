@@ -132,6 +132,9 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.button31 = new System.Windows.Forms.Button();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.button32 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -150,6 +153,7 @@
             this.tabControl1.SuspendLayout();
             this.Secretary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.SuspendLayout();
             // 
             // button3
@@ -360,6 +364,8 @@
             // CommandDetail
             // 
             this.CommandDetail.BackColor = System.Drawing.SystemColors.Window;
+            this.CommandDetail.Controls.Add(this.dataGridView4);
+            this.CommandDetail.Controls.Add(this.button31);
             this.CommandDetail.Controls.Add(this.button21);
             this.CommandDetail.Controls.Add(this.button14);
             this.CommandDetail.Controls.Add(this.textBox13);
@@ -376,7 +382,7 @@
             this.button21.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button21.Location = new System.Drawing.Point(6, 399);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(916, 43);
+            this.button21.Size = new System.Drawing.Size(461, 43);
             this.button21.TabIndex = 55;
             this.button21.Text = "Save in the file \"ticket.txt\"";
             this.button21.UseVisualStyleBackColor = false;
@@ -401,7 +407,7 @@
             this.textBox13.Location = new System.Drawing.Point(6, 16);
             this.textBox13.Multiline = true;
             this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(916, 377);
+            this.textBox13.Size = new System.Drawing.Size(461, 377);
             this.textBox13.TabIndex = 1;
             // 
             // StoreKeeper
@@ -1502,11 +1508,48 @@
             this.dataGridView3.Size = new System.Drawing.Size(913, 280);
             this.dataGridView3.TabIndex = 2;
             // 
+            // button31
+            // 
+            this.button31.BackColor = System.Drawing.Color.Silver;
+            this.button31.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button31.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button31.Location = new System.Drawing.Point(473, 399);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(277, 43);
+            this.button31.TabIndex = 56;
+            this.button31.Text = "Save in the file \"listComponents.txt\"";
+            this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Location = new System.Drawing.Point(473, 16);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.ReadOnly = true;
+            this.dataGridView4.Size = new System.Drawing.Size(449, 377);
+            this.dataGridView4.TabIndex = 57;
+            // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.Color.DarkRed;
+            this.button32.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button32.ForeColor = System.Drawing.SystemColors.Control;
+            this.button32.Location = new System.Drawing.Point(846, 558);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(166, 43);
+            this.button32.TabIndex = 58;
+            this.button32.Text = "Load table if error";
+            this.button32.UseVisualStyleBackColor = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1310, 660);
+            this.Controls.Add(this.button32);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.button3);
@@ -1546,6 +1589,7 @@
             this.Secretary.ResumeLayout(false);
             this.Secretary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1655,6 +1699,9 @@
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.TextBox textBox42;
         private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.Button button31;
+        private System.Windows.Forms.Button button32;
     }
 }
 
