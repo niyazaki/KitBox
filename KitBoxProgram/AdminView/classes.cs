@@ -319,7 +319,7 @@ namespace KitBoxProgram
         {
             int stock = Int32.Parse(Search(id_accessory, "Stock", "Catalogue")[0]);
             int stock_min = Int32.Parse(Search(id_accessory, "Stock_Min", "Catalogue")[0]);
-            int result = stock - quantity - stock_min;
+            int result = stock - quantity;
             string query = "";
             if (result >= 0)
             {
