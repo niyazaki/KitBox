@@ -141,23 +141,26 @@ namespace WindowsFormsApplication1
             while (m != (n - 1))
             {
                 string Id_Cleat = db.SearchID("Cleat", hauteur[m] - 4, 0, 0);
+                string Id_LRPanel = db.SearchID("LR Panel", hauteur[m] - 4, profondeur, 0, couleurPanneaux[m]);
                 string Id_BAPanel = db.SearchID("BA Panel", hauteur[m] - 4, 0, largeur, couleurPanneaux[m]);
                 string Id_UDPanel = db.SearchID("UD Panel", 0, profondeur, largeur, couleurPanneaux[m]);
                 string Id_BARail = db.SearchID("BA Rail", 0, 0, largeur);
                 string Id_FrRail = db.SearchID("Fr Rail", 0, 0, largeur);
                 string Id_LrRail = db.SearchID("Lr Rail", 0, profondeur, 0);
                 db.BoxRegister(Id_Cabinet, hauteur[m], couleurPortes[m], coupelles[m], couleurPanneaux[m]);
+                db.AddList(Id_Command, Id_LRPanel, 2 );
                 db.AddList(Id_Command, Id_Cleat, 4);
                 db.AddList(Id_Command, Id_BAPanel, 1);
                 db.AddList(Id_Command, Id_UDPanel, 2);
                 db.AddList(Id_Command, Id_BARail, 2);
                 db.AddList(Id_Command, Id_FrRail, 1);
                 db.AddList(Id_Command, Id_LrRail, 4);
+                stock_good.Add(db.StockVerify(Id_LRPanel, 2));
                 stock_good.Add(db.StockVerify(Id_Cleat, 4));
                 stock_good.Add(db.StockVerify(Id_BAPanel, 1));
                 stock_good.Add(db.StockVerify(Id_UDPanel, 2));
                 stock_good.Add(db.StockVerify(Id_BARail, 2));
-                stock_good.Add(db.StockVerify(Id_FrRail, 1));
+                stock_good.Add(db.StockVerify(Id_FrRail, 2));
                 stock_good.Add(db.StockVerify(Id_LrRail, 4));
                 
                 if (coupelles[m] == true)
