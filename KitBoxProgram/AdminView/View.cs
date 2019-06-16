@@ -18,7 +18,6 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
-        
         int n = 1 ;
         int p = 0;
         int corHeight;
@@ -38,6 +37,37 @@ namespace WindowsFormsApplication1
         int change = 1; //permettra de savoir si oui ou non on veut des portes
         DB db = new DB();
         public int hauteurtotale;
+        
+        public void DisplayDataGridView(string query, int number,DataGridView dgv , bool color=false)
+        {
+            textBox7.Text = "";
+            string myConnection = "SERVER=db4free.net;" + "DATABASE=kitbox;" + "UID=kitbox;" + "PASSWORD=ecamgroupe4;" + "OldGuids=True;";
+            MySqlConnection myConn = new MySqlConnection(myConnection);
+            MySqlCommand commandDB = new MySqlCommand(query, myConn);
+            try
+            {
+                MySqlDataAdapter sda = new MySqlDataAdapter();
+                sda.SelectCommand = commandDB;
+                DataTable dbdataset = new DataTable();
+                sda.Fill(dbdataset);
+
+                BindingSource bSource = new BindingSource();
+                bSource.DataSource = dbdataset;
+                dgv.DataSource = bSource;
+                sda.Update(dbdataset);
+                if (color == true)
+                {
+                    foreach (DataGridViewRow row in dgv.Rows)
+                    {
+                        row.DefaultCellStyle.ForeColor = Color.Red;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         public void Display()
         {
             textBox7.Text = "";
@@ -59,7 +89,7 @@ namespace WindowsFormsApplication1
             }
             textBox9.Text += "\r\n Total height : " + (hauteurtotale);
         }
-        public void Display13()
+        public void FinalDisplay()
         {
             textBox7.Text = "";
             textBox13.Text = "Thank you for your command ! Here are the details of it : \r\nBox N°    Height       Color of Doors      Color of panels";
@@ -94,7 +124,7 @@ namespace WindowsFormsApplication1
             textBox13.Text += "\r\n Cabinet's width: " + largeur[0];
             textBox13.Text += " ; cabinet's depth: " + profondeur[0];
             textBox13.Text += "\r\n Color of angles : " + couleurCorniere[0];
-            int hauteurtotale = 0;
+            hauteurtotale = 0;
             foreach (int x in hauteur)
             {
                 hauteurtotale += x;
@@ -883,8 +913,7 @@ namespace WindowsFormsApplication1
                 tabControl1.SelectedTab = CommandDetail;
                 Id_Customer = db.CustomerRegister(textBox19.Text, textBox20.Text, textBox21.Text);
                 Id_Angle = db.SearchAngle(corHeight, couleurCorniere[0]);
-                Display13();
-  
+                FinalDisplay();
             }
             else
             {

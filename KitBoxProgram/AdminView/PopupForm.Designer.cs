@@ -71,7 +71,6 @@
             this.textBox1.Text = "The command has been saved and the view will be cleaned. We recommend you to prin" +
     "t the invoice and the list before purchasing. Do you want to purchase anyway ? ";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // PopupForm
             // 
@@ -84,7 +83,6 @@
             this.Controls.Add(this.button1);
             this.Name = "PopupForm";
             this.Text = "PopupForm";
-            this.Load += new System.EventHandler(this.PopupForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
