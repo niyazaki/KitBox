@@ -50,6 +50,7 @@
             this.button14 = new System.Windows.Forms.Button();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.StoreKeeper = new System.Windows.Forms.TabPage();
+            this.button29 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
             this.textBox25 = new System.Windows.Forms.TextBox();
             this.textBox24 = new System.Windows.Forms.TextBox();
@@ -128,6 +129,9 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.textBox42 = new System.Windows.Forms.TextBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.button30 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -191,7 +195,6 @@
             this.textBox11.TabIndex = 38;
             this.textBox11.Text = "KITBOX";
             this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
             // 
             // pictureBox1
             // 
@@ -404,6 +407,10 @@
             // StoreKeeper
             // 
             this.StoreKeeper.BackColor = System.Drawing.SystemColors.Window;
+            this.StoreKeeper.Controls.Add(this.button30);
+            this.StoreKeeper.Controls.Add(this.textBox42);
+            this.StoreKeeper.Controls.Add(this.checkBox6);
+            this.StoreKeeper.Controls.Add(this.button29);
             this.StoreKeeper.Controls.Add(this.button20);
             this.StoreKeeper.Controls.Add(this.textBox25);
             this.StoreKeeper.Controls.Add(this.textBox24);
@@ -424,15 +431,27 @@
             this.StoreKeeper.TabIndex = 5;
             this.StoreKeeper.Text = "StoreKeeper";
             // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.SystemColors.Window;
+            this.button29.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button29.Location = new System.Drawing.Point(320, 376);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(148, 62);
+            this.button29.TabIndex = 55;
+            this.button29.Text = "Load List Table";
+            this.button29.UseVisualStyleBackColor = false;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
+            // 
             // button20
             // 
             this.button20.BackColor = System.Drawing.Color.Silver;
             this.button20.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button20.Location = new System.Drawing.Point(3, 296);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(913, 43);
+            this.button20.Size = new System.Drawing.Size(221, 43);
             this.button20.TabIndex = 54;
-            this.button20.Text = "Save in the file \"command.txt\"";
+            this.button20.Text = "Save in the file \"command1.txt\"";
             this.button20.UseVisualStyleBackColor = false;
             this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
@@ -531,7 +550,7 @@
             this.button19.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.Location = new System.Drawing.Point(328, 350);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(148, 143);
+            this.button19.Size = new System.Drawing.Size(148, 60);
             this.button19.TabIndex = 7;
             this.button19.Text = "Load Customer Table";
             this.button19.UseVisualStyleBackColor = false;
@@ -1195,7 +1214,6 @@
             this.textBox41.Size = new System.Drawing.Size(206, 35);
             this.textBox41.TabIndex = 57;
             this.textBox41.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox41.TextChanged += new System.EventHandler(this.textBox41_TextChanged);
             // 
             // textBox40
             // 
@@ -1447,6 +1465,43 @@
             this.dataGridView3.Size = new System.Drawing.Size(913, 280);
             this.dataGridView3.TabIndex = 2;
             // 
+            // textBox42
+            // 
+            this.textBox42.BackColor = System.Drawing.SystemColors.Highlight;
+            this.textBox42.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox42.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox42.Location = new System.Drawing.Point(781, 404);
+            this.textBox42.Multiline = true;
+            this.textBox42.Name = "textBox42";
+            this.textBox42.Size = new System.Drawing.Size(135, 34);
+            this.textBox42.TabIndex = 57;
+            this.textBox42.Visible = false;
+            this.textBox42.TextChanged += new System.EventHandler(this.textBox42_TextChanged);
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox6.Location = new System.Drawing.Point(514, 410);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(264, 24);
+            this.checkBox6.TabIndex = 56;
+            this.checkBox6.Text = "Enter a specific Id_Command";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.CheckedChanged += new System.EventHandler(this.checkBox6_CheckedChanged);
+            // 
+            // button30
+            // 
+            this.button30.BackColor = System.Drawing.Color.Silver;
+            this.button30.Font = new System.Drawing.Font("Agency FB", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button30.Location = new System.Drawing.Point(230, 327);
+            this.button30.Name = "button30";
+            this.button30.Size = new System.Drawing.Size(238, 43);
+            this.button30.TabIndex = 58;
+            this.button30.Text = "Save in the file \"command2.txt\"";
+            this.button30.UseVisualStyleBackColor = false;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1596,6 +1651,10 @@
         private System.Windows.Forms.TextBox textBox38;
         private System.Windows.Forms.TextBox textBox41;
         private System.Windows.Forms.TextBox textBox40;
+        private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.Button button30;
+        private System.Windows.Forms.TextBox textBox42;
+        private System.Windows.Forms.CheckBox checkBox6;
     }
 }
 
